@@ -42,7 +42,6 @@ Your AI understands and does the technical work for you!
 ```bash
 git clone https://github.com/builtbyV/ai-website-builder.git
 cd ai-website-builder
-npm install
 ```
 
 #### 2. Install AI Assistants
@@ -128,6 +127,7 @@ Then open your browser to `http://localhost:5173`
 
 ### Terminal 2 - AI Assistant:
 ```bash
+cd /path/to/your/project  # Navigate to your website folder
 claude  # or codex
 ```
 
