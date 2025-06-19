@@ -212,6 +212,22 @@ Your website comes with:
 ### For everything else:
 Just ask your AI assistant! They can help with technical issues too.
 
+## 🛠️ Optional: Easy Text Editors
+
+While your AI assistant handles most changes, you might want to make quick edits yourself. Here are free, beginner-friendly editors:
+
+### Visual Studio Code (Recommended)
+- **Download**: [code.visualstudio.com](https://code.visualstudio.com)
+- **Why**: Most popular, free, works on all computers
+- **Tip**: It highlights code in colors making it easier to read
+
+### Simple Alternatives:
+- **Sublime Text**: [sublimetext.com](https://www.sublimetext.com) - Clean, fast, and simple
+- **Mac**: TextEdit (already installed) - Just switch to "Plain Text" mode
+- **Online**: [vscode.dev](https://vscode.dev) - Works in your browser, no installation needed!
+
+**Remember**: You don't need these! Your AI assistant can make all changes for you. These are just options if you prefer to edit text directly.
+
 ## 📚 Learn More
 
 - **Claude Code Guide**: [Getting Started with Claude Code](https://docs.anthropic.com/en/docs/claude-code/quickstart)
