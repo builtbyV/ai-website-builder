@@ -9,8 +9,9 @@ This is a website template that lets you build and update your site by having co
 ### Choose Your AI Assistant:
 - **Claude Code** - AI coding agent by Anthropic
 - **OpenAI Codex CLI** - AI coding agent by OpenAI
+- **Gemini CLI** - AI coding agent by Google
 
-Both understand natural language and can build your website - pick either one!
+All understand natural language and can build your website - pick any one!
 
 ### Perfect for:
 - Small business owners who need a professional website
@@ -52,7 +53,7 @@ bash setup.sh
 
 This will:
 - ✅ Check your computer is ready
-- ✅ Install Claude Code and/or OpenAI Codex CLI
+- ✅ Install Claude Code and/or OpenAI Codex CLI and/or Gemini CLI
 - ✅ Set everything up for you
 - ✅ Give you a quick reference guide
 
@@ -62,9 +63,14 @@ With Claude Code:
 claude
 ```
 
-Or with OpenAI Codex:
+With OpenAI Codex:
 ```bash
 codex
+```
+
+With Gemini CLI:
+```bash
+gemini
 ```
 
 That's it! Now just tell your AI assistant what you want:
@@ -128,7 +134,7 @@ Then open your browser to `http://localhost:5173`
 ### Terminal 2 - AI Assistant:
 ```bash
 cd /path/to/your/project  # Navigate to your website folder
-claude  # or codex
+claude  # or codex or gemini
 ```
 
 Now you can chat with your AI in Terminal 2 and see changes instantly in your browser!
@@ -174,7 +180,10 @@ A: Not at all! Just describe what you want in your own words.
 A: Just tell your AI to undo it or change it back. Everything is saved, so you can't break anything.
 
 **Q: How much does this cost?**
-A: The template is free! Both AI tools are free to install. Claude Code requires an Anthropic account, and Codex CLI needs an OpenAI account (new users get $5 free credit).
+A: The template is free! All three AI tools are free to install:
+- Claude Code requires an Anthropic account
+- Codex CLI needs an OpenAI account (new users get $5 free credit)
+- Gemini CLI works with your Google account (1,000 free requests/day) or API key
 
 **Q: Can I add my own images?**
 A: Yes! Put them in the `public/images/` folder and tell your AI to use them.
@@ -204,6 +213,11 @@ Your website comes with:
 2. Try: `npm install -g @openai/codex`
 3. Run: `codex` again
 
+### If Gemini CLI won't start:
+1. Make sure you're in your project folder
+2. Try: `npm install -g @google/gemini-cli`
+3. Run: `gemini` again
+
 ### If your website won't preview:
 1. Run: `npm install` 
 2. Then: `npm run dev`
@@ -232,6 +246,7 @@ While your AI assistant handles most changes, you might want to make quick edits
 
 - **Claude Code Guide**: [Getting Started with Claude Code](https://docs.anthropic.com/en/docs/claude-code/quickstart)
 - **OpenAI Codex Guide**: [Getting Started with Codex CLI](https://help.openai.com/en/articles/11096431-openai-codex-cli-getting-started)
+- **Gemini CLI Guide**: [Getting Started with Gemini CLI](https://github.com/google-gemini/gemini-cli)
 
 ## 🎉 You're Ready!
 

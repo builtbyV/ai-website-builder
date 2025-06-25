@@ -295,6 +295,45 @@ install_codex_cli() {
     fi
 }
 
+# Install Gemini CLI
+install_gemini_cli() {
+    print_header "Installing Gemini CLI"
+    
+    echo -e "${CYAN}Gemini CLI is an AI coding assistant by Google that helps you${NC}"
+    echo -e "${CYAN}build and modify your website through natural conversation.${NC}\n"
+    
+    echo -e "${BOLD}Would you like to install Gemini CLI? (y/n)${NC} "
+    read -n 1 -r
+    echo
+    
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        print_info "Skipping Gemini CLI installation"
+        return
+    fi
+    
+    print_info "Installing Gemini CLI..."
+    
+    # Install Gemini CLI
+    npm install -g @google/gemini-cli &
+    spinner $!
+    
+    if command -v gemini &> /dev/null; then
+        print_success "Gemini CLI installed successfully!"
+        
+        echo -e "\n${CYAN}To start Gemini CLI:${NC}"
+        echo -e "  1. Navigate to your project: ${GREEN}cd $(pwd)${NC}"
+        echo -e "  2. Run: ${GREEN}gemini${NC}"
+        echo -e "  3. Pick a color theme"
+        echo -e "  4. Sign in with your Google account for 1,000 free requests/day"
+        echo -e "     (Or use API key for higher limits)\n"
+        
+        echo -e "${CYAN}📚 Learn more: https://github.com/google-gemini/gemini-cli${NC}\n"
+    else
+        print_error "Gemini CLI installation failed"
+        print_info "Try running manually: npm install -g @google/gemini-cli"
+    fi
+}
+
 # Show test commands
 show_test_commands() {
     print_header "Testing Your Setup"
@@ -317,6 +356,13 @@ show_test_commands() {
         echo -e "${BOLD}3. Test Codex CLI:${NC}"
         echo -e "   First: ${GREEN}export OPENAI_API_KEY='your-key'${NC}"
         echo -e "   Then: ${GREEN}codex${NC}\n"
+    fi
+    
+    if command -v gemini &> /dev/null; then
+        echo -e "${BOLD}4. Test Gemini CLI:${NC}"
+        echo -e "   In another terminal, run:"
+        echo -e "   ${GREEN}gemini${NC}"
+        echo -e "   Try: 'help me build a website'\n"
     fi
     
     echo -e "${YELLOW}Tip: Keep Terminal 1 running npm run dev, use Terminal 2 for AI${NC}\n"
@@ -352,6 +398,7 @@ main() {
     # Install AI tools
     install_claude_code
     install_codex_cli
+    install_gemini_cli
     
     # Final summary
     print_header "Installation Complete! 🎉"
@@ -365,6 +412,10 @@ main() {
     
     if command -v codex &> /dev/null; then
         echo -e "${GREEN}✓ OpenAI Codex CLI${NC} - Ready to use"
+    fi
+    
+    if command -v gemini &> /dev/null; then
+        echo -e "${GREEN}✓ Gemini CLI${NC} - Ready to use"
     fi
     
     echo -e "${GREEN}✓ Project dependencies${NC} - Installed"
