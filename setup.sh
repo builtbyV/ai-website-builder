@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # AI Website Builder - Setup & Installation Script
-# This script installs AI coding assistants (Claude Code & OpenAI Codex CLI)
+# This script installs AI coding assistants (Claude Code & Gemini CLI & OpenAI Codex CLI)
 # and prepares your project for development and deployment
 # Version: 1.0.0
 # Supports: macOS only (for now)

@@ -4,7 +4,7 @@ Build your website by just talking to AI - no coding required!
 
 ## 🎯 What is this?
 
-This is a website template that lets you build and update your site by having conversations with AI assistants. Just describe what you want in plain English, and watch your website come to life!
+This is a website template that lets you build and update your site by having conversations with AI assistants. Just describe what you want in own language, and watch your website come to life!
 
 ### Choose Your AI Assistant:
 - **Claude Code** - AI coding agent by Anthropic
@@ -151,6 +151,34 @@ Your AI assistant will:
 - Make sure everything looks good
 - Publish it to the internet
 - Give you the link to share
+
+## 🏠 Free Website Hosting with GitHub Pages
+
+Your website will be hosted for FREE on GitHub Pages! Here's what you need to know:
+
+### What is GitHub Pages?
+- **Free hosting** from GitHub (the same place your code lives)
+- **Your own web address** like `username.github.io/project-name`
+- **Automatic updates** when you publish changes
+- **No monthly fees** - completely free forever!
+
+### Your Website Address Will Be:
+- **GitHub Pages**: `https://[your-username].github.io/[repository-name]/`
+- **Custom Domain** (optional): You can use your own domain like `mybusiness.com`
+
+### How Publishing Works:
+1. You make changes with your AI assistant
+2. Say "I want to publish my website"
+3. Your AI handles all the technical stuff
+4. Your site goes live in 2-5 minutes!
+
+### Other Hosting Options:
+While we recommend GitHub Pages, your AI assistant can also help you deploy to:
+- **Cloudflare Pages** - Unlimited bandwidth
+- **Netlify** - Drag & drop option
+- **Vercel** - Advanced features
+
+Just ask: "Can you help me deploy to Netlify instead?"
 
 ## 💡 Tips for Talking to Your AI
 
