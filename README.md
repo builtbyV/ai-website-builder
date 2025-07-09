@@ -4,7 +4,7 @@ Build your website by just talking to AI - no coding required!
 
 ## 🎯 What is this?
 
-This is a website template that lets you build and update your site by having conversations with AI assistants. Just describe what you want in own language, and watch your website come to life!
+This is a website template that lets you build and update your site by having conversations with AI assistants. Just describe what you want in your own language, and watch your website come to life!
 
 ### Choose Your AI Assistant:
 - **Claude Code** - AI coding agent by Anthropic
@@ -151,7 +151,7 @@ Then open your browser to `http://localhost:5173`
 ### Terminal 2 - AI Assistant:
 ```bash
 cd /path/to/your/project  # Navigate to your website folder
-claude  # or codex or gemini
+npx claude  # or codex or gemini
 ```
 
 Now you can chat with your AI in Terminal 2 and see changes instantly in your browser!
@@ -251,17 +251,17 @@ Your website comes with:
 ### If Claude Code won't start:
 1. Make sure you're in your project folder
 2. Try: `npm install -g @anthropic-ai/claude-code`
-3. Run: `claude` again
+3. Run: `npx claude` again
 
 ### If Codex CLI won't start:
 1. Make sure you exported your OpenAI API key
 2. Try: `npm install -g @openai/codex`
-3. Run: `codex` again
+3. Run: `npx codex` again
 
 ### If Gemini CLI won't start:
 1. Make sure you're in your project folder
 2. Try: `npm install -g @google/gemini-cli`
-3. Run: `gemini` again
+3. Run: `npx gemini` again
 
 ### If your website won't preview:
 1. Run: `npm install` 
