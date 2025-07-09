@@ -292,6 +292,14 @@ AI COMMANDS:
 - npx codex    # OpenAI Codex CLI  
 - npx gemini   # Gemini CLI by Google
 
+HELPFUL TERMINAL COMMANDS:
+- cd folder-name   # Go into a folder
+- cd ..           # Go back up one folder
+- ls              # See files (Mac/Linux)
+- dir             # See files (Windows)
+- pwd             # See where you are
+- Ctrl+C          # Stop something running
+
 COMMON REQUESTS TO YOUR AI:
 - "Help me understand this project"
 - "Change the business name to [Your Business]"

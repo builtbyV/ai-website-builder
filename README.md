@@ -51,6 +51,22 @@ Run our setup script:
 bash setup.sh
 ```
 
+## 💻 Helpful Terminal Commands
+
+Just a few commands you might need:
+
+- `cd folder-name` - Go into a folder
+- `cd ..` - Go back up one folder  
+- `ls` - See what's in current folder
+- `pwd` - See where you are
+- `Ctrl+C` - Stop something that's running
+
+**Examples:**
+```bash
+cd ai-website-builder    # Enter your project folder
+cd ..                    # Go back out
+ls                       # See your files
+
 This will:
 - ✅ Check your computer is ready
 - ✅ Install Claude Code and/or OpenAI Codex CLI and/or Gemini CLI
@@ -60,17 +76,17 @@ This will:
 #### 3. Start Building!
 With Claude Code:
 ```bash
-claude
+npx claude
 ```
 
 With OpenAI Codex:
 ```bash
-codex
+npx codex
 ```
 
 With Gemini CLI:
 ```bash
-gemini
+npx gemini
 ```
 
 That's it! Now just tell your AI assistant what you want:
