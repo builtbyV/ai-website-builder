@@ -51,6 +51,12 @@ Run our setup script:
 bash setup.sh
 ```
 
+This will:
+- ✅ Check your computer is ready
+- ✅ Install Claude Code and/or OpenAI Codex CLI and/or Gemini CLI
+- ✅ Set everything up for you
+- ✅ Give you a quick reference guide
+
 ## 💻 Helpful Terminal Commands
 
 Just a few commands you might need:
@@ -66,12 +72,7 @@ Just a few commands you might need:
 cd ai-website-builder    # Enter your project folder
 cd ..                    # Go back out
 ls                       # See your files
-
-This will:
-- ✅ Check your computer is ready
-- ✅ Install Claude Code and/or OpenAI Codex CLI and/or Gemini CLI
-- ✅ Set everything up for you
-- ✅ Give you a quick reference guide
+```
 
 #### 3. Start Building!
 With Claude Code:
