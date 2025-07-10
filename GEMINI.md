@@ -319,25 +319,33 @@ Your AI will:
 - "Show me what's in my images folder"
 - "Use one of my uploaded photos for the hero section"
 
-## Deployment Instructions for Gemini
+## Deployment Instructions for AI
 
 When user wants to publish:
 
-1. **First, check the domain type**:
+1. **First, check if they have GitHub setup**:
+   - Run `git remote -v` to check if repository is connected
+   - If no remote, guide them through:
+     a. Creating a GitHub account (if needed)
+     b. Creating a new repository
+     c. Connecting with `git remote add origin [url]`
+     d. Setting up authentication (personal access token)
+
+2. **Then, check the domain type**:
    Ask: "Will your website use a custom domain (like mybusiness.com) or GitHub Pages URL (like username.github.io/project)?"
 
-2. **If GitHub Pages URL**:
+3. **If GitHub Pages URL**:
    - Ask for repository name
    - Ensure gh-pages is installed: `npm install --save-dev gh-pages`
    - Set base in vite.config.js: `base: '/repository-name/'`
    - Ensure deploy script exists in package.json
 
-3. **If Custom Domain**:
+4. **If Custom Domain**:
    - Create CNAME file in /public
    - Remove base from vite.config.js
    - Guide through DNS setup
 
-4. **Deploy sequence**:
+5. **Deploy sequence**:
    ```bash
    # Save all changes
    git add -A
@@ -348,7 +356,7 @@ When user wants to publish:
    npm run deploy
    ```
 
-5. **Confirm success**:
+6. **Confirm success**:
    "Your website is being published! It will be live at [URL] in 2-5 minutes."
 
 ## Important Reminders for Gemini CLI
