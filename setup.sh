@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Supports: macOS only (for now)
+
 # This script installs AI coding assistants (Claude Code & Gemini CLI & OpenAI Codex CLI)
 # Colors for output
 GREEN='\033[0;32m'
@@ -8,8 +10,30 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+# Helper functions for consistent output
+print_error() {
+    echo -e "${RED}❌ $1${NC}"
+}
+
+print_success() {
+    echo -e "${GREEN}✅ $1${NC}"
+}
+
+# Check if running on macOS
+check_os() {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        print_error "This installer only supports macOS. Detected OS: $OSTYPE"
+        exit 1
+    fi
+    print_success "macOS detected"
+}
+
 echo -e "${BLUE}AI Website Builder Setup${NC}"
 echo "========================="
+echo ""
+
+# Check OS compatibility first
+check_os
 echo ""
 
 # Function to check if a package is installed globally
