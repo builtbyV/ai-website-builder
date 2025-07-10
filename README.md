@@ -1,6 +1,6 @@
 # AI Website Builder 🤖
 
-Build your website by just talking to AI - no coding required!
+Build your website by just talking to AI in your own language - no coding required!
 
 ## 🎯 What is this?
 
@@ -33,25 +33,51 @@ Your AI understands and does the technical work for you!
 ## 🚀 Getting Started (It's Really Simple!)
 
 ### What You Need:
-- A computer with internet
+- A Mac computer (Windows support coming soon!)
+- Internet connection
 - 10 minutes to set up
 - That's it!
+
+### 🖥️ Opening Terminal on Mac
+
+Terminal is an app that lets you type commands.
+
+1. Press `Command ⌘ + Space`
+2. Type **Terminal**
+3. Press **Enter**
+
+You'll see a window with text and a blinking cursor - this is where you'll type commands!
 
 ### Three Simple Steps:
 
 #### 1. Get the Website Template
+
+Run these commands one at a time in Terminal:
+
+**First** - Copy the template to your computer:
 ```bash
 git clone https://github.com/builtbyV/ai-website-builder.git
+```
+Press Enter and wait for it to finish.
+
+**Then** - Go into your project folder:
+```bash
 cd ai-website-builder
 ```
+Press Enter.
+
+**💡 Troubleshooting:**
+- If you see "No such file or directory", make sure the download finished first
+- You should see `ai-website-builder` in your Terminal prompt after this command
 
 #### 2. Install AI Assistants
-Run our setup script:
+
+In your Terminal window (make sure you're inside the `ai-website-builder` folder), run this command:
 ```bash
 bash setup.sh
 ```
 
-This will:
+This command automatically does everything for you:
 - ✅ Check your computer is ready
 - ✅ Install Claude Code and/or OpenAI Codex CLI and/or Gemini CLI
 - ✅ Set everything up for you
@@ -65,35 +91,57 @@ Just a few commands you might need:
 - `cd ..` - Go back up one folder  
 - `ls` - See what's in current folder
 - `pwd` - See where you are
-- `Ctrl+C` - Stop something that's running
+- `Command+C` - Stop something that's running
 
 **Examples:**
+
+Enter your project folder:
 ```bash
-cd ai-website-builder    # Enter your project folder
-cd ..                    # Go back out
-ls                       # See your files
+cd ai-website-builder
+```
+
+Go back to the previous folder:
+```bash
+cd ..
+```
+
+See what files are in current folder:
+```bash
+ls
+```
+
+Check which folder you're in:
+```bash
+pwd
 ```
 
 #### 3. Start Building!
-With Claude Code:
+
+Choose your AI assistant and run one of these commands:
+
+**For Claude Code:**
 ```bash
 npx claude
 ```
 
-With OpenAI Codex:
+**For OpenAI Codex:**
 ```bash
 npx codex
 ```
 
-With Gemini CLI:
+**For Gemini CLI:**
 ```bash
 npx gemini
 ```
+
+**What this does:** Starts your AI assistant so you can chat directly in the Terminal.
 
 That's it! Now just tell your AI assistant what you want:
 - "Hi Claude, I want to build a website for my bakery"
 - "Can you make the header include our logo?"
 - "Add a section showing our daily specials"
+
+💡 **Remember:** If you make a mistake, just tell your AI assistant to undo it - nothing will break!
 
 ## 💬 Your First Conversation
 
@@ -143,16 +191,26 @@ You'll want to use two terminal windows:
 - **Terminal 2**: Chat with your AI assistant
 
 ### Terminal 1 - Website Preview:
+
+Run this command:
 ```bash
 npm run dev
 ```
-Then open your browser to `http://localhost:5173`
+
+**What this does:** This starts your website preview. After running it, open your browser and visit `http://localhost:5173` to see your website!
 
 ### Terminal 2 - AI Assistant:
+
+**First** - Go to your project folder:
 ```bash
-cd /path/to/your/project  # Navigate to your website folder
-npx claude  # or codex or gemini
+cd ai-website-builder
 ```
+
+**Then** - Start your AI assistant:
+```bash
+npx claude
+```
+(Or use `npx codex` or `npx gemini` instead)
 
 Now you can chat with your AI in Terminal 2 and see changes instantly in your browser!
 
@@ -174,6 +232,7 @@ Your AI assistant will:
 Your website will be hosted for FREE on GitHub Pages! Here's what you need to know:
 
 ### What is GitHub Pages?
+GitHub Pages is a free service that hosts your website online:
 - **Free hosting** from GitHub (the same place your code lives)
 - **Your own web address** like `username.github.io/project-name`
 - **Automatic updates** when you publish changes
@@ -189,6 +248,30 @@ Your website will be hosted for FREE on GitHub Pages! Here's what you need to kn
 3. Your AI handles all the technical stuff
 4. Your site goes live in 2-5 minutes!
 
+### Creating Another Website:
+
+Want to build another website? Here's how:
+
+**Step 1** - Go back to your main folder:
+```bash
+cd ..
+```
+
+**Step 2** - Copy the template again with a new name:
+```bash
+git clone https://github.com/builtbyV/ai-website-builder.git my-new-site
+```
+
+**Step 3** - Enter your new project:
+```bash
+cd my-new-site
+```
+
+**Step 4** - Run setup:
+```bash
+bash setup.sh
+```
+
 ### Other Hosting Options:
 While we recommend GitHub Pages, your AI assistant can also help you deploy to:
 - **Cloudflare Pages** - Unlimited bandwidth
@@ -198,6 +281,11 @@ While we recommend GitHub Pages, your AI assistant can also help you deploy to:
 Just ask: "Can you help me deploy to Netlify instead?"
 
 ## 💡 Tips for Talking to Your AI
+
+### Speak Your Language:
+- You can talk to your AI in any language you're comfortable with
+- Mix languages if you want - the AI will understand
+- Technical terms work in any language
 
 ### Be Natural:
 - ❌ DON'T: "Modify the CSS property background-color of the hero section"
@@ -264,12 +352,24 @@ Your website comes with:
 3. Run: `npx gemini` again
 
 ### If your website won't preview:
-1. Run: `npm install` 
-2. Then: `npm run dev`
-3. Open: `http://localhost:5173`
+
+Try these steps:
+
+**Step 1** - Install dependencies:
+```bash
+npm install
+```
+
+**Step 2** - Start the preview server:
+```bash
+npm run dev
+```
+
+**Step 3** - Open your browser and go to:
+`http://localhost:5173`
 
 ### For everything else:
-Just ask your AI assistant! They can help with technical issues too.
+Just ask your AI assistant! They can help with technical issues too. If you get stuck at any step, just type `help` or ask your AI assistant for assistance.
 
 ## 🛠️ Optional: Easy Text Editors
 
