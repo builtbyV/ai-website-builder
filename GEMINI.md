@@ -90,6 +90,47 @@ Landing pages typically alternate background colors to separate sections:
 - For dark footers, use `bg-slate-900` with `text-slate-500` and ensure links are `text-slate-400`
 - Keep the existing template patterns unless the user specifically asks for changes
 
+### Color Selection Guidance
+When users need help choosing colors:
+- Ask about their business type and target audience
+- Suggest appropriate color palettes using Tailwind's colors
+- Provide exact Tailwind classes (e.g., `bg-blue-600`) or arbitrary values (e.g., `bg-[#E85D04]`)
+- Show 2-3 palette options when they're unsure
+
+**Industry Color Guidelines:**
+- **Professional Services** (law, finance): Blue/gray tones → `bg-blue-900`, `bg-slate-700`
+- **Food & Restaurants**: Warm reds/oranges → `bg-red-600`, `bg-amber-500`, `bg-orange-600`
+- **Health & Wellness**: Greens/teals → `bg-emerald-600`, `bg-teal-500`
+- **Tech & Startups**: Modern blues/purples → `bg-indigo-600`, `bg-purple-600`
+- **Luxury & Premium**: Deep tones → `bg-slate-900`, `bg-purple-900`, `bg-amber-600`
+- **Creative & Arts**: Vibrant combinations → `bg-pink-600`, `bg-purple-600`, `bg-indigo-600`
+
+**When Users Have Brand Colors:**
+- Use their exact colors with arbitrary values: `bg-[#E85D04]`
+- Complement with Tailwind colors for the rest of the palette
+- Example: "I'll use your brand orange `bg-[#E85D04]` with Tailwind's `bg-slate-100` and `bg-slate-900`"
+
+**Palette Examples:**
+```
+Restaurant:
+- Primary: bg-red-600
+- Secondary: bg-amber-50
+- Accent: bg-orange-500
+- Text: text-stone-800
+
+Tech Startup:
+- Primary: bg-indigo-600
+- Secondary: bg-slate-50
+- Accent: bg-purple-600
+- Text: text-slate-900
+
+Health Clinic:
+- Primary: bg-emerald-600
+- Secondary: bg-teal-50
+- Accent: bg-cyan-600
+- Text: text-slate-800
+```
+
 ### Mobile-Friendly Patterns
 Always design mobile-first:
 - Base: `text-sm p-4`
