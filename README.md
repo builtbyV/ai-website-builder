@@ -33,19 +33,28 @@ Your AI understands and does the technical work for you!
 ## 🚀 Getting Started (It's Really Simple!)
 
 ### What You Need:
-- A Mac computer (Support for Windows coming soon!)
-- Internet connection
+- A computer with internet
 - A free GitHub account (needed later when you publish your site)
 - 10 minutes to set up
 - That's it!
 
-### 🖥️ Opening Terminal on Mac
+### 🖥️ Opening Terminal
 
-Terminal is an app on your Mac that lets you run commands.
+Terminal is an app that lets you type commands.
 
+**On Mac:**
 1. Press `Command ⌘ + Space`
 2. Type **Terminal**
 3. Press **Enter**
+
+**On Windows:**
+1. Install Git for Windows from [git-scm.com](https://git-scm.com/download/win) if you haven't already
+2. Right-click on your desktop or in a folder
+3. Select **"Git Bash Here"**
+
+**On Linux:**
+1. Press `Ctrl + Alt + T`
+Or search for "Terminal" in your applications
 
 You'll see a window with text and a blinking cursor - this is where you'll type commands!
 
@@ -94,9 +103,9 @@ Just a few commands you might need:
 
 - `cd folder-name` - Go into a folder
 - `cd ..` - Go back up one folder  
-- `ls` - See what's in current folder
+- `ls` - See what's in current folder (works in Git Bash on Windows too)
 - `pwd` - See where you are
-- `Command+C` - Stop something that's running
+- `Ctrl+C` (or `Command+C` on Mac) - Stop something that's running
 
 **Examples:**
 
@@ -198,9 +207,18 @@ You'll need two Terminal windows - one for your website preview, another for cha
 - **Window 2**: Where you chat with your AI assistant
 
 ### How to Open a Second Terminal:
+
+**On Mac:**
 1. In Terminal, press `Command ⌘ + N`
-2. A new Terminal window appears
-3. Click between windows to switch
+
+**On Windows (Git Bash):**
+1. Right-click in a folder and select "Git Bash Here" again
+
+**On Linux:**
+1. Press `Ctrl + Shift + N` in most terminals
+Or open a new terminal from your applications
+
+Click between windows to switch.
 
 ### Terminal 1 - Website Preview:
 
@@ -414,6 +432,8 @@ While your AI assistant handles most changes, you might want to make quick edits
 ### Simple Alternatives:
 - **Sublime Text**: [sublimetext.com](https://www.sublimetext.com) - Clean, fast, and simple
 - **Mac**: TextEdit (already installed) - Just switch to "Plain Text" mode
+- **Windows**: Notepad (already installed) - Simple and basic
+- **Linux**: Usually comes with gedit or similar
 - **Online**: [vscode.dev](https://vscode.dev) - Works in your browser, no installation needed!
 
 💡 **You don't need to use any editors if you don't want to!** Your AI assistant can handle everything. Editors are just there if you prefer making quick edits yourself.
