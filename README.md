@@ -33,14 +33,15 @@ Your AI understands and does the technical work for you!
 ## 🚀 Getting Started (It's Really Simple!)
 
 ### What You Need:
-- A Mac computer (Windows support coming soon!)
+- A Mac computer (Support for Windows coming soon!)
 - Internet connection
+- A free GitHub account (needed later when you publish your site)
 - 10 minutes to set up
 - That's it!
 
 ### 🖥️ Opening Terminal on Mac
 
-Terminal is an app that lets you type commands.
+Terminal is an app on your Mac that lets you run commands.
 
 1. Press `Command ⌘ + Space`
 2. Type **Terminal**
@@ -58,7 +59,9 @@ Run these commands one at a time in Terminal:
 ```bash
 git clone https://github.com/builtbyV/ai-website-builder.git
 ```
-Press Enter and wait for it to finish.
+Press Enter and wait until the download finishes.
+
+💡 **Tip:** You'll know it's finished when you see your Terminal prompt (`$` or similar) again.
 
 **Then** - Go into your project folder:
 ```bash
@@ -67,7 +70,7 @@ cd ai-website-builder
 Press Enter.
 
 **💡 Troubleshooting:**
-- If you see "No such file or directory", make sure the download finished first
+- If you see 'No such file or directory', the download probably isn't complete yet. Wait a bit and try again.
 - You should see `ai-website-builder` in your Terminal prompt after this command
 
 #### 2. Install AI Assistants
@@ -76,6 +79,8 @@ In your Terminal window (make sure you're inside the `ai-website-builder` folder
 ```bash
 bash setup.sh
 ```
+
+💡 **Don't worry if you see lots of text scrolling by—this is normal! Just wait until it stops and you see your Terminal prompt again.**
 
 This command automatically does everything for you:
 - ✅ Check your computer is ready
@@ -186,9 +191,16 @@ Here's what a real conversation looks like:
 
 ## 📱 See Your Changes Instantly
 
-You'll want to use two terminal windows:
-- **Terminal 1**: Run your website preview
-- **Terminal 2**: Chat with your AI assistant
+You'll need two Terminal windows - one for your website preview, another for chatting with AI.
+
+### Why Two Windows?
+- **Window 1**: Keeps your website running so you can see it
+- **Window 2**: Where you chat with your AI assistant
+
+### How to Open a Second Terminal:
+1. In Terminal, press `Command ⌘ + N`
+2. A new Terminal window appears
+3. Click between windows to switch
 
 ### Terminal 1 - Website Preview:
 
@@ -196,6 +208,8 @@ Run this command:
 ```bash
 npm run dev
 ```
+
+💡 **Tip:** Keep this window open! It needs to stay running for your preview to work.
 
 **What this does:** This starts your website preview. After running it, open your browser and visit `http://localhost:5173` to see your website!
 
@@ -225,7 +239,7 @@ Your AI assistant will:
 - Ask for your confirmation
 - Make sure everything looks good
 - Publish it to the internet
-- Give you the link to share
+- Give you a public link you can share
 
 ## 🏠 Free Website Hosting with GitHub Pages
 
@@ -237,6 +251,8 @@ GitHub Pages is a free service that hosts your website online:
 - **Your own web address** like `username.github.io/project-name`
 - **Automatic updates** when you publish changes
 - **No monthly fees** - completely free forever!
+
+**Note:** To publish your website, you'll need a free GitHub account. Your AI assistant will guide you when it's time.
 
 ### Your Website Address Will Be:
 - **GitHub Pages**: `https://[your-username].github.io/[repository-name]/`
@@ -257,7 +273,7 @@ Want to build another website? Here's how:
 cd ..
 ```
 
-**Step 2** - Copy the template again with a new name:
+**Step 2** - Copy the template again with a new name (this creates a separate folder for your new website):
 ```bash
 git clone https://github.com/builtbyV/ai-website-builder.git my-new-site
 ```
@@ -336,6 +352,20 @@ Your website comes with:
 
 ## 🆘 Getting Help
 
+### If Something Goes Wrong:
+
+**Don't worry, your website project and files are safe.** Closing Terminal or restarting setup won't erase your progress or content!
+
+**Need to start over?**
+1. Close all Terminal windows
+2. Open a fresh Terminal
+3. Start from Step 1 again
+
+**Setup failed partway through?**
+- Don't worry—just run `bash setup.sh` again
+- It will skip what's already installed
+- If still stuck, close Terminal and start fresh
+
 ### If Claude Code won't start:
 1. Make sure you're in your project folder
 2. Try: `npm install -g @anthropic-ai/claude-code`
@@ -353,12 +383,13 @@ Your website comes with:
 
 ### If your website won't preview:
 
-Try these steps:
+**Follow these steps if your website won't preview:**
 
-**Step 1** - Install dependencies:
+**Step 1** - Install required files:
 ```bash
 npm install
 ```
+💡 **This might take a few moments. Wait until you see your Terminal prompt again.**
 
 **Step 2** - Start the preview server:
 ```bash
@@ -385,7 +416,7 @@ While your AI assistant handles most changes, you might want to make quick edits
 - **Mac**: TextEdit (already installed) - Just switch to "Plain Text" mode
 - **Online**: [vscode.dev](https://vscode.dev) - Works in your browser, no installation needed!
 
-**Remember**: You don't need these! Your AI assistant can make all changes for you. These are just options if you prefer to edit text directly.
+💡 **You don't need to use any editors if you don't want to!** Your AI assistant can handle everything. Editors are just there if you prefer making quick edits yourself.
 
 ## 📚 Learn More
 
@@ -402,6 +433,8 @@ That's all you need to know! No complicated manuals, no coding bootcamps. Just:
 3. Build your website ✓
 
 Remember: If you can describe what you want, your AI can build it for you.
+
+💡 **Still stuck?** Don't hesitate to ask your AI assistant—it's always ready to help you through any issue!
 
 ---
 
