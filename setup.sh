@@ -8,15 +8,6 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# Helper functions for consistent output
-print_error() {
-    echo -e "${RED}❌ $1${NC}"
-}
-
-print_success() {
-    echo -e "${GREEN}✅ $1${NC}"
-}
-
 echo -e "${BLUE}AI Website Builder Setup${NC}"
 echo "========================="
 echo ""
@@ -55,8 +46,8 @@ if ! command -v node &> /dev/null; then
     echo "Please install Node.js (version 18 or higher) from https://nodejs.org"
     exit 1
 elif ! check_node_version; then
-    echo -e "${YELLOW}⚠️  Node.js version is below 18${NC}"
-    echo "Please update Node.js from https://nodejs.org"
+    echo -e "${YELLOW}⚠️  Please update Node.js to version 18 or higher${NC}"
+    echo "Download from: https://nodejs.org"
     exit 1
 else
     echo -e "${GREEN}✅ Node.js $(node -v) detected${NC}"
@@ -228,12 +219,11 @@ if [ -f "package.json" ]; then
         echo "You can try running 'npm install' manually later."
     fi
 else
-    echo -e "${YELLOW}Note: No package.json found. Make sure you're in your project folder.${NC}"
+    echo -e "${YELLOW}Note: Make sure you're in the ai-website-builder folder.${NC}"
+    echo "You should see files like index.html and package.json"
 fi
 
-# Create or update .gitignore
-echo ""
-echo "Setting up .gitignore..."
+# Create .gitignore silently
 if [ ! -f .gitignore ]; then
     cat > .gitignore << 'EOF'
 # AI Assistant Documentation (not needed for live website)
@@ -242,21 +232,20 @@ GEMINI.md
 setup.sh
 QUICK_START.txt
 EOF
-    echo -e "${GREEN}✅ Created .gitignore file${NC}"
 else
-    # Check if our docs are already in gitignore
-    if ! grep -q "AGENTS.md" .gitignore; then
+    # Update if needed
+    if ! grep -q "# AI Assistant Documentation" .gitignore; then
         echo "" >> .gitignore
         echo "# AI Assistant Documentation (not needed for live website)" >> .gitignore
         echo "AGENTS.md" >> .gitignore
         echo "GEMINI.md" >> .gitignore
         echo "setup.sh" >> .gitignore
         echo "QUICK_START.txt" >> .gitignore
-        echo -e "${GREEN}✅ Updated .gitignore file${NC}"
-    else
-        echo -e "${GREEN}✅ .gitignore already configured${NC}"
     fi
 fi
+
+# Remove template git (clean slate for user's own repository)
+rm -rf .git 2>/dev/null
 
 # Final instructions
 echo ""
@@ -278,10 +267,6 @@ echo "   git clone https://github.com/builtbyV/ai-website-builder.git my-new-sit
 echo "   cd my-new-site"
 echo "   bash setup.sh"
 echo ""
-echo -e "${GREEN}Using 'npx' ensures commands always work - no PATH setup needed!${NC}"
-echo ""
-echo "Happy building! 🚀"
-
 # Create a quick reference file
 echo ""
 read -p "Would you like to create a QUICK_START.txt file for reference? (y/n): " create_ref
@@ -331,3 +316,6 @@ Just ask your AI assistant - they're here to help!
 EOF
     echo -e "${GREEN}✅ Created QUICK_START.txt for your reference${NC}"
 fi
+
+echo ""
+echo "Happy building! 🚀"
