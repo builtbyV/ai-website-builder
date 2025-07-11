@@ -244,6 +244,12 @@ else
     fi
 fi
 
+# Create simple README with project name
+PROJECT_NAME=$(basename "$(pwd)")
+if [ -f "README.md" ]; then
+    echo "# $PROJECT_NAME" > README.md
+fi
+
 # Remove template git (clean slate for user's own repository)
 rm -rf .git 2>/dev/null
 
