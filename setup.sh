@@ -21,6 +21,17 @@ check_installed() {
     fi
 }
 
+# Function to update all installation status
+update_installation_status() {
+    CLAUDE_INSTALLED=false
+    CODEX_INSTALLED=false
+    GEMINI_INSTALLED=false
+    
+    check_installed "@anthropic-ai/claude-code" && CLAUDE_INSTALLED=true
+    check_installed "@openai/codex" && CODEX_INSTALLED=true
+    check_installed "@google/gemini-cli" && GEMINI_INSTALLED=true
+}
+
 # Function to check Node.js version
 check_node_version() {
     if command -v node &> /dev/null; then
@@ -67,146 +78,81 @@ echo "Checking AI assistant installations..."
 echo ""
 
 # Check which tools are already installed
-CLAUDE_INSTALLED=false
-CODEX_INSTALLED=false
-GEMINI_INSTALLED=false
+update_installation_status
 
-if check_installed "@anthropic-ai/claude-code"; then
-    CLAUDE_INSTALLED=true
+if [ "$CLAUDE_INSTALLED" = true ]; then
     echo -e "${GREEN}✅ Claude Code - Already installed${NC}"
 else
     echo -e "${YELLOW}❌ Claude Code - Not installed${NC}"
 fi
 
-if check_installed "@openai/codex"; then
-    CODEX_INSTALLED=true
+if [ "$CODEX_INSTALLED" = true ]; then
     echo -e "${GREEN}✅ OpenAI Codex CLI - Already installed${NC}"
 else
     echo -e "${YELLOW}❌ OpenAI Codex CLI - Not installed${NC}"
 fi
 
-if check_installed "@google/gemini-cli"; then
-    GEMINI_INSTALLED=true
+if [ "$GEMINI_INSTALLED" = true ]; then
     echo -e "${GREEN}✅ Gemini CLI - Already installed${NC}"
 else
     echo -e "${YELLOW}❌ Gemini CLI - Not installed${NC}"
 fi
 
-# Ask which AI assistant to install
-echo ""
-echo "Which AI assistant would you like to use?"
 echo ""
 
-# Dynamic menu based on what's installed
+# Claude Code
 if [ "$CLAUDE_INSTALLED" = false ]; then
-    echo "1) Claude Code (by Anthropic)"
-else
-    echo "1) Claude Code (by Anthropic) ✅ Already installed"
+    read -p "Install Claude Code (by Anthropic)? (y/n): " install_claude
+    if [[ $install_claude =~ ^[Yy]$ ]]; then
+        echo "Installing Claude Code..."
+        if npm install -g @anthropic-ai/claude-code; then
+            echo -e "${GREEN}✅ Claude Code installed successfully${NC}"
+            CLAUDE_INSTALLED=true
+        else
+            echo -e "${RED}❌ Failed to install Claude Code${NC}"
+            echo "You can try again later with: npm install -g @anthropic-ai/claude-code"
+        fi
+    fi
+    echo ""
 fi
 
+# OpenAI Codex CLI
 if [ "$CODEX_INSTALLED" = false ]; then
-    echo "2) OpenAI Codex CLI"
-else
-    echo "2) OpenAI Codex CLI ✅ Already installed"
+    read -p "Install OpenAI Codex CLI? (y/n): " install_codex
+    if [[ $install_codex =~ ^[Yy]$ ]]; then
+        echo "Installing OpenAI Codex CLI..."
+        if npm install -g @openai/codex; then
+            echo -e "${GREEN}✅ OpenAI Codex CLI installed successfully${NC}"
+            CODEX_INSTALLED=true
+        else
+            echo -e "${RED}❌ Failed to install OpenAI Codex CLI${NC}"
+            echo "You can try again later with: npm install -g @openai/codex"
+        fi
+    fi
+    echo ""
 fi
 
+# Gemini CLI
 if [ "$GEMINI_INSTALLED" = false ]; then
-    echo "3) Gemini CLI (by Google)"
-else
-    echo "3) Gemini CLI (by Google) ✅ Already installed"
+    read -p "Install Gemini CLI (by Google)? (y/n): " install_gemini
+    if [[ $install_gemini =~ ^[Yy]$ ]]; then
+        echo "Installing Gemini CLI..."
+        if npm install -g @google/gemini-cli; then
+            echo -e "${GREEN}✅ Gemini CLI installed successfully${NC}"
+            GEMINI_INSTALLED=true
+        else
+            echo -e "${RED}❌ Failed to install Gemini CLI${NC}"
+            echo "You can try again later with: npm install -g @google/gemini-cli"
+        fi
+    fi
+    echo ""
 fi
 
-echo "4) Install all three"
-echo "5) Skip (I'll install later)"
-echo ""
-read -p "Enter your choice (1-5): " ai_choice
-
-echo ""
-
-case $ai_choice in
-    1)
-        if [ "$CLAUDE_INSTALLED" = true ]; then
-            echo -e "${GREEN}Claude Code is already installed!${NC}"
-        else
-            echo "Installing Claude Code..."
-            if npm install -g @anthropic-ai/claude-code; then
-                echo -e "${GREEN}✅ Claude Code installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install Claude Code${NC}"
-                echo "You can try again later with: npm install -g @anthropic-ai/claude-code"
-            fi
-        fi
-        ;;
-        
-    2)
-        if [ "$CODEX_INSTALLED" = true ]; then
-            echo -e "${GREEN}OpenAI Codex CLI is already installed!${NC}"
-        else
-            echo "Installing OpenAI Codex CLI..."
-            if npm install -g @openai/codex; then
-                echo -e "${GREEN}✅ OpenAI Codex CLI installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install OpenAI Codex CLI${NC}"
-                echo "You can try again later with: npm install -g @openai/codex"
-            fi
-        fi
-        ;;
-        
-    3)
-        if [ "$GEMINI_INSTALLED" = true ]; then
-            echo -e "${GREEN}Gemini CLI is already installed!${NC}"
-        else
-            echo "Installing Gemini CLI..."
-            if npm install -g @google/gemini-cli; then
-                echo -e "${GREEN}✅ Gemini CLI installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install Gemini CLI${NC}"
-                echo "You can try again later with: npm install -g @google/gemini-cli"
-            fi
-        fi
-        ;;
-        
-    4)
-        echo "Installing all AI assistants..."
-        echo ""
-        
-        if [ "$CLAUDE_INSTALLED" = false ]; then
-            echo "Installing Claude Code..."
-            if npm install -g @anthropic-ai/claude-code; then
-                echo -e "${GREEN}✅ Claude Code installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install Claude Code${NC}"
-            fi
-        fi
-        
-        if [ "$CODEX_INSTALLED" = false ]; then
-            echo "Installing OpenAI Codex CLI..."
-            if npm install -g @openai/codex; then
-                echo -e "${GREEN}✅ OpenAI Codex CLI installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install OpenAI Codex CLI${NC}"
-            fi
-        fi
-        
-        if [ "$GEMINI_INSTALLED" = false ]; then
-            echo "Installing Gemini CLI..."
-            if npm install -g @google/gemini-cli; then
-                echo -e "${GREEN}✅ Gemini CLI installed successfully${NC}"
-            else
-                echo -e "${RED}❌ Failed to install Gemini CLI${NC}"
-            fi
-        fi
-        ;;
-        
-    5)
-        echo "Skipping AI assistant installation..."
-        ;;
-        
-    *)
-        echo "Invalid choice. Please run the script again."
-        exit 1
-        ;;
-esac
+# Check if all are now installed after any installation attempts
+if [ "$CLAUDE_INSTALLED" = true ] && [ "$CODEX_INSTALLED" = true ] && [ "$GEMINI_INSTALLED" = true ]; then
+    echo -e "${GREEN}✅ All AI assistants are now installed!${NC}"
+    echo ""
+fi
 
 # Check if we're in a project directory
 echo ""
@@ -252,14 +198,13 @@ if [ -f "README.md" ]; then
     echo "# $PROJECT_NAME" > README.md
 fi
 
-# Remove template git and initialize fresh repository
+# Remove template git
 rm -rf .git 2>/dev/null
-git init
 
 # Create GitHub Actions workflow for deployment
 echo "Setting up GitHub Actions deployment..."
-mkdir -p .github/workflows
-cat > .github/workflows/deploy.yml << 'EOF'
+if mkdir -p .github/workflows; then
+    cat > .github/workflows/deploy.yml << 'EOF'
 name: Deploy to GitHub Pages
 
 on:
@@ -310,10 +255,12 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 EOF
+else
+    echo -e "${YELLOW}Warning: Could not create .github/workflows directory${NC}"
+    echo "GitHub Actions deployment setup skipped."
+fi
 
-# Make initial commit with all files
-git add -A
-git commit -m "Initial website setup" 2>/dev/null
+
 
 # Final instructions
 echo ""
@@ -322,12 +269,24 @@ echo ""
 echo -e "${BLUE}To start building your website:${NC}"
 echo "1. Make sure you're in your project folder"
 echo "2. Start the preview server in one terminal:"
-echo "   ${YELLOW}npm run dev${NC}"
+echo -e "   ${YELLOW}npm run dev${NC}"
 echo ""
-echo "3. In another terminal, start your AI assistant:"
-echo "   ${YELLOW}npx claude${NC}    # For Claude Code"
-echo "   ${YELLOW}npx codex${NC}     # For OpenAI Codex CLI" 
-echo "   ${YELLOW}npx gemini${NC}    # For Gemini CLI"
+
+# Only show instructions for installed tools
+if [ "$CLAUDE_INSTALLED" = true ] || [ "$CODEX_INSTALLED" = true ] || [ "$GEMINI_INSTALLED" = true ]; then
+    echo "3. In another terminal, start your AI assistant:"
+    [ "$CLAUDE_INSTALLED" = true ] && echo -e "   ${YELLOW}npx claude${NC}    # For Claude Code"
+    [ "$CODEX_INSTALLED" = true ] && echo -e "   ${YELLOW}npx codex${NC}     # For OpenAI Codex CLI"
+    [ "$GEMINI_INSTALLED" = true ] && echo -e "   ${YELLOW}npx gemini${NC}    # For Gemini CLI"
+else
+    echo -e "${YELLOW}Note: No AI assistants installed yet.${NC}"
+    echo "Run setup.sh again to install Claude Code, OpenAI Codex, or Gemini CLI."
+fi
+
+echo ""
+echo -e "${BLUE}Ready to go live?${NC}"
+echo "Just tell your AI assistant: 'I want to publish my website'"
+echo "They'll guide you through the entire process!"
 echo ""
 echo -e "${BLUE}To create another website:${NC}"
 echo "   cd .."
@@ -340,6 +299,7 @@ echo ""
 read -p "Would you like to create a QUICK_START.txt file for reference? (y/n): " create_ref
 
 if [[ $create_ref =~ ^[Yy]$ ]]; then
+    # Start creating the file
     cat > QUICK_START.txt << 'EOF'
 AI WEBSITE BUILDER - QUICK START REFERENCE
 ==========================================
@@ -347,12 +307,23 @@ AI WEBSITE BUILDER - QUICK START REFERENCE
 STARTING YOUR WEBSITE:
 1. Open two terminal windows
 2. Terminal 1: npm run dev (preview server)
-3. Terminal 2: npx claude (or npx codex or npx gemini)
+3. Terminal 2: Start your AI assistant (see below)
 
 AI COMMANDS:
-- npx claude   # Claude Code by Anthropic
-- npx codex    # OpenAI Codex CLI  
-- npx gemini   # Gemini CLI by Google
+EOF
+
+    # Add only installed tools
+    [ "$CLAUDE_INSTALLED" = true ] && echo "- npx claude   # Claude Code by Anthropic" >> QUICK_START.txt
+    [ "$CODEX_INSTALLED" = true ] && echo "- npx codex    # OpenAI Codex CLI" >> QUICK_START.txt
+    [ "$GEMINI_INSTALLED" = true ] && echo "- npx gemini   # Gemini CLI by Google" >> QUICK_START.txt
+    
+    # If none installed
+    if [ "$CLAUDE_INSTALLED" = false ] && [ "$CODEX_INSTALLED" = false ] && [ "$GEMINI_INSTALLED" = false ]; then
+        echo "- No AI assistants installed yet. Run setup.sh to install one." >> QUICK_START.txt
+    fi
+
+    # Continue with rest of content
+    cat >> QUICK_START.txt << 'EOF'
 
 HELPFUL TERMINAL COMMANDS:
 - cd folder-name   # Go into a folder

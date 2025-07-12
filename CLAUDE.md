@@ -26,6 +26,28 @@ Remember: You're not just executing commands, you're teaching and empowering som
 - Keep technical terms simple in any language
 - Use local idioms and expressions when appropriate
 
+## Understanding User Language
+
+When users express intent in their own words, translate and respond appropriately:
+
+**"Make it live" / "Put it online" / "I want people to see it"**:
+→ "I can help you publish your website! Would you like to use GitHub Pages (it's free), or another service like Netlify, Vercel, or Cloudflare Pages? You can also use the 'dist' folder with any hosting provider of your choice."
+
+**"Save my work" / "Don't lose my changes"**:
+→ Make a git commit with descriptive message
+
+**"Send it to GitHub" / "Upload my changes"**:
+→ Guide them to GitHub Desktop for pushing
+
+**"I can't see my changes online" / "Website isn't updating"**:
+→ Check if deployment is still running, verify they pushed changes
+
+**"Make it permanent" / "Keep these changes"**:
+→ Commit the changes and explain they're saved locally
+
+**"Share with customers" / "Show to the world"**:
+→ Guide through the publishing process
+
 ## Technologies
 - **Framework**: Vite (fast website builder)
 - **Styling**: Tailwind CSS v4 (makes things look good)
@@ -218,10 +240,10 @@ Only use these if no real images exist in `/public`:
 ### Starting Your Website
 **Important**: The user should run the development server in a separate terminal window. 
 
-If `npm run dev` is not already running, tell the user:
-"Please open a new terminal window and run `npm run dev` to see your website preview at http://localhost:5173"
+**Why I can't run this for you**: The development server needs to stay running continuously while you work on your website. If I ran it, I'd be stuck waiting and couldn't help you make changes. Think of it like needing to keep a preview window open while editing a document.
 
-**DO NOT** try to run `npm run dev` yourself - this will block your ability to make changes.
+If `npm run dev` is not already running, tell the user:
+"Please open a new terminal window and run `npm run dev` to see your website preview at http://localhost:5173. Keep this running while we work on your site!"
 
 ### Making Changes
 Just describe what you want:
@@ -238,7 +260,44 @@ Your AI assistant will handle saving, but it's good to understand:
 
 ## Publishing Your Website
 
-### Option 1: GitHub Pages URL (Recommended for Most Users)
+When users want to go live, first ask: "Where would you like to publish your website? I can help you with several options:"
+
+### Option 1: GitHub Pages (Recommended - Free)
+- **Cost**: Completely free, no credit card needed
+- **URL**: `https://[username].github.io/[repository-name]/`
+- **Best for**: Most business websites, portfolios, blogs
+- **Setup**: Follow our standard GitHub Pages instructions below
+
+### Option 2: Netlify (Free tier available)
+- **Cost**: Free tier includes custom domain
+- **Best for**: Sites needing forms or serverless functions
+- **How to publish**:
+  ```bash
+  npm run build
+  ```
+  "Now drag the 'dist' folder to netlify.com/drop"
+
+### Option 3: Vercel (Free tier available)
+- **Cost**: Free for personal/hobby sites
+- **Best for**: Modern web apps, great performance
+- **How to publish**: 
+  "Connect your GitHub repository at vercel.com/import"
+
+### Option 4: Cloudflare Pages (Free tier available)
+- **Cost**: Unlimited free tier
+- **Best for**: Global performance, security features
+- **How to publish**:
+  "Connect your GitHub repository at pages.cloudflare.com"
+
+### Option 5: Traditional Web Host
+- **Cost**: Varies by provider
+- **How to publish**:
+  ```bash
+  npm run build
+  ```
+  "Upload everything in the 'dist' folder to your host via FTP/cPanel"
+
+### If User Chooses GitHub Pages:
 Your website will be at: `https://[username].github.io/[repository-name]/`
 
 **Setup Requirements:**
@@ -305,6 +364,9 @@ Only if you bought your own domain like `mybusiness.com`
 Ask your AI: "I have a custom domain mybusiness.com, help me set it up"
 </details>
 
+### If User Chooses Other Options:
+"Great choice! Let me prepare your website files for [chosen service]."
+
 ## Common Tasks
 
 ### Create a New Page
@@ -337,7 +399,18 @@ Your AI will:
 - "Show me what's in my images folder"
 - "Use one of my uploaded photos for the hero section"
 
-## Deployment Instructions for AI
+## Publishing Instructions for AI
+
+**Important for AI**: Throughout these instructions, always replace:
+- `[username]` with the actual GitHub username extracted from git remote
+- `[repository-name]` with the actual repository name extracted from git remote
+- Present actual URLs to users, not placeholders (e.g., "https://johndoe.github.io/my-website/" not "https://[username].github.io/[repository-name]/")
+
+**Important for AI**: 
+- The GitHub Actions workflow (.github/workflows/deploy.yml) is already included in the project
+- DO NOT create or modify workflow files
+- The workflow runs automatically when changes are pushed to GitHub
+- If the workflow file is missing, that's a setup issue - inform the user to run setup.sh again
 
 When user wants to publish:
 
@@ -368,9 +441,14 @@ When user wants to publish:
 4. **Add your website project**:
    - "In GitHub Desktop: File → Add Local Repository"
    - "Browse to your ai-website-builder folder"
+   - "You'll see a message saying this isn't a Git repository - that's normal!"
    - "Click 'Create a Repository' when prompted"
-   - "Name it something like 'my-website' (no spaces)"
+   - "Name it something like 'my-website' (no spaces, use dashes instead)"
+   - "It will default to `main` as the branch name - you don't need to change it"
+   - "Leave all other options as they are"
    - "Click 'Create Repository'"
+   
+   **Note**: GitHub Desktop is now setting up version control for you - no other steps needed!
 
 5. **Publish to GitHub**:
    - "Click the 'Publish repository' button"
@@ -386,7 +464,13 @@ When user wants to publish:
    ```bash
    git remote get-url origin
    ```
-   Extract repository name and username from URL
+   Extract repository name and username from URL automatically. 
+   
+   **For AI**: Parse the URL (e.g., `https://github.com/johndoe/my-website.git`) to extract:
+   - Username: `johndoe`
+   - Repository name: `my-website`
+   
+   Do NOT ask the user for this information - extract it from the git remote URL.
 
 7. **Configure vite.config.js**:
    "I need to configure your website address. Can I update a configuration file?"
@@ -403,13 +487,35 @@ When user wants to publish:
    - "Or: Your repository → Settings → Pages (in left sidebar)"
    - "Under 'Build and deployment', change 'Source' to 'GitHub Actions'"
    - "That's it! No save button needed"
-   - "**IMPORTANT**: When you see options like 'GitHub Pages Jekyll' or 'Static HTML':
-     - DON'T click Configure on any of them - your deployment is already set up!
-     - Stay on this page and wait a moment
-     - Look at the top of the page for a box showing your site status
-     - It will say something like: 'Your site is live at https://[username].github.io/[repo-name]/'
-     - Click 'Visit site' or manually type the correct URL
-     - If you get a 404, wait 5-10 minutes - first deployment takes time"
+   
+   ⚠️ **CRITICAL - PLEASE READ CAREFULLY**:
+   
+   **What you'll see next**: GitHub will show you options like:
+   - "GitHub Pages Jekyll" with a Configure button
+   - "Static HTML" with a Configure button
+   
+   **What to do**: 
+   - ✅ DO: Ignore these options completely
+   - ✅ DO: Look at the top of the page for your site URL
+   - ✅ DO: Wait 5-10 minutes for first-time publishing
+   
+   **What NOT to do**:
+   - ❌ DON'T: Click Configure on any template
+   - ❌ DON'T: Change any other settings
+   - ❌ DON'T: Panic if you see a 404 error immediately
+   
+   Your publishing is already set up! These templates would override your website.
+
+   **What happens next**:
+   - Your first deployment will likely fail - this is normal!
+   - GitHub needs you to enable Pages before it can deploy
+   - After changing to "GitHub Actions", go to the Actions tab
+   - Find the failed workflow and click "Re-run all jobs"
+   - This time it should succeed!
+
+   💡 **Why this happens**: GitHub Pages is disabled by default. The workflow tries to deploy but can't until you enable Pages. This is a one-time setup.
+
+   📝 **Note for first-time publishers**: Don't worry if you see a red X (failure) in the Actions tab after your first push. This just means GitHub Pages needs to be enabled. It's a normal part of the setup process!
 
 9. **Push changes and deploy**:
    "Let's publish your website!"
@@ -419,9 +525,18 @@ When user wants to publish:
    - "Click 'Commit to main'"
    - "Click 'Push origin' (top of window)"
    
-   "Your website is now being built! It will be live at https://[username].github.io/[repository-name]/ in 5-10 minutes."
+   "Your website is now being built! Let's check the progress:"
    
-   "You can watch the progress at: https://github.com/[username]/[repository-name]/actions"
+   "Go to: https://github.com/[username]/[repository-name]/actions"
+   
+   **First-time deployment**:
+   - If you see a ❌ red X - that's normal! 
+   - Click on the failed workflow
+   - You'll see an error about GitHub Pages
+   - This means you need to enable Pages first (Step 8)
+   - After enabling Pages, click "Re-run all jobs"
+   - Look for green checkmarks (✓) when it's done
+   - Your site will be live at https://[username].github.io/[repository-name]/ in 5-10 minutes!"
 
 ### For Future Updates
 
@@ -433,13 +548,66 @@ When user wants to publish:
 5. Click 'Push origin'
 6. GitHub automatically publishes the updates (takes 2-5 minutes)"
 
+## Making Changes After Publishing
+
+When users want to update their live website:
+
+### 1. Confirm the Changes
+"What would you like to update on your website?"
+
+### 2. Make the Updates
+- Edit the requested files
+- Show what was changed
+- Test locally if dev server is running
+
+### 3. Save Changes Locally
+```bash
+git add .
+git commit -m "Updated [describe changes: prices, photos, contact info, etc.]"
+```
+
+### 4. Guide to Publish Updates
+"Your changes are saved! To update your live website:
+- Open GitHub Desktop
+- You'll see the new changes listed
+- Review them to make sure everything looks right
+- Click 'Commit to main' (bottom left)
+- Click 'Push origin' (top of window)
+- Your website will update automatically in 2-3 minutes!"
+
+### 5. Set Expectations
+"Updates are usually faster than the first publish - typically 2-3 minutes."
+
+### Common Update Scenarios:
+- **"Change phone number"** → Quick text edit, same publish process
+- **"Add new photos"** → First add to `/public/images/`, then update HTML
+- **"Update prices"** → Find price text, update, publish
+- **"Add new page"** → Create HTML file, update navigation, publish
+- **"Remove old content"** → Delete from HTML, publish
+
+### The Update Cycle
+"Every time you want changes on your live website:
+1. You tell me what to change
+2. I make and save the changes
+3. You push with GitHub Desktop
+4. Website updates automatically
+
+Think of it like editing a document - I'm the editor, GitHub Desktop is the 'save to cloud' button!"
+
 ### Important Notes
 - No manual deploy commands needed
 - GitHub Actions runs automatically on every push
 - First deployment may take up to 10 minutes
 - Subsequent updates are usually faster (2-5 minutes)
 
-### Deployment Troubleshooting
+### Publishing Troubleshooting
+
+### Publishing Time Expectations
+- **First publish (including re-run)**: 5-10 minutes total
+- **If workflow fails first time**: Enable Pages, re-run (adds 2-3 minutes)
+- **Updates**: 2-3 minutes typically
+- **If it's taking longer**: Check Actions tab for status
+- **Still not working after 15 minutes**: Something needs fixing
 
 If the website isn't appearing:
 1. Check Actions tab: https://github.com/[username]/[repository-name]/actions
@@ -479,10 +647,15 @@ git branch -a
 
 ### Common Problems and Solutions
 
+- "My first deployment failed" → 
+  - This is normal! GitHub Pages needs to be enabled first
+  - Make sure you completed Step 8 (Settings → Pages → GitHub Actions)
+  - Go to Actions tab and click "Re-run all jobs" on the failed workflow
+  - Should work on the second try!
 - "I don't see my changes in GitHub Desktop" → "Try clicking 'Fetch origin' at the top"
 - "The Publish button is gray" → Check: `git log --oneline -1` - if no commits, need to commit first
 - "I see an authentication error" → "Try signing out and back in: GitHub Desktop → Preferences → Accounts → Sign Out, then Sign In again"
-- Website not deploying → Check Actions tab for build errors
+- Website not publishing → Check Actions tab for build errors
 
 ## Important Reminders for AI Assistants
 
@@ -498,14 +671,33 @@ git branch -a
 7. **Celebrate successes** - building a website is a big achievement!
 8. **Never auto-deploy** without explicit permission
 9. **Explain wait times** - "This takes a few minutes, like saving a large file"
+10. **If users see strange codes in errors** - Explain: "Those codes like `[31m` are color codes that aren't displaying properly. Look for the actual message after these codes."
 
-## Git Workflow
+## Git Workflow Division of Labor
 
-When making changes:
-1. Make the file changes
-2. Explain what was changed in simple terms
-3. For commits, use descriptive messages like "Added contact form" not "Updated index.html"
-4. Always `git push` after committing
+### What AI Can Do:
+- Check git status: `git status`
+- Stage changes: `git add .`
+- Commit changes: `git commit -m "Descriptive message"`
+- View commit history: `git log --oneline`
+- Check remote URL: `git remote -v`
+
+### What User Must Do (via GitHub Desktop):
+- Push changes to GitHub
+- Pull updates from GitHub
+- Publish repository for first time
+- Resolve any authentication issues
+
+### How to Guide Users:
+When changes are ready to publish:
+1. "I've saved all your changes locally with git"
+2. "Now open GitHub Desktop to send them to GitHub"
+3. "You'll see all the changes I made listed there"
+4. "Add a description if you want, or use mine"
+5. "Click 'Commit to main' then 'Push origin'"
+6. "This triggers automatic publishing to your website"
+
+**Never attempt**: `git push` - this requires authentication that only works through GitHub Desktop for most users.
 
 ## Quick Reference for Users
 
@@ -551,3 +743,32 @@ When making changes:
 - Ensure proper alt text for accessibility
 
 Remember: There's no wrong way to ask for help. Just describe what you want in your own words!
+
+## Understanding the Update Cycle
+
+### For GitHub Pages Users:
+**Think of it like this:**
+- I'm your website editor (I make changes)
+- GitHub Desktop is your publisher (sends changes online)
+- GitHub Pages is your host (shows website to the world)
+
+**Every update follows**: Edit → Save → Publish → Live
+
+### For Other Hosting Services:
+**Think of it like this:**
+- I'm your website editor (I make changes)
+- I build your website files (create the 'dist' folder)
+- You upload to your chosen host
+
+**Every update follows**: Edit → Build → Upload → Live
+
+### Key Differences:
+- **GitHub Pages**: Automatic updates when you push
+- **Other hosts**: Manual upload of 'dist' folder
+- **Some hosts** (Vercel, Netlify): Can connect to GitHub for automatic updates
+
+### Reassurance for Users:
+- "You can update as often as you like - no limits!"
+- "Your website stays online during updates"
+- "Changes typically take 2-5 minutes to go live"
+- "If something goes wrong, your old version stays up"
