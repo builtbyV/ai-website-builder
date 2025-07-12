@@ -418,6 +418,13 @@ When user wants to publish:
    - "Or: Your repository → Settings → Pages (in left sidebar)"
    - "Under 'Build and deployment', change 'Source' to 'GitHub Actions'"
    - "That's it! No save button needed"
+   - "**IMPORTANT**: When you see options like 'GitHub Pages Jekyll' or 'Static HTML':
+     - DON'T click Configure on any of them - your deployment is already set up!
+     - Stay on this page and wait a moment
+     - Look at the top of the page for a box showing your site status
+     - It will say something like: 'Your site is live at https://[username].github.io/[repo-name]/'
+     - Click 'Visit site' or manually type the correct URL
+     - If you get a 404, wait 5-10 minutes - first deployment takes time"
 
 9. **Push changes and deploy**:
    "Let's publish your website!"
