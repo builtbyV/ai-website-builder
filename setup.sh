@@ -228,6 +228,7 @@ if [ ! -f .gitignore ]; then
     cat > .gitignore << 'EOF'
 # AI Assistant Documentation (not needed for live website)
 AGENTS.md
+CLAUDE.md
 GEMINI.md
 setup.sh
 QUICK_START.txt
@@ -238,6 +239,7 @@ else
         echo "" >> .gitignore
         echo "# AI Assistant Documentation (not needed for live website)" >> .gitignore
         echo "AGENTS.md" >> .gitignore
+        echo "CLAUDE.md" >> .gitignore
         echo "GEMINI.md" >> .gitignore
         echo "setup.sh" >> .gitignore
         echo "QUICK_START.txt" >> .gitignore
@@ -250,8 +252,68 @@ if [ -f "README.md" ]; then
     echo "# $PROJECT_NAME" > README.md
 fi
 
-# Remove template git (clean slate for user's own repository)
+# Remove template git and initialize fresh repository
 rm -rf .git 2>/dev/null
+git init
+
+# Create GitHub Actions workflow for deployment
+echo "Setting up GitHub Actions deployment..."
+mkdir -p .github/workflows
+cat > .github/workflows/deploy.yml << 'EOF'
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Build
+        run: npm run build
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+EOF
+
+# Make initial commit with all files
+git add -A
+git commit -m "Initial website setup" 2>/dev/null
 
 # Final instructions
 echo ""

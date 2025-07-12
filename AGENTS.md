@@ -261,12 +261,7 @@ Most users prefer the default mode for safety.
 Your website will be at: `https://[username].github.io/[repository-name]/`
 
 **Setup Requirements:**
-1. Install gh-pages as a dev dependency:
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-
-2. Update `vite.config.js` to include the base path:
+1. Update `vite.config.js` to include the base path:
    ```javascript
    import { defineConfig } from 'vite'
    import tailwindcss from '@tailwindcss/vite'
@@ -279,19 +274,16 @@ Your website will be at: `https://[username].github.io/[repository-name]/`
    })
    ```
 
-3. Update `package.json` scripts section:
+2. Package.json scripts (no deploy script needed):
    ```json
    {
      "scripts": {
        "dev": "vite",
        "build": "vite build",
-       "preview": "vite preview",
-       "deploy": "vite build && gh-pages -d dist"
+       "preview": "vite preview"
      }
    }
    ```
-
-4. Deploy with: `npm run deploy`
 
 **Important for Codex**: 
 - The `base` path must match the exact repository name
@@ -367,7 +359,7 @@ Your AI will:
 
 When user wants to publish:
 
-1. **Check current git status first**:
+1. **Check current git status**:
    ```bash
    git status
    git remote -v
@@ -375,7 +367,7 @@ When user wants to publish:
    
    Based on the output:
    - If "fatal: not a git repository" → Need to set up GitHub Desktop
-   - If shows "origin" with a GitHub URL → Already connected, skip to step 5
+   - If shows "origin" with a GitHub URL → Already connected, skip to step 7
    - If git repository but no remote → Need to publish to GitHub
 
 2. **Guide them to install GitHub Desktop** (if needed):
@@ -384,84 +376,96 @@ When user wants to publish:
    - Direct to: https://desktop.github.com
    - "Download the version for your computer (Mac or Windows)"
    - Help them install it: "Just open the downloaded file and follow the installation steps"
-   - "This is a one-time setup, like installing any other app"
 
 3. **Set up GitHub Desktop**:
-   Guide them through:
    - "Open GitHub Desktop"
    - "Click 'Sign in to GitHub.com'"
-   - "Your browser will open - sign in there"
-   - "If you don't have a GitHub account yet, click 'Create an account' - it's free"
-   - "After signing in, go back to GitHub Desktop"
+   - "Your browser will open - sign in or create a free account"
+   - "After signing in, return to GitHub Desktop"
 
 4. **Add your website project**:
-   - "In GitHub Desktop, go to File → Add Local Repository"
-   - "Click 'Choose...' and find your ai-website-builder folder"
-   - "You'll see a message that says this isn't a Git repository"
-   - "Click 'Create a Repository'"
-   - "For Repository Name, use something like 'my-website' (no spaces)"
-   - "Leave everything else as is"
+   - "In GitHub Desktop: File → Add Local Repository"
+   - "Browse to your ai-website-builder folder"
+   - "Click 'Create a Repository' when prompted"
+   - "Name it something like 'my-website' (no spaces)"
    - "Click 'Create Repository'"
 
-   After user completes this, verify:
-   ```bash
-   git status  # Should show "On branch main" or similar
-   ```
-
-5. **Publish to GitHub** (first time):
-   - "You'll see a button that says 'Publish repository' - click it"
-   - "IMPORTANT: Uncheck 'Keep this code private' - your website needs to be public"
+5. **Publish to GitHub**:
+   - "Click the 'Publish repository' button"
+   - "IMPORTANT: Uncheck 'Keep this code private'"
    - "Click 'Publish Repository'"
-   - "Great! Your code is now on GitHub"
-
-   After user completes this, verify:
-   ```bash
-   git remote -v  # Should show origin with github.com URL
-   ```
    
-   If no remote shown: "Can you check if you clicked 'Publish repository' in GitHub Desktop? Sometimes it takes a moment."
+   Verify success:
+   ```bash
+   git remote -v  # Should show your GitHub URL
+   ```
 
 6. **Get repository details**:
    ```bash
    git remote get-url origin
    ```
-   This gives you the repository URL. Extract the repository name from it (last part after /)
+   Extract repository name and username from URL
 
-7. **Configure for GitHub Pages**:
-   "Now I need to set up the technical parts. Can I run some commands to configure your website for publishing?"
+7. **Configure vite.config.js**:
+   "I need to configure your website address. Can I update a configuration file?"
    
-   If user agrees:
-   - Run: `npm install --save-dev gh-pages`
-   - Update vite.config.js with base path using the repository name from step 6
-   - Update package.json with deploy script
-   - Run: `npm run deploy`
-   - Explain: "I'm setting up the publishing system and uploading your website"
-
-8. **Confirm success**:
-   Check deployment worked:
-   ```bash
-   git branch -a | grep gh-pages  # Should show gh-pages branch
+   If user agrees, update vite.config.js with base path:
+   ```javascript
+   base: '/repository-name/',  // Use actual repository name
    ```
+
+8. **One-Time GitHub Pages Setup**:
+   "Now we need to enable GitHub Pages. Please follow these steps:"
    
-   "Your website is being published! It will be live at https://[their-username].github.io/[repository-name]/ in 2-5 minutes."
+   - "Go to: https://github.com/[username]/[repository-name]/settings/pages"
+   - "Or: Your repository → Settings → Pages (in left sidebar)"
+   - "Under 'Build and deployment', change 'Source' to 'GitHub Actions'"
+   - "That's it! No save button needed"
+
+9. **Push changes and deploy**:
+   "Let's publish your website!"
    
-   Extract username from git remote URL or ask: "What's your GitHub username? You can see it at the top of GitHub Desktop"
+   - "In GitHub Desktop, you'll see the changes I made"
+   - "At the bottom left, type: 'Initial website setup'"
+   - "Click 'Commit to main'"
+   - "Click 'Push origin' (top of window)"
+   
+   "Your website is now being built! It will be live at https://[username].github.io/[repository-name]/ in 5-10 minutes."
+   
+   "You can watch the progress at: https://github.com/[username]/[repository-name]/actions"
 
 ### For Future Updates
 
-After initial setup, guide users:
 "To update your website in the future:
 1. I'll make the changes for you
-2. Open GitHub Desktop - you'll see the changes listed
-3. Type a short description like 'Updated contact info'
+2. Open GitHub Desktop - you'll see the changes
+3. Write a short description
 4. Click 'Commit to main'
-5. Click 'Push origin' (or 'Push' button with up arrow)
-6. Then tell me when you're done and I'll run the deploy command"
+5. Click 'Push origin'
+6. GitHub automatically publishes the updates (takes 2-5 minutes)"
 
-When user confirms they pushed:
-```bash
-npm run deploy
-```
+### Important Notes
+- No manual deploy commands needed
+- GitHub Actions runs automatically on every push
+- First deployment may take up to 10 minutes
+- Subsequent updates are usually faster (2-5 minutes)
+
+### Deployment Troubleshooting
+
+If the website isn't appearing:
+1. Check Actions tab: https://github.com/[username]/[repository-name]/actions
+   - Green checkmark = success
+   - Red X = failed (click for details)
+
+2. Verify Pages settings:
+   - Go to Settings → Pages
+   - Source should be "GitHub Actions"
+   - URL should be displayed at top
+
+3. Common fixes:
+   - Make sure repository is public
+   - Check that vite.config.js has correct base path
+   - Wait full 10 minutes for first deployment
 
 ### Diagnostic Commands for Troubleshooting
 
@@ -489,7 +493,7 @@ git branch -a
 - "I don't see my changes in GitHub Desktop" → "Try clicking 'Fetch origin' at the top"
 - "The Publish button is gray" → Check: `git log --oneline -1` - if no commits, need to commit first
 - "I see an authentication error" → "Try signing out and back in: GitHub Desktop → Preferences → Accounts → Sign Out, then Sign In again"
-- No gh-pages branch after deploy → Check npm run deploy output for errors
+- Website not deploying → Check Actions tab for build errors
 
 ## Important Reminders for Codex CLI
 
@@ -497,9 +501,9 @@ git branch -a
 2. **Check for API key** - Remind users about OPENAI_API_KEY if not set
 3. **Always scan `/public` directory** when users mention images or media
 4. **For GitHub Pages deployment**, ensure:
-   - gh-pages is installed as devDependency
    - base path is set correctly in vite.config.js
-   - deploy script is added to package.json
+   - GitHub Actions workflow is created by setup.sh
+   - Pages source is set to "GitHub Actions"
 5. **Be transparent** - Let users know what you're doing
 6. **Use natural language** - avoid technical terms
 7. **Show empathy** - users might be frustrated or confused
