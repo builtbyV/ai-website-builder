@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!-- 
+  AI ASSISTANT WARNING: This is NOT a website template!
+  This is the setup/installation guide for humans to read.
+  
+  DO NOT use this file when users ask to:
+  - Modify their website
+  - Change website content
+  - Create new pages
+  
+  ALWAYS use index.html as the website template instead.
+-->
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AI Website Builder - Visual Setup Guide</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+       
+       body {
+           font-family: 'Inter', system-ui, -apple-system, sans-serif;
+       }
+   </style>
+   <script>
+       tailwind.config = {
+           theme: {
+               extend: {
+                   fontFamily: {
+                       sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                   },
+                   colors: {
+                       'neon': '#d4ff00',
+                       'dark': '#0a0a0a',
+                       'gray-light': '#f5f5f5',
+                       'gray-medium': '#e5e5e5',
+                   }
+               }
+           }
+       }
+   </script>
+</head>
+<body class="font-sans bg-gray-50">
+   <!-- Progress Bar -->
+   <div class="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 z-50 px-4 py-3">
+       <div class="flex gap-2 max-w-7xl mx-auto overflow-x-auto">
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-[#d4ff00] text-black text-sm font-medium cursor-pointer transition-all" data-section="intro">Welcome</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="terminal">Terminal</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="project">Get Project</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="setup">Run Setup</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="ai">AI Assistant</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="github">GitHub Desktop</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="develop">Develop</div>
+           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="publish">Publish!</div>
+       </div>
+   </div>
+
+   <!-- Main Container -->
+   <div class="max-w-7xl mx-auto px-4 pt-24 pb-12">
+       <!-- Introduction Section -->
+       <section id="intro" class="section block">
+           <div class="bg-white rounded-3xl p-8 md:p-12 mb-8">
+               <div class="text-center mb-12">
+                   <div class="inline-flex items-center justify-center w-16 h-16 bg-[#d4ff00] rounded-2xl mb-6">
+                       <span class="text-2xl">🚀</span>
+                   </div>
+                   <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Welcome to AI Website Builder!</h1>
+                   <p class="text-xl text-gray-600 max-w-2xl mx-auto">Build your own website by chatting with AI - no coding experience needed!</p>
+               </div>
+
+               <div class="bg-[#d4ff00] bg-opacity-10 border border-[#d4ff00] border-opacity-30 rounded-2xl p-6 mb-8">
+                   <h2 class="text-xl font-bold text-gray-900 mb-2">🛡️ The Golden Rule: You Can't Break Anything!</h2>
+                   <p class="text-gray-700">Seriously! Everything we do is completely safe. If you make a mistake, there's always an easy way to fix it. So relax, have fun, and let's build something amazing together!</p>
+               </div>
+
+               <h3 class="text-2xl font-bold text-gray-900 mb-6">What You'll Accomplish Today:</h3>
+               <div class="space-y-3">
+                   <label class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+                       <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-[#d4ff00] focus:ring-[#d4ff00]">
+                       <span class="text-gray-700">Install the necessary tools (it's easier than installing a game!)</span>
+                   </label>
+                   <label class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+                       <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-[#d4ff00] focus:ring-[#d4ff00]">
+                       <span class="text-gray-700">Download the website project to your computer</span>
+                   </label>
+                   <label class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+                       <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-[#d4ff00] focus:ring-[#d4ff00]">
+                       <span class="text-gray-700">Set up an AI assistant that writes code for you</span>
+                   </label>
+                   <label class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+                       <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-[#d4ff00] focus:ring-[#d4ff00]">
+                       <span class="text-gray-700">Make changes to your website just by describing them</span>
+                   </label>
+                   <label class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors cursor-pointer">
+                       <input type="checkbox" class="mt-1 w-5 h-5 rounded border-gray-300 text-[#d4ff00] focus:ring-[#d4ff00]">
+                       <span class="text-gray-700">Publish your website live on the internet for free!</span>
+                   </label>
+               </div>
+
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mt-8">
+                   <div class="flex gap-4">
+                       <div class="flex-shrink-0">
+                           <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                               <span class="text-blue-600">ℹ️</span>
+                           </div>
+                       </div>
+                       <div>
+                           <p class="text-gray-700"><strong>Time needed:</strong> About 10-15 minutes</p>
+                           <p class="text-gray-700"><strong>Difficulty:</strong> If you can use email, you can do this!</p>
+                           <p class="text-gray-700"><strong>Cost:</strong> Completely free to start!</p>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="flex justify-end mt-8">
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Let's Get Started →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Terminal Section -->
+       <section id="terminal" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 1: Opening Your Command Line (Terminal)</h2>
+               
+               <p class="text-lg text-gray-600 mb-8">Think of the Terminal like a text message conversation with your computer. Instead of clicking buttons, you type commands. It's actually pretty cool once you get used to it!</p>
+
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>Remember:</strong> Terminal, Command Line, and Console all mean the same thing - a place where you type commands.</p>
+               </div>
+
+               <div class="flex gap-2 mb-6 border-b border-gray-200">
+                   <button class="platform-tab px-4 py-3 font-medium text-gray-600 border-b-2 border-transparent transition-all" onclick="showPlatform(event, 'mac')">🍎 Mac</button>
+                   <button class="platform-tab px-4 py-3 font-medium text-gray-600 border-b-2 border-transparent transition-all" onclick="showPlatform(event, 'windows')">🪟 Windows</button>
+                   <button class="platform-tab px-4 py-3 font-medium text-gray-600 border-b-2 border-transparent transition-all" onclick="showPlatform(event, 'linux')">🐧 Linux</button>
+               </div>
+
+               <!-- Mac Instructions -->
+               <div id="mac-content" class="platform-content hidden">
+                   <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Opening Terminal on Mac</h3>
+                       <div class="bg-[#d4ff00] bg-opacity-10 border border-[#d4ff00] border-opacity-30 rounded-lg p-4 mb-4">
+                           <p class="font-medium text-gray-800">Fastest Method: Use Spotlight Search!</p>
+                       </div>
+                       <ol class="space-y-3 text-gray-700">
+                           <li>1. Press <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">Command ⌘</kbd> + <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">Space</kbd> at the same time</li>
+                           <li>2. Type "Terminal" in the search box that appears</li>
+                           <li>3. Press <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">Enter</kbd> when Terminal appears in the results</li>
+                       </ol>
+                   </div>
+
+                   <div class="bg-gray-100 rounded-xl p-6 mb-6">
+                       <p class="text-center text-gray-600">[Screenshot: Spotlight search with "Terminal" typed and Terminal.app highlighted]</p>
+                   </div>
+
+                   <h4 class="text-lg font-bold text-gray-900 mb-3">What You Should See:</h4>
+                   <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4 relative">
+                       <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                       <pre>YourName@MacBook ~ %</pre>
+                   </div>
+                   <p class="text-gray-600">Don't worry if yours looks slightly different. The important part is the <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">%</code> or <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">$</code> at the end - that means it's ready for your commands!</p>
+               </div>
+
+               <!-- Windows Instructions -->
+               <div id="windows-content" class="platform-content hidden">
+                   <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Setting Up Git Bash on Windows</h3>
+                       <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-4">
+                           <p class="text-gray-700"><strong>Important:</strong> Windows requires an extra step - installing Git Bash. This gives us the tools we need.</p>
+                       </div>
+
+                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Step 1: Install Git for Windows</h4>
+                       <ol class="space-y-3 text-gray-700 mb-6">
+                           <li>1. Go to <a href="https://git-scm.com/download/win" target="_blank" class="text-blue-600 underline">git-scm.com/download/win</a></li>
+                           <li>2. Download will start automatically</li>
+                           <li>3. Run the installer - click "Next" for most options</li>
+                           <li class="bg-red-50 border border-red-200 rounded-lg p-3">
+                               <strong class="text-red-700">CRITICAL:</strong> On the "Adjusting your PATH" screen, choose the second option: "Git from the command line and also from 3rd-party software"
+                           </li>
+                       </ol>
+
+                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Step 2: Open Git Bash</h4>
+                       <ol class="space-y-3 text-gray-700">
+                           <li>1. Go to your Desktop (or any folder)</li>
+                           <li>2. Right-click on empty space</li>
+                           <li>3. Select "Git Bash Here"</li>
+                       </ol>
+                   </div>
+
+                   <h4 class="text-lg font-bold text-gray-900 mb-3">What You Should See:</h4>
+                   <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm relative">
+                       <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                       <pre>YourName@COMPUTER MINGW64 ~/Desktop
+$</pre>
+                   </div>
+               </div>
+
+               <!-- Linux Instructions -->
+               <div id="linux-content" class="platform-content hidden">
+                   <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Opening Terminal on Linux</h3>
+                       <div class="bg-[#d4ff00] bg-opacity-10 border border-[#d4ff00] border-opacity-30 rounded-lg p-4 mb-4">
+                           <p class="font-medium text-gray-800">Super Quick: Just use the keyboard shortcut!</p>
+                       </div>
+                       <p class="text-gray-700 mb-4">Press <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">Ctrl</kbd> + <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">Alt</kbd> + <kbd class="px-2 py-1 bg-white border border-gray-300 rounded text-sm">T</kbd> all together</p>
+                       <p class="text-gray-600">Or find Terminal in your applications menu.</p>
+                   </div>
+
+                   <h4 class="text-lg font-bold text-gray-900 mb-3">What You Should See:</h4>
+                   <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm relative">
+                       <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                       <pre>username@computer:~$</pre>
+                   </div>
+               </div>
+
+               <div class="mt-8 pt-8 border-t border-gray-200">
+                   <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Test - Is Your Terminal Working?</h3>
+                   <p class="text-gray-600 mb-4">Let's make sure your terminal is ready by typing a simple command:</p>
+                   <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4 relative">
+                       <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                       <pre>echo "Hello Terminal!"</pre>
+                   </div>
+
+                   <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-6">
+                       <p class="text-gray-700"><strong>You should see:</strong> The terminal prints "Hello Terminal!" and shows your prompt again. That means everything is working perfectly!</p>
+                   </div>
+
+                   <div class="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                       <p class="text-gray-700"><strong>Good to know:</strong> Our setup script will automatically check for Node.js and other requirements. If anything is missing, it will tell you exactly what to do. No need to worry about it now!</p>
+                   </div>
+               </div>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Next Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Get Project Section -->
+       <section id="project" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 2: Getting the Project Files</h2>
+               
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>What's a Repository?</strong> It's just a fancy name for a project folder that remembers all changes. Think of it as a folder with a built-in time machine!</p>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Downloading the Project</h3>
+               <p class="text-gray-600 mb-6">We'll use a command called <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">git clone</code> to download the AI Website Builder project.</p>
+
+               <div class="space-y-6">
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <p class="font-medium text-gray-900 mb-3">1. Make sure you're in a good location (like Desktop):</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>cd ~/Desktop</pre>
+                       </div>
+                   </div>
+                   
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <p class="font-medium text-gray-900 mb-3">2. Clone (download) the project:</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>git clone https://github.com/builtbyV/ai-website-builder.git</pre>
+                       </div>
+                   </div>
+
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <p class="font-medium text-gray-900 mb-3">3. Move into the project folder:</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>cd ai-website-builder</pre>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="bg-green-50 border border-green-200 rounded-xl p-6 mt-8">
+                   <p class="text-gray-700"><strong>Success looks like:</strong> You'll see some text about "Cloning into..." and then your prompt will change to show you're inside the ai-website-builder folder.</p>
+               </div>
+
+               <div class="mt-8">
+                   <h3 class="text-xl font-bold text-gray-900 mb-4">Verify You're in the Right Place</h3>
+                   <p class="text-gray-600 mb-4">Type this command to see the project files:</p>
+                   <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4 relative">
+                       <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                       <pre>ls</pre>
+                   </div>
+                   <p class="text-gray-600">You should see files like <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">README.md</code>, <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">setup.sh</code>, <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">index.html</code>, etc.</p>
+               </div>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Next Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Setup Section -->
+       <section id="setup" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 3: Running the Setup Script</h2>
+               
+               <p class="text-lg text-gray-600 mb-6">Now we'll run a script that automatically installs everything the project needs. It's like an installer wizard, but in the terminal!</p>
+
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="font-medium text-gray-800 mb-2">What the script does for you:</p>
+                   <ul class="space-y-1 text-gray-700">
+                       <li>✓ Checks if Node.js is installed (and tells you how to install it if needed)</li>
+                       <li>✓ Installs all project dependencies</li>
+                       <li>✓ Sets up your chosen AI assistant</li>
+                       <li>✓ Creates helpful files for you</li>
+                   </ul>
+               </div>
+
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                   <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                   <pre>bash setup.sh</pre>
+               </div>
+
+               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>What to Expect:</strong> You'll see LOTS of text scrolling by - that's normal! You might also see some yellow WARN messages - those are safe to ignore.</p>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">The Setup Will Ask You:</h3>
+               <p class="text-gray-600 mb-6">Which AI assistant do you want to use? Here's a quick comparison:</p>
+
+               <div class="overflow-x-auto mb-8">
+                   <table class="w-full border-collapse">
+                       <thead>
+                           <tr class="bg-gray-50">
+                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">AI Assistant</th>
+                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Best For</th>
+                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Cost</th>
+                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Setup Difficulty</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                               <td class="p-4 border border-gray-200"><strong>Google Gemini</strong></td>
+                               <td class="p-4 border border-gray-200">Free tier, good for beginners</td>
+                               <td class="p-4 border border-gray-200">Free (1,000 requests/day)</td>
+                               <td class="p-4 border border-gray-200">⭐⭐ Moderate</td>
+                           </tr>
+                           <tr class="bg-gray-50">
+                               <td class="p-4 border border-gray-200"><strong>Claude Code</strong></td>
+                               <td class="p-4 border border-gray-200">Natural conversations, great explanations</td>
+                               <td class="p-4 border border-gray-200">Requires Claude Pro ($20/month)</td>
+                               <td class="p-4 border border-gray-200">⭐ Easiest</td>
+                           </tr>
+                           <tr>
+                               <td class="p-4 border border-gray-200"><strong>OpenAI Codex</strong></td>
+                               <td class="p-4 border border-gray-200">Versatile, powerful coding</td>
+                               <td class="p-4 border border-gray-200">Pay-as-you-go (new users get $5 free)</td>
+                               <td class="p-4 border border-gray-200">⭐⭐ Moderate</td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>Not sure?</strong> Choose option 3 (Google Gemini) for the free option, or option 4 to install all three and decide later!</p>
+               </div>
+
+               <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+                   <p class="text-gray-700"><strong>Success looks like:</strong> You'll see "✅ Setup complete!" and get your command prompt back.</p>
+               </div>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Next Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- AI Assistant Section -->
+       <section id="ai" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 4: Setting Up Your AI Assistant</h2>
+               
+               <p class="text-lg text-gray-600 mb-8">Now let's connect to your chosen AI assistant. Pick the tab for the one you installed:</p>
+
+               <div class="flex gap-2 mb-6 border-b border-gray-200">
+                   <button class="ai-tab px-4 py-3 font-medium text-gray-900 border-b-2 border-[#d4ff00] transition-all" onclick="showAI(event, 'gemini')">Google Gemini</button>
+                   <button class="ai-tab px-4 py-3 font-medium text-gray-600 border-b-2 border-transparent transition-all" onclick="showAI(event, 'claude')">Claude Code</button>
+                   <button class="ai-tab px-4 py-3 font-medium text-gray-600 border-b-2 border-transparent transition-all" onclick="showAI(event, 'openai')">OpenAI Codex</button>
+               </div>
+
+               <!-- Gemini Setup -->
+               <div id="gemini-content" class="ai-content">
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Setting Up Google Gemini</h3>
+                       
+                       <p class="text-gray-600 mb-4">Start Gemini by running:</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>npx gemini</pre>
+                       </div>
+
+                       <p class="text-gray-700 mb-4">The first time you run this:</p>
+                       <ol class="space-y-2 text-gray-700 mb-6">
+                           <li>1. It will show a URL or open your browser</li>
+                           <li>2. Log in with your Google account</li>
+                           <li>3. Authorize Gemini CLI</li>
+                           <li>4. Return to terminal - you'll see it's ready</li>
+                       </ol>
+
+                       <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                           <p class="text-gray-700"><strong>Note:</strong> Use a personal Google account for the free tier. Work/school accounts might not have access.</p>
+                       </div>
+
+                       <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                           <p class="text-gray-700"><strong>Success:</strong> You see a prompt and can type commands!</p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- Claude Setup -->
+               <div id="claude-content" class="ai-content hidden">
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Setting Up Claude Code</h3>
+                       
+                       <p class="text-gray-600 mb-4">Start Claude by running:</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>npx claude</pre>
+                       </div>
+
+                       <p class="text-gray-700 mb-4">The first time you run this:</p>
+                       <ol class="space-y-2 text-gray-700 mb-6">
+                           <li>1. It will open your web browser</li>
+                           <li>2. Log in with your Anthropic account (requires Claude Pro subscription)</li>
+                           <li>3. Authorize the connection</li>
+                           <li>4. Return to your terminal - you'll see a <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">&gt;</code> prompt</li>
+                       </ol>
+
+                       <p class="text-gray-600 mb-4">Test it by typing:</p>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>hello</pre>
+                       </div>
+
+                       <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                           <p class="text-gray-700"><strong>Success:</strong> Claude responds with a friendly greeting!</p>
+                       </div>
+                   </div>
+               </div>
+
+               <!-- OpenAI Setup -->
+               <div id="openai-content" class="ai-content hidden">
+                   <div class="bg-gray-50 rounded-xl p-6">
+                       <h3 class="text-xl font-bold text-gray-900 mb-4">Setting Up OpenAI Codex</h3>
+                       
+                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Get Your API Key:</h4>
+                       <ol class="space-y-2 text-gray-700 mb-6">
+                           <li>1. Go to <a href="https://platform.openai.com/api-keys" target="_blank" class="text-blue-600 underline">platform.openai.com/api-keys</a></li>
+                           <li>2. Log in or create an account</li>
+                           <li>3. Click "Create new secret key"</li>
+                           <li>4. Copy the key immediately (starts with <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">sk-</code>)</li>
+                       </ol>
+
+                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Set Your API Key:</h4>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>export OPENAI_API_KEY="sk-your-key-here"</pre>
+                       </div>
+
+                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Start Codex:</h4>
+                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                           <pre>npx codex</pre>
+                       </div>
+
+                       <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                           <p class="text-gray-700"><strong>Success:</strong> You see a <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">&gt;</code> prompt ready for commands!</p>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Next Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- GitHub Desktop Section -->
+       <section id="github" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 5: Installing GitHub Desktop</h2>
+               
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>Why GitHub Desktop?</strong> It gives you a visual way to save your work and publish your website - no more command line needed for Git!</p>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Installation</h3>
+               <ol class="space-y-3 text-gray-700 mb-8">
+                   <li>1. Download from <a href="https://desktop.github.com" target="_blank" class="text-blue-600 underline">desktop.github.com</a></li>
+                   <li>2. Install it like any other app</li>
+                   <li>3. Open GitHub Desktop</li>
+                   <li>4. Click "Sign in to GitHub.com"</li>
+                   <li>5. Complete the login in your browser</li>
+               </ol>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Add Your Project</h3>
+               <ol class="space-y-3 text-gray-700 mb-8">
+                   <li>1. In GitHub Desktop: <strong>File → Add Local Repository</strong></li>
+                   <li>2. Click "Choose..." and select your <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">ai-website-builder</code> folder</li>
+                   <li>3. Click "Add Repository"</li>
+               </ol>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Publish to GitHub</h3>
+               <ol class="space-y-3 text-gray-700 mb-8">
+                   <li>1. Click the "Publish repository" button</li>
+                   <li class="bg-orange-50 border border-orange-200 rounded-lg p-3">
+                       <strong>IMPORTANT:</strong> Uncheck "Keep this code private"
+                   </li>
+                   <li>3. Click "Publish Repository"</li>
+               </ol>
+
+               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6">
+                   <p class="text-gray-700"><strong>Note:</strong> This doesn't make your website live yet - it just backs up your code to GitHub. We'll make it live in the final step!</p>
+               </div>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Next Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Development Section -->
+       <section id="develop" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 6: Building Your Website!</h2>
+               
+               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                   <p class="font-medium text-gray-800 mb-2">The Two-Terminal Setup:</p>
+                   <p class="text-gray-700">You need TWO terminal windows open:</p>
+                   <ol class="mt-2 space-y-1 text-gray-700">
+                       <li>1. <strong>Terminal 1:</strong> Runs the preview server (stays busy)</li>
+                       <li>2. <strong>Terminal 2:</strong> Where you chat with AI</li>
+                   </ol>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Start Your Preview Server (Terminal 1)</h3>
+               <p class="text-gray-600 mb-4">In your first terminal, run:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4 relative">
+                   <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                   <pre>npm run dev</pre>
+               </div>
+               
+               <p class="text-gray-600 mb-4">You'll see something like:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4">
+                   <pre>  ➜  Local:   http://localhost:5173/</pre>
+               </div>
+               
+               <p class="text-gray-600 mb-6">Open that URL in your browser to see your website!</p>
+
+               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>Important:</strong> Leave this terminal running! Don't close it or press Ctrl+C.</p>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Chat with AI (Terminal 2)</h3>
+               <p class="text-gray-600 mb-4">Open a NEW terminal window/tab, navigate to your project:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-4 relative">
+                   <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                   <pre>cd ~/Desktop/ai-website-builder</pre>
+               </div>
+
+               <p class="text-gray-600 mb-4">Start your AI assistant:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                   <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                   <pre>npx gemini  # or npx claude, or npx codex</pre>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Try Your First Change!</h3>
+               <p class="text-gray-600 mb-4">Type something like:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
+                   <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
+                   <pre>Change the main heading to "Welcome to My Awesome Website"</pre>
+               </div>
+
+               <p class="text-gray-600 mb-4">The AI will:</p>
+               <ol class="space-y-2 text-gray-700 mb-6">
+                   <li>1. Find the right file</li>
+                   <li>2. Show you what it wants to change</li>
+                   <li>3. Ask for your approval (type <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">y</code> for yes)</li>
+                   <li>4. Make the change</li>
+               </ol>
+
+               <p class="text-gray-600 mb-6">Look at your browser - the change appears instantly! 🎉</p>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">More Things to Try:</h3>
+               <ul class="space-y-2 text-gray-700">
+                   <li>• "Make the background light blue"</li>
+                   <li>• "Add an About Me section"</li>
+                   <li>• "Create a contact page"</li>
+                   <li>• "Add our business hours: Mon-Fri 9-5"</li>
+               </ul>
+
+               <div class="flex justify-between mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
+                       Final Step →
+                   </button>
+               </div>
+           </div>
+       </section>
+
+       <!-- Publish Section -->
+       <section id="publish" class="section hidden">
+           <div class="bg-white rounded-3xl p-8 md:p-12">
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 7: Publishing Your Website! 🚀</h2>
+               
+               <p class="text-lg text-gray-600 mb-8">Time to make your website live on the internet!</p>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 1: Save Your Changes</h3>
+               <p class="text-gray-600 mb-4">In GitHub Desktop:</p>
+               <ol class="space-y-2 text-gray-700 mb-8">
+                   <li>1. You'll see your changed files listed</li>
+                   <li>2. Write a short message like "Updated website content"</li>
+                   <li>3. Click "Commit to main"</li>
+                   <li>4. Click "Push origin"</li>
+               </ol>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 2: Enable GitHub Pages</h3>
+               <ol class="space-y-2 text-gray-700 mb-8">
+                   <li>1. Go to your repository on GitHub.com</li>
+                   <li>2. Click "Settings" tab</li>
+                   <li>3. Scroll down to "Pages" in the left sidebar</li>
+                   <li>4. Under "Source", select "Deploy from a branch"</li>
+                   <li>5. Under "Branch", select "main" and "/ (root)"</li>
+                   <li>6. Click "Save"</li>
+               </ol>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 3: Wait for the Magic!</h3>
+               <p class="text-gray-600 mb-4">GitHub will build and deploy your site. This takes about 2-5 minutes.</p>
+               
+               <p class="text-gray-600 mb-4">Your website will be live at:</p>
+               <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6">
+                   <pre>https://[your-username].github.io/ai-website-builder/</pre>
+               </div>
+
+               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8">
+                   <p class="text-gray-700"><strong>First-Time Note:</strong> You might see a 404 error at first. This is normal! Wait 5-10 minutes and refresh. Your site needs time to propagate across GitHub's servers.</p>
+               </div>
+
+               <div class="bg-[#d4ff00] bg-opacity-10 border border-[#d4ff00] rounded-3xl p-8 text-center mt-12">
+                   <h2 class="text-3xl font-bold text-gray-900 mb-4">🎉 Congratulations! You Did It! 🎉</h2>
+                   <p class="text-lg text-gray-700 mb-6">You've successfully built and published a website using AI!</p>
+                   
+                   <div class="bg-white rounded-xl p-6 max-w-2xl mx-auto text-left">
+                       <p class="font-semibold text-gray-900 mb-3">What You Accomplished:</p>
+                       <ul class="space-y-2 text-gray-700">
+                           <li>✅ Set up a professional development environment</li>
+                           <li>✅ Connected an AI coding assistant</li>
+                           <li>✅ Built a website by describing what you want</li>
+                           <li>✅ Published it live on the internet</li>
+                           <li>✅ Learned skills that usually take months!</li>
+                       </ul>
+                   </div>
+               </div>
+
+               <h3 class="text-xl font-bold text-gray-900 mb-4 mt-12">What's Next?</h3>
+               <ul class="space-y-2 text-gray-700 mb-8">
+                   <li>• <strong>Keep Building:</strong> Continue chatting with AI to add more features</li>
+                   <li>• <strong>Share Your Site:</strong> Send the link to friends and family!</li>
+                   <li>• <strong>Learn More:</strong> Each change you make teaches you something new</li>
+               </ul>
+
+               <div class="flex justify-center mt-8">
+                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
+                       ← Previous
+                   </button>
+               </div>
+           </div>
+       </section>
+
+   </div>
+
+   <script>
+        // Section Navigation
+        let currentSection = 0;
+        const sections = ['intro', 'terminal', 'project', 'setup', 'ai', 'github', 'develop', 'publish'];
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('block'));
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('block');
+            
+            // Update progress bar
+            document.querySelectorAll('.progress-step').forEach(step => {
+                const stepSection = step.getAttribute('data-section');
+                if (stepSection === sectionId) {
+                    step.classList.add('bg-[#d4ff00]', 'text-black');
+                    step.classList.remove('bg-gray-100', 'text-gray-600');
+                } else {
+                    step.classList.remove('bg-[#d4ff00]', 'text-black');
+                    step.classList.add('bg-gray-100', 'text-gray-600');
+                }
+                
+                // Mark completed steps
+                const stepIndex = sections.indexOf(stepSection);
+                const currentIndex = sections.indexOf(sectionId);
+                if (stepIndex < currentIndex) {
+                    step.classList.add('bg-green-100', 'text-green-700');
+                    step.classList.remove('bg-gray-100', 'text-gray-600');
+                }
+            });
+            
+            // Update current section index
+            currentSection = sections.indexOf(sectionId);
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function nextSection() {
+            currentSection = Math.min(currentSection + 1, sections.length - 1);
+            showSection(sections[currentSection]);
+        }
+
+        function previousSection() {
+            currentSection = Math.max(currentSection - 1, 0);
+            showSection(sections[currentSection]);
+        }
+
+        // Platform switching with event parameter
+        function showPlatform(event, platform) {
+            // Hide all platform content
+            document.querySelectorAll('.platform-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.platform-tab').forEach(tab => {
+                tab.classList.remove('text-gray-900', 'border-[#d4ff00]');
+                tab.classList.add('text-gray-600', 'border-transparent');
+            });
+            
+            // Show selected platform
+            document.getElementById(`${platform}-content`).classList.remove('hidden');
+            
+            // Mark tab as active
+            if (event && event.target) {
+                event.target.classList.add('text-gray-900', 'border-[#d4ff00]');
+                event.target.classList.remove('text-gray-600', 'border-transparent');
+            }
+        }
+
+        // AI Assistant switching
+        function showAI(event, ai) {
+            // Hide all AI content
+            document.querySelectorAll('.ai-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Remove active from all AI tabs
+            document.querySelectorAll('.ai-tab').forEach(tab => {
+                tab.classList.remove('text-gray-900', 'border-[#d4ff00]');
+                tab.classList.add('text-gray-600', 'border-transparent');
+            });
+            
+            // Show selected AI
+            document.getElementById(`${ai}-content`).classList.remove('hidden');
+            
+            // Mark tab as active
+            if (event && event.target) {
+                event.target.classList.add('text-gray-900', 'border-[#d4ff00]');
+                event.target.classList.remove('text-gray-600', 'border-transparent');
+            }
+        }
+
+        // Copy code functionality
+        function copyCode(button) {
+            const codeBlock = button.parentElement.querySelector('pre');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.remove('bg-[#d4ff00]', 'hover:bg-[#c4ef00]');
+                button.classList.add('bg-green-500', 'hover:bg-green-600');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.add('bg-[#d4ff00]', 'hover:bg-[#c4ef00]');
+                    button.classList.remove('bg-green-500', 'hover:bg-green-600');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 2000);
+            });
+        }
+
+        // Checklist functionality
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.classList.add('bg-green-50', 'line-through');
+                } else {
+                    this.parentElement.classList.remove('bg-green-50', 'line-through');
+                }
+                
+                // Check if all items are checked
+                const introSection = document.querySelector('#intro');
+                if (introSection && introSection.classList.contains('block')) {
+                    const allCheckboxes = introSection.querySelectorAll('input[type="checkbox"]');
+                    const checkedBoxes = introSection.querySelectorAll('input[type="checkbox"]:checked');
+                    
+                    if (allCheckboxes.length === checkedBoxes.length && allCheckboxes.length > 0) {
+                        // Celebrate!
+                        const heading = document.querySelector('#intro h1');
+                        if (heading) {
+                            heading.classList.add('animate-bounce');
+                            setTimeout(() => {
+                                heading.classList.remove('animate-bounce');
+                            }, 1000);
+                        }
+                    }
+                }
+            });
+        });
+
+        // Progress bar click navigation
+        document.querySelectorAll('.progress-step').forEach(step => {
+            step.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section');
+                showSection(sectionId);
+            });
+        });
+
+        // Auto-detect platform
+        function detectPlatform() {
+            const platform = navigator.platform.toLowerCase();
+            let detectedPlatform = 'mac'; // default
+            
+            if (platform.includes('win')) {
+                detectedPlatform = 'windows';
+            } else if (platform.includes('linux')) {
+                detectedPlatform = 'linux';
+            } else if (platform.includes('mac')) {
+                detectedPlatform = 'mac';
+            }
+            
+            // Find and click the appropriate tab
+            const terminalSection = document.getElementById('terminal');
+            if (terminalSection) {
+                const tabs = terminalSection.querySelectorAll('.platform-tab');
+                tabs.forEach(tab => {
+                    if (tab.textContent.toLowerCase().includes(detectedPlatform) || 
+                        (detectedPlatform === 'mac' && tab.textContent.includes('🍎')) ||
+                        (detectedPlatform === 'windows' && tab.textContent.includes('🪟')) ||
+                        (detectedPlatform === 'linux' && tab.textContent.includes('🐧'))) {
+                        // Create a synthetic event
+                        const event = { target: tab };
+                        showPlatform(event, detectedPlatform);
+                    }
+                });
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            detectPlatform();
+            
+            // Also show Gemini as default in AI section
+            const geminiTab = document.querySelector('.ai-tab');
+            if (geminiTab) {
+                const event = { target: geminiTab };
+                showAI(event, 'gemini');
+            }
+        });
+    </script>
+  </body>
+</html>
