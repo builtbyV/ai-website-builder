@@ -395,6 +395,9 @@ fi
 # Remove template git
 rm -rf .git 2>/dev/null
 
+# Remove docs directory (used for GitHub Pages landing page, not needed after installation)
+rm -rf docs 2>/dev/null
+
 # Create GitHub Actions workflow for deployment
 show_progress "Setting up GitHub Actions deployment"
 if mkdir -p .github/workflows; then
