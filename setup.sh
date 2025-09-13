@@ -8,6 +8,12 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+# Flags from env or argv
+for arg in "$@"; do
+  [[ "$arg" == "--skip-ai" ]] && export SKIP_AI_MENU=1
+done
+NONINTERACTIVE="${NONINTERACTIVE:-}"
+
 # ASCII symbols for visual feedback - works on all platforms
 CHECK="${GREEN}[✓]${NC}"
 WORKING="${BLUE}[...]${NC}"
@@ -49,8 +55,10 @@ echo ""
 echo -e "${GREEN}Welcome! This setup will take about 2-3 minutes.${NC}"
 echo -e "${YELLOW}Don't worry - you can't break anything!${NC}"
 echo ""
-echo "Press Enter to continue..."
-read
+if [[ -z "$NONINTERACTIVE" ]]; then
+  echo "Press Enter to continue..."
+  read
+fi
 
 # Function to check if a package is installed globally
 check_installed() {
@@ -169,10 +177,13 @@ fi
 
 echo ""
 
-# Always show Step 3 for consistency
-echo ""
-echo -e "${BLUE}${BOLD}Step 3: Choose Your AI Assistant${NC}"
-echo ""
+if [[ -n "${SKIP_AI_MENU:-}" ]]; then
+  echo -e "${YELLOW}Skipping AI assistant installation (handled by launcher).${NC}"
+else
+  # Always show Step 3 for consistency
+  echo ""
+  echo -e "${BLUE}${BOLD}Step 3: Choose Your AI Assistant${NC}"
+  echo ""
 
 # Check if all tools are already installed
 if [ "$CLAUDE_INSTALLED" = true ] && [ "$CODEX_INSTALLED" = true ] && [ "$GEMINI_INSTALLED" = true ]; then
@@ -397,7 +408,11 @@ rm -rf .git 2>/dev/null
 
 # Create a quick reference file
 echo ""
-read -p "Would you like to create a QUICK_REFERENCE.txt file for reference? (y/n): " create_ref
+if [[ -z "$NONINTERACTIVE" ]]; then
+  read -p "Would you like to create a QUICK_REFERENCE.txt file for reference? (y/n): " create_ref
+else
+  create_ref="n"
+fi
 
 if [[ $create_ref =~ ^[Yy]$ ]]; then
     # Start creating the file

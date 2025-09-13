@@ -56,8 +56,8 @@
     ]
   }
   </script>
-  <script type="module" crossorigin src="/ai-website-builder/assets/index-CUyYfwY2.js"></script>
-  <link rel="stylesheet" crossorigin href="/ai-website-builder/assets/index-BP-EydfY.css">
+  <script type="module" crossorigin src="/ai-website-builder/assets/index-Dw6Mp33m.js"></script>
+  <link rel="stylesheet" crossorigin href="/ai-website-builder/assets/index-DRIm9oPa.css">
 </head>
 <body class="flex h-full flex-col bg-white antialiased text-slate-800">
   
@@ -74,11 +74,13 @@
           <p class="mt-6 text-xl sm:text-2xl leading-relaxed text-slate-700">
             Express your ideas in your own words. Watch them become a real website. No coding, no drag-and-drop, no limits.
           </p>
-          <div class="mt-10 flex justify-center">
+          <div class="mt-10 flex flex-col items-center justify-center gap-3">
             <button command="show-modal" commandfor="quick-setup" type="button" class="cursor-pointer rounded-full bg-blue-600 px-7 py-3.5 text-base font-semibold text-white hover:bg-blue-700 shadow-sm hover:shadow-md transition">Start Building Free →</button>
+            <div class="text-center">
+              <p class="text-sm text-slate-600">One-click setup available • Takes ~10 minutes</p>
+              <p class="text-xs text-slate-500 mt-1">No coding • No templates • You own your code</p>
+            </div>
           </div>
-          <p class="mt-3 text-center text-sm text-slate-600">Takes ~10 minutes.</p>
-          <p class="mt-2 text-center text-xs text-slate-500">No templates • No drag‑and‑drop • You own your code</p>
           <p class="mt-2 text-center text-sm">
             <a href="#compare" class="text-slate-600 underline decoration-slate-300 hover:text-slate-900 hover:decoration-slate-400">See comparison</a>
           </p>
@@ -277,7 +279,11 @@
           </div>
         </div>
 
-        <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-slate-600">Tip: Keep your website preview open while you chat — you’ll see updates instantly.</p>
+        <p class="mx-auto mt-8 max-w-3xl text-center text-sm text-slate-600">
+          <strong>Requirements:</strong> Node.js and Git (our launcher helps you install these if needed).
+          <br>
+          <strong>Tip:</strong> Keep your website preview open while you chat – you'll see updates instantly.
+        </p>
       </div>
     </section>
 
@@ -298,8 +304,8 @@
             <p class="mt-2 text-sm text-slate-700">OpenAI’s versatile coding CLI — fast, capable completions; great all‑rounder. Requires OpenAI API key.</p>
           </div>
           <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-            <h3 class="text-lg font-semibold text-slate-900">Gemini CLI</h3>
-            <p class="mt-2 text-sm text-slate-700">Google’s Gemini tools with generous free tier and easy Google sign‑in; strong multimodal reasoning.</p>
+            <h3 class="text-lg font-semibold text-slate-900">Google Gemini CLI</h3>
+            <p class="mt-2 text-sm text-slate-700">Google's Gemini with generous free tier (60 requests/min, 1,000/day). Just sign in with Google.</p>
           </div>
         </div>
       </div>
@@ -344,7 +350,13 @@
                 <td class="p-3 font-medium text-slate-900">Cost</td>
                 <td class="p-3">$2,000–5,000</td>
                 <td class="p-3">$20–50/month forever</td>
-                <td class="p-3 font-semibold text-emerald-700">Completely free</td>
+                <td class="p-3 font-semibold text-emerald-700">Free (with free AI tier)</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium text-slate-900">Setup</td>
+                <td class="p-3">Multiple meetings</td>
+                <td class="p-3">Account + learning curve</td>
+                <td class="p-3 font-semibold text-emerald-700">One-click launcher</td>
               </tr>
               <tr>
                 <td class="p-3 font-medium text-slate-900">Time</td>
@@ -372,6 +384,8 @@
     
   </main>
   
+  
+  
   <!-- Quick Setup Modal (Tailwind UI Elements) -->
   <el-dialog>
     <dialog id="quick-setup" aria-labelledby="setup-title" class="fixed inset-0 m-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent p-0 backdrop:bg-transparent">
@@ -396,16 +410,49 @@
             <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
               <h3 id="setup-title" class="text-base font-semibold text-gray-900">Quick Setup — 10 minutes</h3>
               <div class="mt-2">
-                <p class="text-sm text-gray-600">Follow these steps to start building with AI and see your preview live.</p>
-                <ol class="mt-3 space-y-2 text-sm text-gray-700">
-                  <li class="flex gap-2"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-[11px] font-semibold text-white">1</span> Open Terminal</li>
-                  <li class="flex gap-2"><span class="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-[11px] font-semibold text-white">2</span> Run these commands one by one:</li>
-                </ol>
-                <pre class="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-relaxed text-slate-100"><code>git clone https://github.com/builtbyV/ai-website-builder.git
+                <p class="text-sm text-gray-600">Choose the easiest way to start:</p>
+
+                <!-- One-Click Option -->
+                <div class="mt-4 rounded-lg bg-blue-50 p-4">
+                  <h4 class="font-semibold text-gray-900">Option 1: One-Click Setup (Easiest!)</h4>
+                  <p class="mt-2 text-sm text-gray-700">Download and double-click:</p>
+                  <div class="mt-2 flex flex-wrap gap-3">
+                    <a href="https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-WINDOWS.bat"
+                       class="inline-flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0-3-3m3 3 3-3m-8.25 6a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                      </svg>
+                      Windows (.bat)
+                    </a>
+                    <a href="https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-MAC.command"
+                       class="inline-flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0-3-3m3 3 3-3m-8.25 6a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                      </svg>
+                      Mac (.command)
+                    </a>
+                    <a href="https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-LINUX.sh"
+                       class="inline-flex items-center gap-1.5 rounded-md bg-white px-3 py-1.5 text-sm font-medium text-gray-900 ring-1 ring-gray-300 hover:bg-gray-50">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0-3-3m3 3 3-3m-8.25 6a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
+                      </svg>
+                      Linux (.sh)
+                    </a>
+                  </div>
+                  <p class="mt-2 text-xs text-gray-600">
+                    The launcher checks prerequisites and sets everything up automatically.
+                    <br>Linux users: Run <code class="bg-gray-100 px-1 rounded">chmod +x START-LINUX.sh && ./START-LINUX.sh</code>
+                  </p>
+                </div>
+
+                <!-- Terminal Option -->
+                <div class="mt-4">
+                  <h4 class="font-semibold text-gray-900">Option 2: Terminal Setup</h4>
+                  <p class="mt-2 text-sm text-gray-700">For those comfortable with Terminal:</p>
+                  <pre class="mt-2 overflow-x-auto rounded-lg bg-slate-900 p-4 text-xs leading-relaxed text-slate-100"><code>git clone https://github.com/builtbyV/ai-website-builder.git
 cd ai-website-builder
-bash setup.sh
-npm run dev   # open http://localhost:5173
-npx codex     # or: npx claude / npx gemini</code></pre>
+bash setup.sh</code></pre>
+                </div>
               </div>
             </div>
           </div>

@@ -33,6 +33,7 @@ yarn-error.log*
 
 # Local development
 .cache/
+.private/
 
 # Deployment files
 .netlify/

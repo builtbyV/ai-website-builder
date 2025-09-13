@@ -1,6 +1,6 @@
 # AI Website Builder 🤖
 
-Build your website by just talking to AI in your own language - no coding required!
+Build your website by just talking to AI in your own language — no coding required!
 
 ## 🎯 What is this?
 
@@ -8,10 +8,10 @@ This is a website template that lets you build and update your site by having co
 
 ### Choose Your AI Assistant:
 - **Claude Code** - AI coding agent by Anthropic
-- **OpenAI Codex CLI** - AI coding agent by OpenAI
-- **Gemini CLI** - AI coding agent by Google
+- **OpenAI Codex CLI** - AI coding agent by OpenAI  
+- **Google Gemini CLI** - AI coding agent by Google (FREE tier available!)
 
-All understand natural language and can build your website - pick any one!
+All understand natural language and can build your website — pick any one!
 
 ### Perfect for:
 - Small business owners who need a professional website
@@ -32,14 +32,55 @@ Your AI understands and does the technical work for you!
 
 ## 🚀 Getting Started (It's Really Simple!)
 
-### What You Need:
+### 🎯 Easiest Way: One-Click Setup (New!)
+
+No terminal experience? No problem! We've created launcher scripts that handle everything:
+
+### For Windows:
+1. Download [`START-WINDOWS.bat`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-WINDOWS.bat)
+2. Double-click it
+3. That's it! Two Terminal windows will open and your browser will show your website
+
+### For Mac:
+1. Download [`START-MAC.command`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-MAC.command)
+2. **First time only**: Right-click the downloaded file → Open → Click "Open" in the security dialog
+   - This gives the script permission to run (Mac's security feature)
+   - You only need to do this once
+3. After that, just double-click to run
+4. Two Terminal windows will open and your browser will show your website
+
+### For Linux:
+1. Download [`START-LINUX.sh`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-LINUX.sh)
+2. Open Terminal in your Downloads folder
+3. Run: `chmod +x START-LINUX.sh && ./START-LINUX.sh`
+4. Two Terminal windows will open and your browser will show your website
+
+The launcher will:
+- ✅ Check if you have Git and Node.js (and help you install if needed)
+- ✅ Download the project automatically
+- ✅ Set everything up
+- ✅ Ask which AI assistant you want (Gemini is free!)
+- ✅ Open your website preview
+- ✅ Start your AI assistant ready to chat
+
+After setup: You'll see two windows — one shows your website, the other is where you chat with AI to make changes!
+
+---
+
+Prefer the manual way? Continue reading below for terminal instructions.
+
+### Manual Setup Instructions
+
+#### What You Need:
 - A computer with internet
-- Node.js installed ([Download here](https://nodejs.org) - it's like installing any app!)
-- Git installed ([Download here](https://git-scm.com) - for downloading the project)
+- Node.js ([Download here](https://nodejs.org) - installs like any app)
+- Git (Windows: [Download here](https://git-scm.com); Mac/Linux: usually pre-installed)
 - 10 minutes to set up
 - That's it! (You'll create a free hosting account when ready to publish)
 
-### 🖥️ Opening Terminal
+**Or use our launcher scripts above — they'll check and guide you through installing anything missing!**
+
+#### Opening Terminal
 
 Terminal is an app that lets you type commands.
 
@@ -57,9 +98,9 @@ Terminal is an app that lets you type commands.
 1. Press `Ctrl + Alt + T`
 Or search for "Terminal" in your applications
 
-You'll see a window with text and a blinking cursor - this is where you'll type commands!
+You'll see a window with text and a blinking cursor — this is where you'll type commands!
 
-### Three Simple Steps:
+#### Three Simple Steps:
 
 #### 1. Get the Website Template
 
@@ -106,7 +147,6 @@ Just a few commands you might need:
 - `cd ..` - Go back up one folder  
 - `ls` - See what's in current folder (works in Git Bash on Windows too)
 - `pwd` - See where you are
-- `Ctrl+C` (or `Command+C` on Mac) - Stop something that's running
 
 **Examples:**
 
@@ -129,6 +169,11 @@ Check which folder you're in:
 ```bash
 pwd
 ```
+
+### Stopping Running Processes:
+- **Windows/Linux**: Press `Ctrl + C` to stop any running command
+- **Mac**: Press `Command + C` to stop any running command
+- This is useful when you need to stop the preview server or AI assistant
 
 #### 3. Start Building!
 
@@ -180,7 +225,7 @@ Here's what a real conversation looks like:
 - "Change the business name to Tony's Pizza"
 - "Make the background red instead of blue"
 - "Add our phone number to the top"
-- "Make the text bigger - my customers are older"
+- "Make the text bigger — my customers are older"
 
 ### Adding Content:
 - "Add photos of our best dishes"
@@ -217,7 +262,7 @@ You'll need two Terminal windows - one for your website preview, another for cha
 
 **On Linux:**
 1. Press `Ctrl + Shift + N` in most terminals
-Or open a new terminal from your applications
+Or open a new Terminal from your applications
 
 Click between windows to switch.
 
@@ -260,19 +305,28 @@ Your AI assistant will:
 - Publish it to the internet
 - Give you a public link you can share
 
-## 🌐 Free Website Hosting
+## 🌐 Free Website Hosting Options
 
 Your website can be hosted for FREE on any of these platforms:
+
 - **GitHub Pages**: `https://[username].github.io/[project]/`
 - **Cloudflare Pages**: Fast global CDN
-- **Netlify**: Easy custom domains
+- **Netlify**: Easy custom domains  
 - **Vercel**: Great for modern apps
 
-When you're ready to publish, just tell your AI "I want to publish my website" and choose your preferred platform. The AI will guide you through creating a free account if needed.
+When you're ready to publish, just tell your AI assistant "I want to publish my website" and it will:
+- Ask which platform you prefer
+- Guide you through creating a free account (if needed)
+- Publish your site automatically
+- Give you your live website URL!
+
+**No credit card required for any of these services!**
 
 ### Creating Another Website:
 
 Want to build another website? Here's how:
+
+**Tip:** Each website is completely independent. You can have multiple websites in different folders and work on them separately!
 
 **Step 1** - Go back to your main folder:
 ```bash
@@ -329,10 +383,12 @@ A: Not at all! Just describe what you want in your own words.
 A: Just tell your AI to undo it or change it back. Everything is saved, so you can't break anything.
 
 **Q: How much does this cost?**
-A: The template is free! The AI tools are free to install. Recommended for free use: **Gemini**.
-- Gemini CLI: Free tier: 60 requests/min and 1,000 requests/day (Google login)
-- Claude Code: use with a Claude.ai subscription plan (e.g., Pro) or API key
-- OpenAI Codex: sign in with your ChatGPT account; works with Plus, Pro, Team, Edu, or Enterprise plans
+A: The template is free! For AI assistants:
+- **Google Gemini CLI**: FREE tier with 60 requests/min, 1,000/day (just sign in with Google)
+- **Claude Code**: Requires Claude.ai Pro subscription (~$20/month) or API key
+- **OpenAI Codex**: Requires ChatGPT Plus (~$20/month) or higher plan
+
+**Recommended for beginners:** Start with Google Gemini — it's free!
 
 **Q: Can I add my own images?**
 A: Yes! Put them in the `public/images/` folder and tell your AI to use them.
@@ -365,6 +421,20 @@ Your website comes with:
 - Don't worry—just run `bash setup.sh` again
 - It will skip what's already installed
 - If still stuck, close Terminal and start fresh
+
+### If the Launcher Script Doesn't Work:
+
+Windows:
+- Make sure you have Git for Windows installed
+- Right-click the `.bat` file → "Run as administrator" if needed
+
+Mac:
+- If you see "cannot be opened": System Settings → Privacy & Security → "Open Anyway"
+- Or in Terminal: `chmod +x START-MAC.command` then double-click
+
+Linux:
+- Make sure the script is executable: `chmod +x START-LINUX.sh`
+- Run with: `./START-LINUX.sh` (not `sh START-LINUX.sh`)
 
 ### If Claude Code won't start:
 1. Make sure you're in your project folder
