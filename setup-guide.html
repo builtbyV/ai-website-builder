@@ -50,7 +50,6 @@
            <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="project">Get Project</div>
            <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="setup">Run Setup</div>
            <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="ai">AI Assistant</div>
-           <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="github">GitHub Desktop</div>
            <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="develop">Develop</div>
            <div class="progress-step flex-shrink-0 px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm font-medium cursor-pointer transition-all hover:bg-gray-200" data-section="publish">Publish!</div>
        </div>
@@ -334,43 +333,39 @@ $</pre>
                </div>
 
                <h3 class="text-xl font-bold text-gray-900 mb-4">The Setup Will Ask You:</h3>
-               <p class="text-gray-600 mb-6">Which AI assistant do you want to use? Here's a quick comparison:</p>
+               <p class="text-gray-600 mb-6">Which AI assistant would you like to install? The menu is dynamic and may also include “Install all remaining tools” and “Skip for now”. Here’s a quick comparison to help you choose:</p>
 
                <div class="overflow-x-auto mb-8">
                    <table class="w-full border-collapse">
                        <thead>
                            <tr class="bg-gray-50">
                                <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">AI Assistant</th>
-                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Best For</th>
                                <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Cost</th>
-                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Setup Difficulty</th>
+                               <th class="text-left p-4 font-semibold text-gray-900 border border-gray-200">Sign‑in</th>
                            </tr>
                        </thead>
                        <tbody>
                            <tr>
                                <td class="p-4 border border-gray-200"><strong>Google Gemini</strong></td>
-                               <td class="p-4 border border-gray-200">Free tier, good for beginners</td>
-                               <td class="p-4 border border-gray-200">Free (1,000 requests/day)</td>
-                               <td class="p-4 border border-gray-200">⭐⭐ Moderate</td>
+                               <td class="p-4 border border-gray-200">Free tier: 60 requests/min and 1,000 requests/day</td>
+                               <td class="p-4 border border-gray-200">Browser login</td>
                            </tr>
                            <tr class="bg-gray-50">
                                <td class="p-4 border border-gray-200"><strong>Claude Code</strong></td>
-                               <td class="p-4 border border-gray-200">Natural conversations, great explanations</td>
-                               <td class="p-4 border border-gray-200">Requires Claude Pro ($20/month)</td>
-                               <td class="p-4 border border-gray-200">⭐ Easiest</td>
+                               <td class="p-4 border border-gray-200">Claude.ai subscription plan (e.g., Pro) or API key</td>
+                               <td class="p-4 border border-gray-200">Browser login</td>
                            </tr>
                            <tr>
                                <td class="p-4 border border-gray-200"><strong>OpenAI Codex</strong></td>
-                               <td class="p-4 border border-gray-200">Versatile, powerful coding</td>
-                               <td class="p-4 border border-gray-200">Pay-as-you-go (new users get $5 free)</td>
-                               <td class="p-4 border border-gray-200">⭐⭐ Moderate</td>
+                               <td class="p-4 border border-gray-200">Use with ChatGPT Plus/Pro/Team/Edu/Enterprise</td>
+                               <td class="p-4 border border-gray-200">Browser login (ChatGPT)</td>
                            </tr>
                        </tbody>
                    </table>
                </div>
 
                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                   <p class="text-gray-700"><strong>Not sure?</strong> Choose option 3 (Google Gemini) for the free option, or option 4 to install all three and decide later!</p>
+                   <p class="text-gray-700"><strong>Recommended:</strong> <em>Google Gemini</em> — free tier available. Or choose <em>Install all remaining tools</em> to try them all and decide later.</p>
                </div>
 
                <div class="bg-green-50 border border-green-200 rounded-xl p-6">
@@ -412,17 +407,8 @@ $</pre>
                            <pre>npx gemini</pre>
                        </div>
 
-                       <p class="text-gray-700 mb-4">The first time you run this:</p>
-                       <ol class="space-y-2 text-gray-700 mb-6">
-                           <li>1. It will show a URL or open your browser</li>
-                           <li>2. Log in with your Google account</li>
-                           <li>3. Authorize Gemini CLI</li>
-                           <li>4. Return to terminal - you'll see it's ready</li>
-                       </ol>
-
-                       <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                           <p class="text-gray-700"><strong>Note:</strong> Use a personal Google account for the free tier. Work/school accounts might not have access.</p>
-                       </div>
+                       <h4 class="text-lg font-semibold text-gray-900 mb-2">Sign in</h4>
+                       <p class="text-gray-700 mb-6">On first run, choose Login with Google and complete the browser prompt. Return to the terminal to continue.</p>
 
                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                            <p class="text-gray-700"><strong>Success:</strong> You see a prompt and can type commands!</p>
@@ -441,19 +427,8 @@ $</pre>
                            <pre>npx claude</pre>
                        </div>
 
-                       <p class="text-gray-700 mb-4">The first time you run this:</p>
-                       <ol class="space-y-2 text-gray-700 mb-6">
-                           <li>1. It will open your web browser</li>
-                           <li>2. Log in with your Anthropic account (requires Claude Pro subscription)</li>
-                           <li>3. Authorize the connection</li>
-                           <li>4. Return to your terminal - you'll see a <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">&gt;</code> prompt</li>
-                       </ol>
-
-                       <p class="text-gray-600 mb-4">Test it by typing:</p>
-                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
-                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
-                           <pre>hello</pre>
-                       </div>
+                       <h4 class="text-lg font-semibold text-gray-900 mb-2">Sign in</h4>
+                       <p class="text-gray-700 mb-6">On first run, a browser window opens — sign in to your Anthropic/Claude account and return to the terminal.</p>
 
                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                            <p class="text-gray-700"><strong>Success:</strong> Claude responds with a friendly greeting!</p>
@@ -466,25 +441,14 @@ $</pre>
                    <div class="bg-gray-50 rounded-xl p-6">
                        <h3 class="text-xl font-bold text-gray-900 mb-4">Setting Up OpenAI Codex</h3>
                        
-                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Get Your API Key:</h4>
-                       <ol class="space-y-2 text-gray-700 mb-6">
-                           <li>1. Go to <a href="https://platform.openai.com/api-keys" target="_blank" class="text-blue-600 underline">platform.openai.com/api-keys</a></li>
-                           <li>2. Log in or create an account</li>
-                           <li>3. Click "Create new secret key"</li>
-                           <li>4. Copy the key immediately (starts with <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">sk-</code>)</li>
-                       </ol>
-
-                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Set Your API Key:</h4>
-                       <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
-                           <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
-                           <pre>export OPENAI_API_KEY="sk-your-key-here"</pre>
-                       </div>
-
-                       <h4 class="text-lg font-semibold text-gray-900 mb-3">Start Codex:</h4>
+                       <p class="text-gray-600 mb-4">Start Codex by running:</p>
                        <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6 relative">
                            <button onclick="copyCode(this)" class="absolute top-3 right-3 bg-[#d4ff00] text-black px-3 py-1 rounded text-xs font-sans font-medium hover:bg-[#c4ef00] transition-colors">Copy</button>
                            <pre>npx codex</pre>
                        </div>
+
+                       <h4 class="text-lg font-semibold text-gray-900 mb-2">Sign in</h4>
+                       <p class="text-gray-700 mb-6">On first run, a browser window opens — sign in with your OpenAI/ChatGPT account and return to the terminal.</p>
 
                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
                            <p class="text-gray-700"><strong>Success:</strong> You see a <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">&gt;</code> prompt ready for commands!</p>
@@ -503,59 +467,12 @@ $</pre>
            </div>
        </section>
 
-       <!-- GitHub Desktop Section -->
-       <section id="github" class="section hidden">
-           <div class="bg-white rounded-3xl p-8 md:p-12">
-               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 5: Installing GitHub Desktop</h2>
-               
-               <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-                   <p class="text-gray-700"><strong>Why GitHub Desktop?</strong> It gives you a visual way to save your work and publish your website - no more command line needed for Git!</p>
-               </div>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Installation</h3>
-               <ol class="space-y-3 text-gray-700 mb-8">
-                   <li>1. Download from <a href="https://desktop.github.com" target="_blank" class="text-blue-600 underline">desktop.github.com</a></li>
-                   <li>2. Install it like any other app</li>
-                   <li>3. Open GitHub Desktop</li>
-                   <li>4. Click "Sign in to GitHub.com"</li>
-                   <li>5. Complete the login in your browser</li>
-               </ol>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Add Your Project</h3>
-               <ol class="space-y-3 text-gray-700 mb-8">
-                   <li>1. In GitHub Desktop: <strong>File → Add Local Repository</strong></li>
-                   <li>2. Click "Choose..." and select your <code class="px-2 py-0.5 bg-gray-100 rounded text-sm">ai-website-builder</code> folder</li>
-                   <li>3. Click "Add Repository"</li>
-               </ol>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Publish to GitHub</h3>
-               <ol class="space-y-3 text-gray-700 mb-8">
-                   <li>1. Click the "Publish repository" button</li>
-                   <li class="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                       <strong>IMPORTANT:</strong> Uncheck "Keep this code private"
-                   </li>
-                   <li>3. Click "Publish Repository"</li>
-               </ol>
-
-               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6">
-                   <p class="text-gray-700"><strong>Note:</strong> This doesn't make your website live yet - it just backs up your code to GitHub. We'll make it live in the final step!</p>
-               </div>
-
-               <div class="flex justify-between mt-8">
-                   <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
-                       ← Previous
-                   </button>
-                   <button onclick="nextSection()" class="bg-black text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors">
-                       Next Step →
-                   </button>
-               </div>
-           </div>
-       </section>
+       
 
        <!-- Development Section -->
        <section id="develop" class="section hidden">
            <div class="bg-white rounded-3xl p-8 md:p-12">
-               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 6: Building Your Website!</h2>
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 5: Building Your Website!</h2>
                
                <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
                    <p class="font-medium text-gray-800 mb-2">The Two-Terminal Setup:</p>
@@ -614,6 +531,19 @@ $</pre>
 
                <p class="text-gray-600 mb-6">Look at your browser - the change appears instantly! 🎉</p>
 
+               <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-8">
+                 <p class="font-semibold text-gray-900 mb-3">Jumpstart with a starter scaffold:</p>
+                 <ul class="grid md:grid-cols-2 gap-2 text-gray-700">
+                   <li>🍕 Restaurant/Food — Menu, hours, location</li>
+                   <li>💼 Professional Services — Services, testimonials, contact</li>
+                   <li>🏥 Health & Wellness — Services, practitioners, booking</li>
+                   <li>🛍️ Online Store — Products, payment info</li>
+                   <li>🎨 Portfolio/Personal — Work samples, about</li>
+                   <li>✍️ Start blank — Basic template</li>
+                 </ul>
+                 <p class="text-gray-600 mt-3">Tell your AI which one to start from; it will scaffold and then swap in your details.</p>
+               </div>
+
                <h3 class="text-xl font-bold text-gray-900 mb-4">More Things to Try:</h3>
                <ul class="space-y-2 text-gray-700">
                    <li>• "Make the background light blue"</li>
@@ -636,63 +566,26 @@ $</pre>
        <!-- Publish Section -->
        <section id="publish" class="section hidden">
            <div class="bg-white rounded-3xl p-8 md:p-12">
-               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 7: Publishing Your Website! 🚀</h2>
+               <h2 class="text-3xl font-bold text-gray-900 mb-6">Step 6: Publish Your Website 🚀</h2>
                
-               <p class="text-lg text-gray-600 mb-8">Time to make your website live on the internet!</p>
+               <p class="text-lg text-gray-600 mb-8">One command publishes your site!</p>
 
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 1: Save Your Changes</h3>
-               <p class="text-gray-600 mb-4">In GitHub Desktop:</p>
-               <ol class="space-y-2 text-gray-700 mb-8">
-                   <li>1. You'll see your changed files listed</li>
-                   <li>2. Write a short message like "Updated website content"</li>
-                   <li>3. Click "Commit to main"</li>
-                   <li>4. Click "Push origin"</li>
-               </ol>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 2: Enable GitHub Pages</h3>
-               <ol class="space-y-2 text-gray-700 mb-8">
-                   <li>1. Go to your repository on GitHub.com</li>
-                   <li>2. Click "Settings" tab</li>
-                   <li>3. Scroll down to "Pages" in the left sidebar</li>
-                   <li>4. Under "Source", select "Deploy from a branch"</li>
-                   <li>5. Under "Branch", select "main" and "/ (root)"</li>
-                   <li>6. Click "Save"</li>
-               </ol>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4">Step 3: Wait for the Magic!</h3>
-               <p class="text-gray-600 mb-4">GitHub will build and deploy your site. This takes about 2-5 minutes.</p>
-               
-               <p class="text-gray-600 mb-4">Your website will be live at:</p>
+               <!-- Simple command -->
                <div class="bg-gray-900 text-gray-100 rounded-xl p-4 font-mono text-sm mb-6">
-                   <pre>https://[your-username].github.io/ai-website-builder/</pre>
+                   <pre>npm run deploy</pre>
                </div>
+               
+               <p class="text-gray-600 mb-8">This will:</p>
+               <ol class="space-y-2 text-gray-700 mb-8">
+                   <li>✓ Check for placeholders automatically</li>
+                   <li>✓ Ask where you want to publish (GitHub, Cloudflare, Netlify, or Vercel)</li>
+                   <li>✓ Open your browser for one-time login</li>
+                   <li>✓ Deploy your site and show you the URL!</li>
+               </ol>
 
-               <div class="bg-orange-50 border border-orange-200 rounded-xl p-6 mb-8">
-                   <p class="text-gray-700"><strong>First-Time Note:</strong> You might see a 404 error at first. This is normal! Wait 5-10 minutes and refresh. Your site needs time to propagate across GitHub's servers.</p>
+               <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+                   <p class="text-gray-700"><strong>That's it!</strong> Your site will be live in 2-5 minutes. First deploy takes longer (5-10 minutes).</p>
                </div>
-
-               <div class="bg-[#d4ff00] bg-opacity-10 border border-[#d4ff00] rounded-3xl p-8 text-center mt-12">
-                   <h2 class="text-3xl font-bold text-gray-900 mb-4">🎉 Congratulations! You Did It! 🎉</h2>
-                   <p class="text-lg text-gray-700 mb-6">You've successfully built and published a website using AI!</p>
-                   
-                   <div class="bg-white rounded-xl p-6 max-w-2xl mx-auto text-left">
-                       <p class="font-semibold text-gray-900 mb-3">What You Accomplished:</p>
-                       <ul class="space-y-2 text-gray-700">
-                           <li>✅ Set up a professional development environment</li>
-                           <li>✅ Connected an AI coding assistant</li>
-                           <li>✅ Built a website by describing what you want</li>
-                           <li>✅ Published it live on the internet</li>
-                           <li>✅ Learned skills that usually take months!</li>
-                       </ul>
-                   </div>
-               </div>
-
-               <h3 class="text-xl font-bold text-gray-900 mb-4 mt-12">What's Next?</h3>
-               <ul class="space-y-2 text-gray-700 mb-8">
-                   <li>• <strong>Keep Building:</strong> Continue chatting with AI to add more features</li>
-                   <li>• <strong>Share Your Site:</strong> Send the link to friends and family!</li>
-                   <li>• <strong>Learn More:</strong> Each change you make teaches you something new</li>
-               </ul>
 
                <div class="flex justify-center mt-8">
                    <button onclick="previousSection()" class="bg-gray-200 text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-300 transition-colors">
@@ -707,7 +600,7 @@ $</pre>
    <script>
         // Section Navigation
         let currentSection = 0;
-        const sections = ['intro', 'terminal', 'project', 'setup', 'ai', 'github', 'develop', 'publish'];
+        const sections = ['intro', 'terminal', 'project', 'setup', 'ai', 'develop', 'publish'];
 
         function showSection(sectionId) {
             // Hide all sections

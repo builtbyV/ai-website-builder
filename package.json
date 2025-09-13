@@ -1,19 +1,30 @@
 {
-    "name": "ai-website-builder",
-    "version": "1.0.0",
-    "description": "Build websites by talking to AI - no coding required",
-    "type": "module",
-    "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "preview": "vite preview"
-    },
-    "keywords": ["ai", "website", "builder", "no-code", "claude", "codex"],
-    "author": "V",
-    "license": "MIT",
-    "devDependencies": {
-      "@tailwindcss/vite": "^4.1.8",
-      "tailwindcss": "^4.1.8"
-    }
+  "name": "ai-website-builder",
+  "version": "1.0.0",
+  "description": "Build websites by talking to AI - no coding required",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "bash scripts/deploy.sh",
+    "publish:github": "bash scripts/publish-github.sh",
+    "publish:cloudflare": "bash scripts/publish-cloudflare.sh",
+    "publish:netlify": "bash scripts/publish-netlify.sh",
+    "publish:vercel": "bash scripts/publish-vercel.sh"
+  },
+  "keywords": [
+    "ai",
+    "website",
+    "builder",
+    "no-code",
+    "claude",
+    "codex"
+  ],
+  "author": "V",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.8",
+    "tailwindcss": "^4.1.8"
   }
-  
+}

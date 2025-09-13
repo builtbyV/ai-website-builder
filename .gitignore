@@ -1,5 +1,7 @@
 # Dependencies
 node_modules/
+package-lock.json
+yarn.lock
 
 # Build
 dist/
@@ -31,3 +33,7 @@ yarn-error.log*
 
 # Local development
 .cache/
+
+# Deployment files
+.netlify/
+.vercel/

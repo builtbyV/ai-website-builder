@@ -74,14 +74,10 @@ update_installation_status() {
 
 # Function to check Node.js version
 check_node_version() {
-    if command -v node &> /dev/null; then
-        NODE_VERSION=$(node -v | cut -d'v' -f2)
+    if command -v node >/dev/null 2>&1; then
         REQUIRED_VERSION="18.0.0"
-        if [ "$(printf '%s\n' "$REQUIRED_VERSION" "$NODE_VERSION" | sort -V | head -n1)" = "$REQUIRED_VERSION" ]; then
-            return 0
-        else
-            return 1
-        fi
+        node -e "process.exit(process.versions.node.localeCompare('$REQUIRED_VERSION', undefined, {numeric:true, sensitivity:'base'}) >= 0 ? 0 : 1)"
+        return $?
     else
         return 1
     fi
@@ -201,8 +197,8 @@ else
         # Add Gemini if not installed
         if [ "$GEMINI_INSTALLED" = false ]; then
             echo -e "${BOLD}$OPTION_NUM) ${YELLOW}Google Gemini${NC}"
-            echo "   • Sign in with Google account OR use API key"
-            echo "   • Free tier: 1,000 requests/day (Google account) or 100/day (API key)"
+            echo "   • Sign in with your Google account"
+            echo "   • Free tier: 60 requests/min and 1,000 requests/day"
             echo ""
             MENU_OPTIONS+=("$OPTION_NUM")
             MENU_MAPPING+=("gemini")
@@ -212,9 +208,8 @@ else
         # Add Claude if not installed
         if [ "$CLAUDE_INSTALLED" = false ]; then
             echo -e "${BOLD}$OPTION_NUM) ${GREEN}Claude Code${NC}"
-            echo "   • Use Claude Pro/Max subscription OR API key"
-            echo "   • API: ~\$50-60/developer per month average"
-            echo "   • Subscription: Included in Claude Pro (\$20/month)"
+            echo "   • Sign in with your Claude.ai account (subscription plan) or use API key"
+            echo "   • Subscription: Claude.ai plans (e.g., Pro)"
             echo ""
             MENU_OPTIONS+=("$OPTION_NUM")
             MENU_MAPPING+=("claude")
@@ -252,6 +247,7 @@ else
         echo ""
         MENU_OPTIONS+=("$OPTION_NUM")
         MENU_MAPPING+=("skip")
+        ((OPTION_NUM++))
         
         # Get user choice with validation
         while true; do
@@ -364,7 +360,9 @@ CLAUDE.md
 GEMINI.md
 setup.sh
 QUICK_REFERENCE.txt
-guide.html
+setup-guide.html
+scripts/
+docs/
 EOF
     show_done "Created .gitignore file"
 else
@@ -377,7 +375,9 @@ else
         echo "GEMINI.md" >> .gitignore
         echo "setup.sh" >> .gitignore
         echo "QUICK_REFERENCE.txt" >> .gitignore
-        echo "guide.html" >> .gitignore
+        echo "setup-guide.html" >> .gitignore
+        echo "scripts/" >> .gitignore
+        echo "docs/" >> .gitignore
         show_done "Updated .gitignore file"
     fi
 fi
@@ -394,68 +394,6 @@ fi
 
 # Remove template git
 rm -rf .git 2>/dev/null
-
-# Remove docs directory (used for GitHub Pages landing page, not needed after installation)
-rm -rf docs 2>/dev/null
-
-# Create GitHub Actions workflow for deployment
-show_progress "Setting up GitHub Actions deployment"
-if mkdir -p .github/workflows; then
-    cat > .github/workflows/deploy.yml << 'EOF'
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build
-        run: npm run build
-        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-EOF
-    show_done "GitHub Actions deployment configured"
-else
-    show_error "Could not create .github/workflows directory" "GitHub Actions deployment setup skipped"
-fi
 
 # Create a quick reference file
 echo ""
@@ -519,6 +457,13 @@ EOF
     show_done "Created QUICK_REFERENCE.txt for your reference"
 fi
 
+# Make scripts executable if present
+if [ -d "scripts" ]; then
+    chmod +x scripts/*.sh 2>/dev/null || true
+    chmod +x scripts/*.mjs 2>/dev/null || true
+    show_done "Marked scripts as executable"
+fi
+
 # Final success message
 echo ""
 echo -e "${GREEN}${BOLD}===================================================${NC}"
@@ -528,7 +473,7 @@ echo ""
 echo -e "${BLUE}${BOLD}What's Next?${NC}"
 echo ""
 echo "1. Open the visual guide:"
-echo -e "   ${YELLOW}Open guide.html in your web browser${NC}"
+echo -e "   ${YELLOW}Open setup-guide.html in your web browser${NC}"
 echo ""
 echo "2. Start your website preview:"
 echo -e "   ${YELLOW}npm run dev${NC}"
@@ -537,7 +482,7 @@ echo "3. In a new terminal, chat with your AI:"
 
 # Show specific commands based on what was installed
 if [ "$GEMINI_INSTALLED" = true ]; then
-    echo -e "   ${YELLOW}npx gemini${NC}  # Sign in with Google or use GEMINI_API_KEY"
+    echo -e "   ${YELLOW}npx gemini${NC}  # Sign in with your Google account"
 fi
 if [ "$CLAUDE_INSTALLED" = true ]; then
     echo -e "   ${YELLOW}npx claude${NC}  # Use subscription or set ANTHROPIC_AUTH_TOKEN"
@@ -552,7 +497,7 @@ echo ""
 echo -e "${BLUE}Happy building! *${NC}"
 
 # Optional guide opening
-if [ -f "guide.html" ]; then
+if [ -f "setup-guide.html" ]; then
     echo ""
     read -p "Would you like to open the visual guide in your browser? (y/n): " open_guide
     if [[ $open_guide =~ ^[Yy]$ ]]; then
@@ -560,11 +505,11 @@ if [ -f "guide.html" ]; then
         
         # Cross-platform browser opening
         if [[ "$OSTYPE" == "darwin"* ]]; then
-            open guide.html 2>/dev/null &
+            open setup-guide.html 2>/dev/null &
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-            xdg-open guide.html 2>/dev/null &
+            xdg-open setup-guide.html 2>/dev/null &
         elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" ]]; then
-            start guide.html 2>/dev/null &
+            start setup-guide.html 2>/dev/null &
         fi
         
         sleep 1

@@ -308,9 +308,9 @@ bash setup.sh
 
 ### Other Hosting Options:
 While we recommend GitHub Pages, your AI assistant can also help you deploy to:
-- **Cloudflare Pages** - Unlimited bandwidth
-- **Netlify** - Drag & drop option
-- **Vercel** - Advanced features
+- **Cloudflare Pages** - Unlimited bandwidth (script installs `wrangler@latest` locally if needed)
+- **Netlify** - Drag & drop option (script installs `netlify-cli` locally if needed)
+- **Vercel** - Advanced features (script installs `vercel` locally if needed)
 
 Just ask: "Can you help me deploy to Netlify instead?"
 
@@ -347,10 +347,10 @@ A: Not at all! Just describe what you want in your own words.
 A: Just tell your AI to undo it or change it back. Everything is saved, so you can't break anything.
 
 **Q: How much does this cost?**
-A: The template is free! All three AI tools are free to install:
-- Claude Code requires an Anthropic account
-- Codex CLI needs an OpenAI account (new users get $5 free credit)
-- Gemini CLI works with your Google account (1,000 free requests/day) or API key
+A: The template is free! The AI tools are free to install. Recommended for free use: **Gemini**.
+- Gemini CLI: Free tier: 60 requests/min and 1,000 requests/day (Google login)
+- Claude Code: use with a Claude.ai subscription plan (e.g., Pro) or API key
+- OpenAI Codex: sign in with your ChatGPT account; works with Plus, Pro, Team, Edu, or Enterprise plans
 
 **Q: Can I add my own images?**
 A: Yes! Put them in the `public/images/` folder and tell your AI to use them.
@@ -390,9 +390,9 @@ Your website comes with:
 3. Run: `npx claude` again
 
 ### If Codex CLI won't start:
-1. Make sure you exported your OpenAI API key
-2. Try: `npm install -g @openai/codex`
-3. Run: `npx codex` again
+1. Make sure you're signed in: run `npx codex` and complete the browser login (ChatGPT account)
+2. If needed: run `codex login`
+3. As a fallback, try installing the CLI: `npm install -g @openai/codex`, then run `npx codex`
 
 ### If Gemini CLI won't start:
 1. Make sure you're in your project folder
