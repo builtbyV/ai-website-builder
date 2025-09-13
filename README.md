@@ -34,9 +34,10 @@ Your AI understands and does the technical work for you!
 
 ### What You Need:
 - A computer with internet
-- A free GitHub account (needed later when you publish your site)
+- Node.js installed ([Download here](https://nodejs.org) - it's like installing any app!)
+- Git installed ([Download here](https://git-scm.com) - for downloading the project)
 - 10 minutes to set up
-- That's it!
+- That's it! (You'll create a free hosting account when ready to publish)
 
 ### 🖥️ Opening Terminal
 
@@ -259,28 +260,15 @@ Your AI assistant will:
 - Publish it to the internet
 - Give you a public link you can share
 
-## 🏠 Free Website Hosting with GitHub Pages
+## 🌐 Free Website Hosting
 
-Your website will be hosted for FREE on GitHub Pages! Here's what you need to know:
+Your website can be hosted for FREE on any of these platforms:
+- **GitHub Pages**: `https://[username].github.io/[project]/`
+- **Cloudflare Pages**: Fast global CDN
+- **Netlify**: Easy custom domains
+- **Vercel**: Great for modern apps
 
-### What is GitHub Pages?
-GitHub Pages is a free service that hosts your website online:
-- **Free hosting** from GitHub (the same place your code lives)
-- **Your own web address** like `username.github.io/project-name`
-- **Automatic updates** when you publish changes
-- **No monthly fees** - completely free forever!
-
-**Note:** To publish your website, you'll need a free GitHub account. Your AI assistant will guide you when it's time.
-
-### Your Website Address Will Be:
-- **GitHub Pages**: `https://[your-username].github.io/[repository-name]/`
-- **Custom Domain** (optional): You can use your own domain like `mybusiness.com`
-
-### How Publishing Works:
-1. You make changes with your AI assistant
-2. Say "I want to publish my website"
-3. Your AI handles all the technical stuff
-4. Your site goes live in 2-5 minutes!
+When you're ready to publish, just tell your AI "I want to publish my website" and choose your preferred platform. The AI will guide you through creating a free account if needed.
 
 ### Creating Another Website:
 
@@ -306,13 +294,7 @@ cd my-new-site
 bash setup.sh
 ```
 
-### Other Hosting Options:
-While we recommend GitHub Pages, your AI assistant can also help you deploy to:
-- **Cloudflare Pages** - Unlimited bandwidth (script installs `wrangler@latest` locally if needed)
-- **Netlify** - Drag & drop option (script installs `netlify-cli` locally if needed)
-- **Vercel** - Advanced features (script installs `vercel` locally if needed)
 
-Just ask: "Can you help me deploy to Netlify instead?"
 
 ## 💡 Tips for Talking to Your AI
 
