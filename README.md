@@ -43,11 +43,21 @@ No terminal experience? No problem! We've created launcher scripts that handle e
 
 ### For Mac:
 1. Download [`START-MAC.command`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-MAC.command)
-2. **First time only**: Right-click the downloaded file → Open → Click "Open" in the security dialog
-   - This gives the script permission to run (Mac's security feature)
-   - You only need to do this once
-3. After that, just double-click to run
-4. Two Terminal windows will open and your browser will show your website
+2. Double-click to run
+3. Two Terminal windows will open and your browser will show your website
+
+#### If macOS blocks the script (Gatekeeper)
+
+If you double‑click `START-MAC.command` and see “was blocked to protect your Mac”:
+
+1. Open System Settings → Privacy & Security (you may need to scroll).
+2. Under Security, find: “START-MAC.command was blocked to protect your Mac.”
+3. Click Open Anyway, then confirm Open.
+
+Tip: You must try to open it once before “Open Anyway” appears.
+
+Monterey or earlier:
+- System Preferences → Security & Privacy → General → Open Anyway.
 
 ### For Linux:
 1. Download [`START-LINUX.sh`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-LINUX.sh)
@@ -429,8 +439,7 @@ Windows:
 - Right-click the `.bat` file → "Run as administrator" if needed
 
 Mac:
-- If you see "cannot be opened": System Settings → Privacy & Security → "Open Anyway"
-- Or in Terminal: `chmod +x START-MAC.command` then double-click
+- If you see it was blocked: System Settings → Privacy & Security → Open Anyway (see Mac section above)
 
 Linux:
 - Make sure the script is executable: `chmod +x START-LINUX.sh`
