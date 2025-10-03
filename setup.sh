@@ -302,6 +302,7 @@ else
                 ;;
         esac
     fi
+    fi
 fi
 
 # Final status check
@@ -405,6 +406,9 @@ fi
 
 # Remove template git
 rm -rf .git 2>/dev/null
+
+# Remove LICENSE
+rm -rf LICENSE 2>/dev/null
 
 # Create a quick reference file
 echo ""

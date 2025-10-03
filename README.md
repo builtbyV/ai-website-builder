@@ -37,32 +37,19 @@ Your AI understands and does the technical work for you!
 No terminal experience? No problem! We've created launcher scripts that handle everything:
 
 ### For Windows:
-1. Download [`START-WINDOWS.bat`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-WINDOWS.bat)
+1. Download [`AI-Website-Builder-Windows.bat`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Windows.bat)
 2. Double-click it
 3. That's it! Two Terminal windows will open and your browser will show your website
 
 ### For Mac:
-1. Download [`START-MAC.command`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-MAC.command)
-2. Double-click to run
+1. Download [`AI-Website-Builder-Mac.dmg`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Mac.dmg)
+2. Open the DMG and double-click the app to run
 3. Two Terminal windows will open and your browser will show your website
 
-#### If macOS blocks the script (Gatekeeper)
-
-If you double‑click `START-MAC.command` and see “was blocked to protect your Mac”:
-
-1. Open System Settings → Privacy & Security (you may need to scroll).
-2. Under Security, find: “START-MAC.command was blocked to protect your Mac.”
-3. Click Open Anyway, then confirm Open.
-
-Tip: You must try to open it once before “Open Anyway” appears.
-
-Monterey or earlier:
-- System Preferences → Security & Privacy → General → Open Anyway.
-
 ### For Linux:
-1. Download [`START-LINUX.sh`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/START-LINUX.sh)
+1. Download [`AI-Website-Builder-Linux.sh`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Linux.sh)
 2. Open Terminal in your Downloads folder
-3. Run: `chmod +x START-LINUX.sh && ./START-LINUX.sh`
+3. Run: `chmod +x AI-Website-Builder-Linux.sh && ./AI-Website-Builder-Linux.sh`
 4. Two Terminal windows will open and your browser will show your website
 
 The launcher will:
@@ -438,12 +425,9 @@ Windows:
 - Make sure you have Git for Windows installed
 - Right-click the `.bat` file → "Run as administrator" if needed
 
-Mac:
-- If you see it was blocked: System Settings → Privacy & Security → Open Anyway (see Mac section above)
-
 Linux:
-- Make sure the script is executable: `chmod +x START-LINUX.sh`
-- Run with: `./START-LINUX.sh` (not `sh START-LINUX.sh`)
+- Make sure the script is executable: `chmod +x AI-Website-Builder-Linux.sh`
+- Run with: `./AI-Website-Builder-Linux.sh` (not `sh AI-Website-Builder-Linux.sh`)
 
 ### If Claude Code won't start:
 1. Make sure you're in your project folder
