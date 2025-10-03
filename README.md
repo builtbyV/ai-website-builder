@@ -43,8 +43,9 @@ No terminal experience? No problem! We've created launcher scripts that handle e
 
 ### For Mac:
 1. Download [`AI-Website-Builder-Mac.dmg`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Mac.dmg)
-2. Open the DMG and double-click the app to run
-3. Two Terminal windows will open and your browser will show your website
+2. Open the DMG, optionally drag the app to Applications
+3. Right-click the app and select "Open" → click "Open" again (first time only)
+4. Two Terminal windows will open and your browser will show your website
 
 ### For Linux:
 1. Download [`AI-Website-Builder-Linux.sh`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Linux.sh)
