@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags - AI: Update these for each website -->
+  <title>[Business Name] - [Your Tagline]</title>
+  <meta name="description" content="[Describe your business in 150-160 characters for search engines]">
+  <meta name="keywords" content="[keyword1, keyword2, keyword3]">
+  
+  <!-- Open Graph Meta Tags - AI: Update for social media sharing -->
+  <meta property="og:title" content="[Business Name] - [Your Tagline]">
+  <meta property="og:description" content="[Describe your business for social media]">
+  <meta property="og:image" content="/images/og-image.jpg">
+  <meta property="og:url" content="https://yourwebsite.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+  
+  <!-- Styles - Don't edit these directly -->
+  <link rel="stylesheet" href="/src/main.css">
+  
+  <!-- Alpine.js for interactivity -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="flex h-full flex-col bg-white antialiased">
+  
+  <!-- Header Navigation - Mobile-friendly with hamburger menu -->
+  <header class="py-10">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="relative z-50 flex justify-between" x-data="{ mobileMenuOpen: false }">
+        <div class="flex items-center md:gap-x-12">
+          <!-- Logo - AI: Replace with business logo or name -->
+          <a href="#" aria-label="Home" class="flex items-center">
+            <svg class="h-10 w-auto" viewBox="0 0 140 40" fill="none">
+              <rect x="0" y="8" width="24" height="24" rx="4" fill="#3B82F6"/>
+              <path d="M8 20L12 24L20 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="32" y="26" font-family="system-ui" font-size="20" font-weight="700" fill="#1E293B">[Logo]</text>
+            </svg>
+          </a>
+          
+          <!-- Desktop Navigation - AI: Add/remove menu items as needed -->
+          <div class="hidden md:flex md:gap-x-6">
+            <a href="/about.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">About</a>
+            <a href="/services.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Services</a>
+            <a href="/contact.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Contact</a>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-x-5 md:gap-x-8">
+          <!-- Call-to-Action Button - AI: Update text and link -->
+          <a href="/contact.html" class="rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">
+            Get Started
+          </a>
+          
+          <!-- Mobile menu button -->
+          <div class="-mr-1 md:hidden">
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="relative z-10 flex h-8 w-8 items-center justify-center">
+              <svg class="h-3.5 w-3.5 overflow-visible stroke-slate-700" fill="none" stroke-width="2" stroke-linecap="round">
+                <path d="M0 1H14M0 7H14M0 13H14" :class="mobileMenuOpen && 'scale-90 opacity-0'" class="origin-center transition"></path>
+                <path d="M2 2L12 12M12 2L2 12" :class="!mobileMenuOpen && 'scale-90 opacity-0'" class="origin-center transition"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Navigation - AI: Keep in sync with desktop menu -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-150"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-100"
+             x-transition:leave-start="opacity-100 scale-100"
+             x-transition:leave-end="opacity-0 scale-95"
+             @click.away="mobileMenuOpen = false"
+             class="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 md:hidden">
+          <a href="/about.html" @click="mobileMenuOpen = false" class="block w-full p-2">About</a>
+          <a href="/services.html" @click="mobileMenuOpen = false" class="block w-full p-2">Services</a>
+          <a href="/contact.html" @click="mobileMenuOpen = false" class="block w-full p-2">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="flex-auto">
+    
+    <!-- Hero Section - AI: Use py-20 sm:py-32 for consistent spacing -->
+    <section class="relative overflow-hidden py-20 sm:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center">
+          <!-- Main Headline - AI: Make this compelling -->
+          <h1 class="font-display text-4xl tracking-tight text-slate-900 sm:text-6xl">
+            Welcome to [Business Name]
+          </h1>
+          <!-- Subheadline - AI: Explain what you do -->
+          <p class="mt-6 text-lg tracking-tight text-slate-700">
+            [Describe your business value proposition in 1-2 sentences. What problems do you solve?]
+          </p>
+          <!-- Hero Buttons - AI: Keep consistent with rounded-full bg-blue-600 px-6 py-3 pattern -->
+          <div class="mt-10 flex justify-center gap-x-6">
+            <a href="/contact.html" class="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700">
+              Get Started
+            </a>
+            <a href="/about.html" class="rounded-full bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-200">
+              Learn More
+            </a>
+          </div>
+        </div>
+        <!-- Hero Image - AI: Replace with business-relevant image -->
+        <div class="mt-16 max-w-4xl mx-auto">
+          <img src="https://placehold.co/1024x576/e2e8f0/64748b?text=[Hero+Image]" 
+               alt="[Describe the hero image]" 
+               class="rounded-lg shadow-xl">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features Section - AI: Use py-20 sm:py-32 for consistent spacing -->
+    <section class="py-20 sm:py-32 bg-slate-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+            Why Choose [Business Name]
+          </h2>
+          <p class="mt-4 text-lg tracking-tight text-slate-700">
+            [What makes your business unique or better than competitors]
+          </p>
+        </div>
+        
+        <!-- Feature Cards - AI: Maintain rounded-2xl p-8 shadow-sm pattern -->
+        <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
+            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
+            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
+          </div>
+          
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
+            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Testimonials Section - AI: Use py-20 sm:py-32 for consistent spacing -->
+    <section class="py-20 sm:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+            What Our Customers Say
+          </h2>
+          <p class="mt-4 text-lg tracking-tight text-slate-700">
+            [Real feedback from satisfied customers]
+          </p>
+        </div>
+        
+        <!-- Testimonial Cards - AI: Maintain rounded-2xl p-6 shadow-sm pattern -->
+        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <p class="text-lg text-slate-900">"[Customer testimonial - what they loved about your service]"</p>
+            <div class="mt-6 flex items-center gap-x-4">
+              <div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
+                [I]
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
+                <p class="text-sm text-slate-600">[Title/Company]</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <p class="text-lg text-slate-900">"[Customer testimonial - specific results or benefits]"</p>
+            <div class="mt-6 flex items-center gap-x-4">
+              <div class="h-10 w-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">
+                [I]
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
+                <p class="text-sm text-slate-600">[Title/Company]</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="rounded-2xl bg-white p-6 shadow-sm">
+            <p class="text-lg text-slate-900">"[Customer testimonial - why they recommend you]"</p>
+            <div class="mt-6 flex items-center gap-x-4">
+              <div class="h-10 w-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-semibold">
+                [I]
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
+                <p class="text-sm text-slate-600">[Title/Company]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Call to Action Section - AI: Use contrasting white button on blue background -->
+    <section class="bg-blue-600 py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl">
+            Ready to Get Started?
+          </h2>
+          <p class="mt-4 text-lg tracking-tight text-blue-100">
+            [Add a compelling call to action message]
+          </p>
+          <a href="/contact.html" class="mt-8 inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50">
+            Contact Us Today
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section - AI: Use py-20 sm:py-32 for consistent spacing -->
+    <section id="contact" class="py-20 sm:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+            Contact Us
+          </h2>
+          <p class="mt-4 text-lg tracking-tight text-slate-700">
+            [How customers can reach you]
+          </p>
+        </div>
+        
+        <!-- Contact Information - AI: Add real contact details -->
+        <div class="mt-16 max-w-xl mx-auto">
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
+            <div class="space-y-4">
+              <p class="text-slate-600">
+                <strong>Phone:</strong> [Your phone number]
+              </p>
+              <p class="text-slate-600">
+                <strong>Email:</strong> [Your email]
+              </p>
+              <p class="text-slate-600">
+                <strong>Address:</strong> [Your business address]
+              </p>
+              <p class="text-slate-600">
+                <strong>Hours:</strong> [Your business hours]
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Pricing Section - AI: Use py-20 sm:py-32 for consistent spacing, remove if not needed -->
+    <section class="bg-slate-50 py-20 sm:py-32">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+            Simple, Transparent Pricing
+          </h2>
+          <p class="mt-4 text-lg text-slate-700">
+            [Pricing subtitle or value proposition]
+          </p>
+        </div>
+        
+        <!-- Pricing Cards - AI: Maintain rounded-2xl border p-8 pattern, highlight popular plan -->
+        <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-6">
+          <!-- Basic Plan -->
+          <div class="rounded-2xl border border-slate-200 p-8">
+            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
+            <p class="mt-4 text-sm text-slate-700">[Perfect for who?]</p>
+            <p class="mt-8">
+              <span class="text-4xl font-bold text-slate-900">$[X]</span>
+              <span class="text-base font-medium text-slate-700">/month</span>
+            </p>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Feature included]
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Feature included]
+              </li>
+            </ul>
+            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-slate-700">
+              Get Started
+            </a>
+          </div>
+          
+          <!-- Popular Plan -->
+          <div class="rounded-2xl border border-blue-600 p-8 shadow-lg">
+            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
+            <p class="mt-4 text-sm text-slate-700">[Most popular choice]</p>
+            <p class="mt-8">
+              <span class="text-4xl font-bold text-slate-900">$[X]</span>
+              <span class="text-base font-medium text-slate-700">/month</span>
+            </p>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Everything in basic]
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Additional feature]
+              </li>
+            </ul>
+            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-700">
+              Get Started
+            </a>
+          </div>
+          
+          <!-- Enterprise Plan -->
+          <div class="rounded-2xl border border-slate-200 p-8">
+            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
+            <p class="mt-4 text-sm text-slate-700">[For larger needs]</p>
+            <p class="mt-8">
+              <span class="text-4xl font-bold text-slate-900">Custom</span>
+            </p>
+            <ul class="mt-8 space-y-4 text-sm text-slate-700">
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Everything included]
+              </li>
+              <li class="flex gap-x-3">
+                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+                [Custom solutions]
+              </li>
+            </ul>
+            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-slate-700">
+              Contact Sales
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-slate-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-16">
+        <!-- Footer Logo/Name -->
+        <div class="flex justify-center">
+          <a href="#" class="text-slate-900 font-bold text-xl">[Business Name]</a>
+        </div>
+        <!-- Footer Navigation - AI: Keep simple -->
+        <nav class="mt-10 text-sm" aria-label="Footer navigation">
+          <div class="-my-1 flex justify-center gap-x-6">
+            <a href="/about.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">About</a>
+            <a href="/services.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Services</a>
+            <a href="/contact.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Contact</a>
+          </div>
+        </nav>
+      </div>
+      <div class="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
+        <div class="flex gap-x-6">
+          <!-- AI: Add social media links if needed -->
+          <a href="#" class="group" aria-label="Twitter">
+            <svg class="h-6 w-6 fill-slate-500 group-hover:fill-slate-700" viewBox="0 0 24 24">
+              <path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z"/>
+            </svg>
+          </a>
+          <a href="#" class="group" aria-label="GitHub">
+            <svg class="h-6 w-6 fill-slate-500 group-hover:fill-slate-700" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-slate-500 sm:mt-0">
+          Copyright &copy; <span x-text="new Date().getFullYear()"></span> [Business Name]. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+  
+</body>
+</html>

@@ -32,7 +32,43 @@ Your AI understands and does the technical work for you!
 
 ## 🚀 Getting Started (It's Really Simple!)
 
-### 🎯 Easiest Way: One-Click Setup (New!)
+### 🧠 Easiest Way: Install the Skill
+
+If you already use **Claude Code**, **Codex CLI**, **Gemini CLI**, **Cursor**, **VS Code Copilot**, or any AI coding tool — just install the skill. No cloning, no setup scripts. One command and your AI knows how to build websites.
+
+**Quick install** — downloads to `./ai-website-builder-skill/`:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/builtbyV/ai-website-builder/main/skill/install.sh)
+```
+
+Then move it to where your tool looks for skills:
+
+| Tool | Skill location |
+|------|---------------|
+| Claude Code | `~/.claude/skills/` (global) or `.claude/skills/` (project) |
+| Codex CLI | `~/.agents/skills/` (global) or `.agents/skills/` (project) |
+| Gemini CLI | `~/.gemini/skills/` (global) or `.gemini/skills/` (project) |
+| Cursor | `.cursor/skills/` or `.agents/skills/` |
+| VS Code Copilot | `.agents/skills/` |
+| Other tools | `.agents/skills/` (universal convention) |
+
+Example (Claude Code, global):
+```bash
+mv ai-website-builder-skill ~/.claude/skills/ai-website-builder
+```
+
+**Using Claude Desktop or Claude.ai instead?** Upload as a ZIP:
+
+1. [**Download ai-website-builder-skill.zip**](https://github.com/builtbyV/ai-website-builder/releases/latest/download/ai-website-builder-skill.zip)
+2. In Claude.ai → **Customize** → **Skills** → **+** → **Upload a skill**
+3. Select the ZIP and toggle it on
+
+The skill is fully self-contained — it includes the starter template, publish scripts, style guides, and all the instructions your AI needs to build websites.
+
+---
+
+### 🎯 One-Click Setup
 
 No terminal experience? No problem! We've created launcher scripts that handle everything:
 
@@ -42,9 +78,9 @@ No terminal experience? No problem! We've created launcher scripts that handle e
 3. That's it! Two Terminal windows will open and your browser will show your website
 
 ### For Mac:
-1. Download [`AI-Website-Builder-Mac.dmg`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Mac.dmg)
-2. Open the DMG, optionally drag the app to Applications
-3. Right-click the app and select "Open" → click "Open" again (first time only)
+1. Download [`AI-Website-Builder-Mac.zip`](https://github.com/builtbyV/ai-website-builder/releases/latest/download/AI-Website-Builder-Mac.zip)
+2. Unzip it (usually happens automatically)
+3. Double-click "AI Website Builder.app"
 4. Two Terminal windows will open and your browser will show your website
 
 ### For Linux:
