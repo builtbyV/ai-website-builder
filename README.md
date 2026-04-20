@@ -36,27 +36,19 @@ Your AI understands and does the technical work for you!
 
 If you already use **Claude Code**, **Codex CLI**, **Gemini CLI**, **Cursor**, **VS Code Copilot**, or any AI coding tool — just install the skill. No cloning, no setup scripts. One command and your AI knows how to build websites.
 
-**Quick install** — downloads to `./ai-website-builder-skill/`:
+**One-line install** — installs automatically to `~/.claude/skills/ai-website-builder/`, and also to `~/.agents/skills/ai-website-builder/` if that folder already exists (Codex CLI, Cursor, Copilot, etc.):
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/builtbyV/ai-website-builder/main/skill/install.sh)
+curl -fsSL https://raw.githubusercontent.com/builtbyV/ai-website-builder/main/skill/install.sh | bash
 ```
 
-Then move it to where your tool looks for skills:
+**Using a different tool?** Create the skills dir first so the installer picks it up, then re-run the command:
 
-| Tool | Skill location |
-|------|---------------|
-| Claude Code | `~/.claude/skills/` (global) or `.claude/skills/` (project) |
-| Codex CLI | `~/.agents/skills/` (global) or `.agents/skills/` (project) |
-| Gemini CLI | `~/.gemini/skills/` (global) or `.gemini/skills/` (project) |
-| Cursor | `.cursor/skills/` or `.agents/skills/` |
-| VS Code Copilot | `.agents/skills/` |
-| Other tools | `.agents/skills/` (universal convention) |
-
-Example (Claude Code, global):
-```bash
-mv ai-website-builder-skill ~/.claude/skills/ai-website-builder
-```
+| Tool | Skills dir to create |
+|------|---------------------|
+| Codex CLI / Cursor / Copilot | `mkdir -p ~/.agents/skills` |
+| Gemini CLI | `mkdir -p ~/.gemini/skills` then `mv ~/.claude/skills/ai-website-builder ~/.gemini/skills/` |
+| Project-local (any tool) | Copy `~/.claude/skills/ai-website-builder` into `.claude/skills/`, `.agents/skills/`, or `.cursor/skills/` inside your project |
 
 **Using Claude Desktop or Claude.ai instead?** Upload as a ZIP:
 
