@@ -1,412 +1,194 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags - AI: Update these for each website -->
-  <title>[Business Name] - [Your Tagline]</title>
-  <meta name="description" content="[Describe your business in 150-160 characters for search engines]">
-  <meta name="keywords" content="[keyword1, keyword2, keyword3]">
-  
-  <!-- Open Graph Meta Tags - AI: Update for social media sharing -->
-  <meta property="og:title" content="[Business Name] - [Your Tagline]">
-  <meta property="og:description" content="[Describe your business for social media]">
-  <meta property="og:image" content="/images/og-image.jpg">
-  <meta property="og:url" content="https://yourwebsite.com">
-  <meta property="og:type" content="website">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico">
-  
-  <!-- Styles - Don't edit these directly -->
-  <link rel="stylesheet" href="/src/main.css">
-  
-  <!-- Alpine.js for interactivity -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE GOHAN — Culinary OS V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2eee5;--paper:#faf8f2;--ink:#171513;--muted:#746d62;--line:#d8cebc;--gold:#a67b36;--dark:#090909;--soft:#eee8dc;--green:#66755b;--red:#8b6255}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:300 14px/1.5 Montserrat,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+.sidebar{background:var(--dark);color:#eee7dc;padding:18px;height:100vh;position:sticky;top:0;overflow:auto}.logo{width:100%;height:auto;display:block;margin:0 auto 14px}.nav-title{font-size:10px;letter-spacing:2px;color:#a9926d;margin:22px 8px 7px;text-transform:uppercase}.nav button{display:block;width:100%;border:0;background:none;color:#d9d0c4;text-align:left;padding:10px 12px;border-radius:8px;margin:2px 0}.nav button:hover,.nav button.active{background:#211f1b;color:#fff}.nav button span{float:right;color:#aa8b57}.quote{border-top:1px solid #3a3732;margin-top:20px;padding:16px 8px;color:#aa9d8b;font-family:Cinzel,Georgia,serif;font-style:italic}
+.main{padding:28px 34px;max-width:1600px;width:100%}.top{display:flex;gap:10px;margin-bottom:24px}.search{flex:1;border:1px solid var(--line);background:var(--paper);border-radius:9px;padding:12px 14px}.btn{border:1px solid var(--line);background:var(--paper);padding:11px 15px;border-radius:8px}.btn.dark{background:var(--dark);color:#fff;border-color:var(--dark)}.btn.gold{background:var(--gold);color:#fff;border-color:var(--gold)}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:22px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:600;text-transform:uppercase}.hero h1{font:500 40px Cinzel,Georgia,serif;margin:4px 0}.muted{color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px}.stat b{font:500 27px Cinzel,Georgia,serif}.stat small{display:block;color:var(--muted);letter-spacing:1px;margin-top:3px}
+.grid2{display:grid;grid-template-columns:1.35fr .65fr;gap:16px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px}.panel h2,.panel h3{font-family:Cinzel,Georgia,serif;margin:0 0 13px}.panel h2{font-size:23px}.panel h3{font-size:18px}.list{display:grid;gap:8px}.item{background:#fffdf9;border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;justify-content:space-between;gap:12px}.item:hover{border-color:#b9a887}.click{background:none;border:0;text-align:left;padding:0;color:inherit}.tag{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:600}.id{font:11px ui-monospace,monospace;color:var(--muted)}
+table{width:100%;border-collapse:collapse}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.course-row{cursor:pointer}.course-row:hover{background:#f3eee5}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.course{border:1px solid var(--line);background:#fffdf9;border-radius:9px;padding:15px;min-height:115px}.course .num{font:500 25px Cinzel,Georgia,serif;color:var(--gold)}.course h4{margin:3px 0;font-family:Cinzel,Georgia,serif;font-size:17px}.empty{color:#aaa18f;font-style:italic}
+.pills{display:flex;gap:6px;flex-wrap:wrap}.pill{background:var(--soft);border:1px solid var(--line);padding:5px 8px;border-radius:20px;font-size:11px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field{background:#fffdf9;border:1px solid var(--line);padding:12px;border-radius:8px}.field label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:#faf8f2;padding:8px;border-radius:6px}.meter{height:7px;background:#e3dccf;border-radius:8px;overflow:hidden}.meter i{display:block;height:100%;background:var(--gold)}
+.detail-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.back{border:0;background:none;color:var(--gold);padding:0 0 8px}.section-title{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:12px}.relation{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.show{display:flex}.dialog{width:min(820px,100%);max-height:90vh;overflow:auto;background:var(--paper);border-radius:12px;padding:24px;border:1px solid var(--line)}.dialog h2{font:500 28px Cinzel,Georgia,serif;margin-top:0}.form{display:grid;grid-template-columns:1fr 1fr;gap:11px}.form .full{grid-column:1/-1}.form label{font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.form input,.form textarea,.form select{width:100%;margin-top:5px;border:1px solid var(--line);background:#fffdf9;padding:10px;border-radius:7px}.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.notice{padding:12px 14px;border-left:3px solid var(--gold);background:#f5efe4;margin:10px 0}.graph{height:330px;position:relative;background:#f8f4ec;border:1px solid var(--line);border-radius:9px;overflow:hidden}.node{position:absolute;background:#fffdf9;border:1px solid var(--line);border-radius:8px;padding:9px 12px;box-shadow:0 5px 15px #0000000b}.node b{font-family:Cinzel,Georgia,serif}.node small{display:block;color:var(--muted)}.ln{height:1px;background:#cdbfa7;position:absolute;transform-origin:left}.a{left:31%;top:30%;width:150px;transform:rotate(25deg)}.b{left:50%;top:42%;width:145px;transform:rotate(-15deg)}.c{left:31%;top:58%;width:170px;transform:rotate(-12deg)}.d{left:51%;top:63%;width:140px;transform:rotate(18deg)}
+.equipment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.equipment-card{background:#fffdf9;border:1px solid var(--line);border-radius:9px;padding:15px;display:flex;gap:12px}.equipment-card h3{font:500 18px Cinzel,Georgia,serif;margin:0 0 5px}.equipment-image{width:92px;height:92px;object-fit:cover;border-radius:7px;border:1px solid var(--line);background:var(--soft);flex:none}
+.object-image{width:76px;height:76px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--soft);flex:none}.detail-image{display:block;width:min(100%,560px);max-height:420px;object-fit:cover;border-radius:10px;border:1px solid var(--line);margin:0 0 16px}.image-field{display:none}.image-field.show{display:block}
+@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.stats{grid-template-columns:repeat(2,1fr)}.grid2,.two,.three{grid-template-columns:1fr}.menu-grid{grid-template-columns:1fr}.main{padding:18px}}
+@media(max-width:700px){.equipment-grid{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="flex h-full flex-col bg-white antialiased">
-  
-  <!-- Header Navigation - Mobile-friendly with hamburger menu -->
-  <header class="py-10">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="relative z-50 flex justify-between" x-data="{ mobileMenuOpen: false }">
-        <div class="flex items-center md:gap-x-12">
-          <!-- Logo - AI: Replace with business logo or name -->
-          <a href="#" aria-label="Home" class="flex items-center">
-            <svg class="h-10 w-auto" viewBox="0 0 140 40" fill="none">
-              <rect x="0" y="8" width="24" height="24" rx="4" fill="#3B82F6"/>
-              <path d="M8 20L12 24L20 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="32" y="26" font-family="system-ui" font-size="20" font-weight="700" fill="#1E293B">[Logo]</text>
-            </svg>
-          </a>
-          
-          <!-- Desktop Navigation - AI: Add/remove menu items as needed -->
-          <div class="hidden md:flex md:gap-x-6">
-            <a href="/about.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">About</a>
-            <a href="/services.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Services</a>
-            <a href="/contact.html" class="inline-block rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Contact</a>
-          </div>
-        </div>
-        
-        <div class="flex items-center gap-x-5 md:gap-x-8">
-          <!-- Call-to-Action Button - AI: Update text and link -->
-          <a href="/contact.html" class="rounded-full bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">
-            Get Started
-          </a>
-          
-          <!-- Mobile menu button -->
-          <div class="-mr-1 md:hidden">
-            <button @click="mobileMenuOpen = !mobileMenuOpen" class="relative z-10 flex h-8 w-8 items-center justify-center">
-              <svg class="h-3.5 w-3.5 overflow-visible stroke-slate-700" fill="none" stroke-width="2" stroke-linecap="round">
-                <path d="M0 1H14M0 7H14M0 13H14" :class="mobileMenuOpen && 'scale-90 opacity-0'" class="origin-center transition"></path>
-                <path d="M2 2L12 12M12 2L2 12" :class="!mobileMenuOpen && 'scale-90 opacity-0'" class="origin-center transition"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-        
-        <!-- Mobile Navigation - AI: Keep in sync with desktop menu -->
-        <div x-show="mobileMenuOpen" 
-             x-transition:enter="transition ease-out duration-150"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             x-transition:leave="transition ease-in duration-100"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
-             @click.away="mobileMenuOpen = false"
-             class="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5 md:hidden">
-          <a href="/about.html" @click="mobileMenuOpen = false" class="block w-full p-2">About</a>
-          <a href="/services.html" @click="mobileMenuOpen = false" class="block w-full p-2">Services</a>
-          <a href="/contact.html" @click="mobileMenuOpen = false" class="block w-full p-2">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
-  
-  <main class="flex-auto">
-    
-    <!-- Hero Section - AI: Use py-20 sm:py-32 for consistent spacing -->
-    <section class="relative overflow-hidden py-20 sm:py-32">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-2xl mx-auto text-center">
-          <!-- Main Headline - AI: Make this compelling -->
-          <h1 class="font-display text-4xl tracking-tight text-slate-900 sm:text-6xl">
-            Welcome to [Business Name]
-          </h1>
-          <!-- Subheadline - AI: Explain what you do -->
-          <p class="mt-6 text-lg tracking-tight text-slate-700">
-            [Describe your business value proposition in 1-2 sentences. What problems do you solve?]
-          </p>
-          <!-- Hero Buttons - AI: Keep consistent with rounded-full bg-blue-600 px-6 py-3 pattern -->
-          <div class="mt-10 flex justify-center gap-x-6">
-            <a href="/contact.html" class="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700">
-              Get Started
-            </a>
-            <a href="/about.html" class="rounded-full bg-slate-100 px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-200">
-              Learn More
-            </a>
-          </div>
-        </div>
-        <!-- Hero Image - AI: Replace with business-relevant image -->
-        <div class="mt-16 max-w-4xl mx-auto">
-          <img src="https://placehold.co/1024x576/e2e8f0/64748b?text=[Hero+Image]" 
-               alt="[Describe the hero image]" 
-               class="rounded-lg shadow-xl">
-        </div>
-      </div>
-    </section>
-    
-    <!-- Features Section - AI: Use py-20 sm:py-32 for consistent spacing -->
-    <section class="py-20 sm:py-32 bg-slate-50">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Why Choose [Business Name]
-          </h2>
-          <p class="mt-4 text-lg tracking-tight text-slate-700">
-            [What makes your business unique or better than competitors]
-          </p>
-        </div>
-        
-        <!-- Feature Cards - AI: Maintain rounded-2xl p-8 shadow-sm pattern -->
-        <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="bg-white rounded-2xl p-8 shadow-sm">
-            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
-            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-8 shadow-sm">
-            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
-            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
-          </div>
-          
-          <div class="bg-white rounded-2xl p-8 shadow-sm">
-            <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-              </svg>
-            </div>
-            <h3 class="mt-6 text-lg font-semibold text-slate-900">[Feature/Benefit]</h3>
-            <p class="mt-2 text-slate-600">[Explain this feature or benefit to customers]</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Testimonials Section - AI: Use py-20 sm:py-32 for consistent spacing -->
-    <section class="py-20 sm:py-32">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            What Our Customers Say
-          </h2>
-          <p class="mt-4 text-lg tracking-tight text-slate-700">
-            [Real feedback from satisfied customers]
-          </p>
-        </div>
-        
-        <!-- Testimonial Cards - AI: Maintain rounded-2xl p-6 shadow-sm pattern -->
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3">
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <p class="text-lg text-slate-900">"[Customer testimonial - what they loved about your service]"</p>
-            <div class="mt-6 flex items-center gap-x-4">
-              <div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-semibold">
-                [I]
-              </div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
-                <p class="text-sm text-slate-600">[Title/Company]</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <p class="text-lg text-slate-900">"[Customer testimonial - specific results or benefits]"</p>
-            <div class="mt-6 flex items-center gap-x-4">
-              <div class="h-10 w-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-semibold">
-                [I]
-              </div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
-                <p class="text-sm text-slate-600">[Title/Company]</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="rounded-2xl bg-white p-6 shadow-sm">
-            <p class="text-lg text-slate-900">"[Customer testimonial - why they recommend you]"</p>
-            <div class="mt-6 flex items-center gap-x-4">
-              <div class="h-10 w-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-semibold">
-                [I]
-              </div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">[Customer Name]</p>
-                <p class="text-sm text-slate-600">[Title/Company]</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Call to Action Section - AI: Use contrasting white button on blue background -->
-    <section class="bg-blue-600 py-16">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="font-display text-3xl tracking-tight text-white sm:text-4xl">
-            Ready to Get Started?
-          </h2>
-          <p class="mt-4 text-lg tracking-tight text-blue-100">
-            [Add a compelling call to action message]
-          </p>
-          <a href="/contact.html" class="mt-8 inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-600 hover:bg-blue-50">
-            Contact Us Today
-          </a>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Contact Section - AI: Use py-20 sm:py-32 for consistent spacing -->
-    <section id="contact" class="py-20 sm:py-32">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-2xl text-center">
-          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Contact Us
-          </h2>
-          <p class="mt-4 text-lg tracking-tight text-slate-700">
-            [How customers can reach you]
-          </p>
-        </div>
-        
-        <!-- Contact Information - AI: Add real contact details -->
-        <div class="mt-16 max-w-xl mx-auto">
-          <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200">
-            <div class="space-y-4">
-              <p class="text-slate-600">
-                <strong>Phone:</strong> [Your phone number]
-              </p>
-              <p class="text-slate-600">
-                <strong>Email:</strong> [Your email]
-              </p>
-              <p class="text-slate-600">
-                <strong>Address:</strong> [Your business address]
-              </p>
-              <p class="text-slate-600">
-                <strong>Hours:</strong> [Your business hours]
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Pricing Section - AI: Use py-20 sm:py-32 for consistent spacing, remove if not needed -->
-    <section class="bg-slate-50 py-20 sm:py-32">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <h2 class="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Simple, Transparent Pricing
-          </h2>
-          <p class="mt-4 text-lg text-slate-700">
-            [Pricing subtitle or value proposition]
-          </p>
-        </div>
-        
-        <!-- Pricing Cards - AI: Maintain rounded-2xl border p-8 pattern, highlight popular plan -->
-        <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-6">
-          <!-- Basic Plan -->
-          <div class="rounded-2xl border border-slate-200 p-8">
-            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
-            <p class="mt-4 text-sm text-slate-700">[Perfect for who?]</p>
-            <p class="mt-8">
-              <span class="text-4xl font-bold text-slate-900">$[X]</span>
-              <span class="text-base font-medium text-slate-700">/month</span>
-            </p>
-            <ul class="mt-8 space-y-4 text-sm text-slate-700">
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Feature included]
-              </li>
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Feature included]
-              </li>
-            </ul>
-            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-slate-700">
-              Get Started
-            </a>
-          </div>
-          
-          <!-- Popular Plan -->
-          <div class="rounded-2xl border border-blue-600 p-8 shadow-lg">
-            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
-            <p class="mt-4 text-sm text-slate-700">[Most popular choice]</p>
-            <p class="mt-8">
-              <span class="text-4xl font-bold text-slate-900">$[X]</span>
-              <span class="text-base font-medium text-slate-700">/month</span>
-            </p>
-            <ul class="mt-8 space-y-4 text-sm text-slate-700">
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Everything in basic]
-              </li>
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Additional feature]
-              </li>
-            </ul>
-            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-blue-600 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-700">
-              Get Started
-            </a>
-          </div>
-          
-          <!-- Enterprise Plan -->
-          <div class="rounded-2xl border border-slate-200 p-8">
-            <h3 class="text-lg font-semibold text-slate-900">[Plan Name]</h3>
-            <p class="mt-4 text-sm text-slate-700">[For larger needs]</p>
-            <p class="mt-8">
-              <span class="text-4xl font-bold text-slate-900">Custom</span>
-            </p>
-            <ul class="mt-8 space-y-4 text-sm text-slate-700">
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Everything included]
-              </li>
-              <li class="flex gap-x-3">
-                <svg class="h-6 w-5 flex-none text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-                </svg>
-                [Custom solutions]
-              </li>
-            </ul>
-            <a href="/contact.html" class="mt-8 block w-full rounded-full bg-slate-900 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-slate-700">
-              Contact Sales
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-  </main>
-  
-  <!-- Footer -->
-  <footer class="bg-slate-50">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="py-16">
-        <!-- Footer Logo/Name -->
-        <div class="flex justify-center">
-          <a href="#" class="text-slate-900 font-bold text-xl">[Business Name]</a>
-        </div>
-        <!-- Footer Navigation - AI: Keep simple -->
-        <nav class="mt-10 text-sm" aria-label="Footer navigation">
-          <div class="-my-1 flex justify-center gap-x-6">
-            <a href="/about.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">About</a>
-            <a href="/services.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Services</a>
-            <a href="/contact.html" class="rounded-lg px-2 py-1 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900">Contact</a>
-          </div>
-        </nav>
-      </div>
-      <div class="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
-        <div class="flex gap-x-6">
-          <!-- AI: Add social media links if needed -->
-          <a href="#" class="group" aria-label="Twitter">
-            <svg class="h-6 w-6 fill-slate-500 group-hover:fill-slate-700" viewBox="0 0 24 24">
-              <path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z"/>
-            </svg>
-          </a>
-          <a href="#" class="group" aria-label="GitHub">
-            <svg class="h-6 w-6 fill-slate-500 group-hover:fill-slate-700" viewBox="0 0 24 24">
-              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
-            </svg>
-          </a>
-        </div>
-        <p class="mt-6 text-sm text-slate-500 sm:mt-0">
-          Copyright &copy; <span x-text="new Date().getFullYear()"></span> [Business Name]. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-  
+<body>
+<div class="app">
+<aside class="sidebar">
+<img class="logo" src="/gohan-logo.png" alt="THE GOHAN — By Amine Ben Jeddou">
+<div class="nav">
+<div class="nav-title">Command</div>
+<button class="active" onclick="go('dashboard',this)">⌂ Dashboard</button>
+<button onclick="go('menus',this)">▦ Menu Spaces <span id="nMenus"></span></button>
+<button onclick="go('dishes',this)">◉ Dishes <span id="nDishes"></span></button>
+<div class="nav-title">Knowledge Library</div>
+<button onclick="go('components',this)">◇ Components <span id="nComponents"></span></button>
+<button onclick="go('ingredients',this)">✦ Ingredients <span id="nIngredients"></span></button>
+<button onclick="go('techniques',this)">⌁ Techniques <span id="nTechniques"></span></button>
+<button onclick="go('materials',this)">▱ Materials <span id="nMaterials"></span></button>
+<button onclick="go('equipment',this)">▤ Equipment <span id="nEquipment"></span></button>
+<button onclick="go('experiments',this)">⊙ Experiments <span id="nExperiments"></span></button>
+</div>
+<div class="nav-title">Create</div><button class="btn" style="width:100%" onclick="newObject()">＋ Create object</button>
+<div class="quote">“Think like an architect. Cook like an artist. Serve an experience.”</div>
+</aside>
+<main class="main">
+<div class="top"><input id="search" class="search" placeholder="Search the entire culinary knowledge system…" oninput="render()"><button class="btn dark" onclick="newObject()">＋ New</button></div>
+<section id="content"></section>
+</main></div>
+
+<div id="modal" class="modal"><div class="dialog">
+<h2 id="modalTitle">Create</h2>
+<div class="form" autocomplete="off">
+<label>Object type<select id="fType" autocomplete="off" onchange="syncType()"><option value="menu">Menu Space</option><option value="dish">Dish</option><option value="component">Component</option><option value="ingredient">Ingredient</option><option value="technique">Technique</option><option value="material">Material</option><option value="equipment">Equipment</option><option value="experiment">Experiment</option></select></label>
+<div id="formFields" class="form full"></div>
+</div><div class="actions"><button class="btn" onclick="closeModal()">Cancel</button><button id="saveButton" class="btn gold" onclick="saveObject()">Save</button></div>
+</div></div>
+
+<script>
+const initial={
+menus:[
+{id:"M-2026-W01",name:"Week 01 — Opening Menu",role:"7-course menu",status:"Weekly",year:"2026",desc:"First weekly menu workspace.",flavor:"",texture:"",temp:"",materials:"",links:["D-001"]},
+{id:"M-2027-S1",name:"Spring — Season I",role:"Seasonal menu",status:"Seasonal",year:"2027",desc:"Future seasonal menu space.",flavor:"",texture:"",temp:"",materials:"",links:[]}
+],
+dishes:[{id:"D-001",name:"Sea Bream / Fennel / Citrus",role:"Course 04",status:"Building",year:"2026",desc:"Bright marine course built around fennel, citrus and depth.",flavor:"marine, citrus, fennel, fresh",texture:"tender, silky, crisp",temp:"warm main / cool accents",materials:"Coup plate, ceramic sauce spoon, linen",links:["M-2026-W01","C-024","C-031","C-044"]}],
+components:[
+{id:"C-024",name:"Fennel Oil",role:"Aromatic / Finishing Fat",status:"Testing",year:"2026",desc:"Fresh fennel aroma without adding bulk or moisture.",flavor:"anise 8/10 · green 8/10 · fresh 9/10 · sweet 3/10 · bitter 2/10 · umami 1/10",texture:"light, fluid, coating",temp:"cold / ambient",materials:"Amber squeeze bottle, pipette",links:["ING-012","T-008","D-001"]},
+{id:"C-031",name:"Citrus Gel",role:"Acid / Brightness",status:"Idea",year:"2026",desc:"Concentrated citrus accent to sharpen the dish.",flavor:"lemon, orange, bright",texture:"silky, clean",temp:"cool",materials:"Piping bag, fine nozzle",links:["D-001"]},
+{id:"C-044",name:"Fish Jus",role:"Depth / Sauce",status:"Building",year:"2026",desc:"Savory backbone with roasted marine depth.",flavor:"roasted, marine, umami",texture:"glossy, viscous",temp:"hot",materials:"Small saucepan, sauce spoon",links:["D-001"]}],
+ingredients:[{id:"ING-012",name:"Fennel",role:"Aromatic vegetable",status:"Active",year:"2026",desc:"Green, anise-like, naturally sweet; multiple textures depending on treatment.",flavor:"anise, sweet, herbal",texture:"crisp / fibrous / silky when puréed",temp:"cool / ambient",materials:"Chef knife, mandoline",links:["C-024","C-031"]}],
+techniques:[{id:"T-008",name:"Oil Infusion",role:"Extraction technique",status:"Active",year:"2026",desc:"Transfers aromatic compounds into a fat carrier.",flavor:"depends on aromatic",texture:"fluid",temp:"controlled",materials:"Thermometer, blender, fine filter",links:["C-024"]}],
+materials:[{id:"MAT-001",name:"Porcelain Coup Plate",role:"Plating vessel",status:"In use",year:"2026",desc:"Neutral white plate with broad negative space for refined plating.",flavor:"",texture:"smooth",temp:"ambient",materials:"Porcelain",links:["D-001"]},{id:"MAT-002",name:"Ceramic Sauce Spoon",role:"Service / sauce tool",status:"In use",year:"2026",desc:"Small spoon for controlled sauce placement and service.",flavor:"",texture:"smooth",temp:"ambient",materials:"Ceramic",links:["D-001","C-044"]}],
+experiments:[{id:"E-001",name:"Fennel Oil V03",role:"Component test",status:"Tested",year:"2026",desc:"Blanched fennel + fresh fronds; cleaner and brighter than V02.",flavor:"fresh, persistent",texture:"light",temp:"cold",materials:"Thermometer, blender, filter",links:["C-024"]}]
+};
+const emptyDb={menus:[],dishes:[],components:[],ingredients:[],techniques:[],materials:[],experiments:[],equipment:[]};
+let db=JSON.parse(localStorage.getItem("gohanOSv3")||"null")||emptyDb;
+if(!db.equipment)db.equipment=emptyDb.equipment;
+let current="dashboard",detailState=null,editing=null,saving=false;
+function save(){localStorage.setItem("gohanOSv3",JSON.stringify(db));counts()}
+function counts(){let map={menus:"nMenus",dishes:"nDishes",components:"nComponents",ingredients:"nIngredients",techniques:"nTechniques",materials:"nMaterials",equipment:"nEquipment",experiments:"nExperiments"};Object.entries(map).forEach(([k,id])=>document.getElementById(id).textContent=db[k].length)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function all(){return Object.entries(db).flatMap(([type,a])=>a.map(x=>({...x,type})))}
+function title(t){return t.charAt(0).toUpperCase()+t.slice(1)}
+function card(x){return `<div class="item">${x.image&&["dish","component"].includes(x.type)?`<img class="object-image" src="${esc(x.image)}" alt="${esc(x.name)}">`:""}<div style="flex:1"><span class="tag">${esc(x.type)}</span><br><button class="click" onclick="openDetail('${x.type}','${esc(x.id)}')"><b>${esc(x.name)}</b></button><div class="muted">${esc(x.role||"")} ${x.status?"· "+esc(x.status):""}</div></div><span class="id">${esc(x.id)}</span></div>`}
+function go(type,btn){current=type;detailState=null;document.querySelectorAll(".nav button").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");render()}
+function render(){
+ counts();let c=document.getElementById("content");if(detailState){renderDetail(c,detailState.type,detailState.id);return}
+ let q=document.getElementById("search").value.toLowerCase();
+ if(current==="dashboard"){
+  let recent=all().filter(x=>!q||JSON.stringify(x).toLowerCase().includes(q)).slice(-10).reverse();
+  c.innerHTML=`<div class="hero"><div><div class="eyebrow">THE GOHAN · CULINARY KNOWLEDGE OS V2</div><h1>Culinary Command</h1><div class="muted">A living system for menus, dishes, components, ingredients, techniques, materials and experiments.</div></div><button class="btn gold" onclick="newObject()">＋ Create anything</button></div>
+  <div class="stats">${[["menus","MENU SPACES"],["dishes","DISHES"],["components","COMPONENTS"],["ingredients","INGREDIENTS"],["experiments","EXPERIMENTS"]].map(a=>`<div class="stat"><b>${db[a[0]].length}</b><small>${a[1]}</small></div>`).join("")}</div>
+  <div class="grid2"><div><div class="panel"><h2>Menu Spaces</h2><p class="muted">Every menu gets its own workspace. Your cadence can evolve year by year: weekly, seasonal, monthly, or any custom rhythm.</p><div class="list">${db.menus.map(card).join("")}</div></div>
+  <div class="panel"><h2>Seven-Course Architecture</h2><div class="menu-grid">${[1,2,3,4,5,6,7].map(n=>`<div class="course"><div class="num">0${n}</div><h4>${n===4?"Sea Bream / Fennel / Citrus":"Course "+n}</h4><div class="muted">${n===4?"D-001 · Building":"Empty space — ready to build"}</div></div>`).join("")}</div></div></div>
+  <div><div class="panel"><h2>Knowledge Graph</h2><div class="graph"><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="ln d"></div><div class="node" style="left:39%;top:12%"><b>D-001</b><small>Dish</small></div><div class="node" style="left:10%;top:46%"><b>ING-012</b><small>Fennel</small></div><div class="node" style="left:40%;top:54%"><b>C-024</b><small>Fennel Oil</small></div><div class="node" style="right:8%;top:38%"><b>T-008</b><small>Oil Infusion</small></div><div class="node" style="right:9%;top:72%"><b>MAT-001</b><small>Porcelain Coup</small></div></div></div>
+  <div class="panel"><h2>Recent Objects</h2><div class="list">${recent.map(card).join("")||'<div class="empty">No results.</div>'}</div></div></div></div>`;return}
+ let arr=db[current]||[];if(q)arr=arr.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
+ if(current==="menus"){c.innerHTML=`<div class="hero"><div><div class="eyebrow">MENU SPACES</div><h1>Menus</h1><div class="muted">Create unlimited menus and build their course flow with dish references.</div></div><button class="btn gold" onclick="newObject('menu')">＋ Create New Menu</button></div><div class="panel"><div class="list">${arr.map(m=>`<div class="item"><div><span class="tag">${esc(m.type||"menu")}</span><br><button class="click" onclick="openDetail('menu','${esc(m.id)}')"><b>${esc(m.name)}</b></button><div class="muted">${esc(m.date||"")} · ${(m.courses||[]).length} courses</div></div><span class="id">${esc(m.id)}</span></div>`).join("")||'<div class="empty">No menus yet. Create your first menu.</div>'}</div></div>`;return}
+ if(current==="equipment"){let items=db.equipment.filter(x=>!q||JSON.stringify(x).toLowerCase().includes(q)),have=items.filter(x=>x.equipmentStatus==="have"),want=items.filter(x=>x.equipmentStatus==="want"),equipmentCard=x=>`<article class="equipment-card">${x.image?`<img class="equipment-image" src="${esc(x.image)}" alt="${esc(x.name)}">`:""}<div><h3>${esc(x.name)}</h3><div class="muted">${esc(x.role||"")}</div><span class="tag">${esc(x.status||"")}</span></div></article>`;c.innerHTML=`<div class="hero"><div><div class="eyebrow">PERSONAL EQUIPMENT</div><h1>My Equipment</h1><div class="muted">Keep the tools you have and the tools you want in separate lists.</div></div><button class="btn gold" onclick="newObject('equipment')">＋ Add Equipment</button></div><div class="grid2"><div class="panel"><div class="section-title"><h2>I Have</h2><span class="tag">${have.length} items</span></div><div class="equipment-grid">${have.map(equipmentCard).join("")||'<div class="empty">Add the equipment you already own.</div>'}</div></div><div class="panel"><div class="section-title"><h2>I Want</h2><span class="tag">${want.length} items</span></div><div class="equipment-grid">${want.map(equipmentCard).join("")||'<div class="empty">Add equipment you want for your future kitchen.</div>'}</div></div></div>`;return}
+ c.innerHTML=`<div class="hero"><div><div class="eyebrow">${current.toUpperCase()}</div><h1>${title(current)}</h1><div class="muted">${arr.length} objects in the library.</div></div><button class="btn gold" onclick="newObject('${current.slice(0,-1)}')">＋ New ${current.slice(0,-1)}</button></div><div class="panel"><div class="list">${arr.map(x=>card({...x,type:current.slice(0,-1)})).join("")||'<div class="empty">Nothing here yet.</div>'}</div></div>`;
+}
+function renderDetail(c,type,id){
+ let x=db[collectionKey(type)].find(y=>y.id===id);if(!x)return;
+ if(type==="menu"){renderMenuDetail(c,x);return}
+ let related=all().filter(y=>(x.links||[]).includes(y.id)||((y.links||[]).includes(x.id)));
+ let components=type==="dish"?related.filter(y=>y.type==="component"):[];
+ let senses=type==="component"||type==="ingredient"||type==="dish";
+ c.innerHTML=`<button class="back" onclick="go('${type==='menu'?'menus':type+'s'}')">← Back to ${title(type==='menu'?'menus':type+'s')}</button>
+ <div class="detail-head"><div><div class="eyebrow">${esc(type)} · ${esc(x.id)}</div><h1 style="font:500 40px Cinzel,Georgia,serif;margin:4px 0">${esc(x.name)}</h1><div class="muted">${esc(x.role||"")} · ${esc(x.status||"")}</div></div><button class="btn" onclick="editObject('${type}','${esc(x.id)}')">Edit</button></div>
+ ${x.image&&["dish","component"].includes(type)?`<img class="detail-image" src="${esc(x.image)}" alt="${esc(x.name)}">`:""}
+ <div class="two"><div><div class="panel"><div class="section-title"><h2>Purpose</h2></div><p>${esc(x.desc||"")}</p><div class="notice"><b>Main role:</b> ${esc(x.role||"Not defined")}<br><b>Temperature:</b> ${esc(x.temp||"Not defined")}</div></div>
+ ${senses?`<div class="panel"><h2>Sensory Architecture</h2><div class="three"><div class="field"><label>Flavor</label><div>${esc(x.flavor||"—")}</div></div><div class="field"><label>Texture</label><div>${esc(x.texture||"—")}</div></div><div class="field"><label>Temperature</label><div>${esc(x.temp||"—")}</div></div></div><div style="margin-top:12px"><label class="muted">Flavor spectrum</label><div class="meter"><i style="width:${Math.min(100,Math.max(8,(x.flavor||"").length*3))}%"></i></div></div></div>`:""}
+ ${type==="dish"?`<div class="panel"><h2>Component Architecture</h2><div class="list">${components.length?components.map(card).join(""):'<div class="empty">No components linked yet. Add component IDs to the dish.</div>'}</div></div>`:""}
+ </div><div><div class="panel"><h2>${type==="menu"?"Menu Workspace":"Materials in Use"}</h2>${type==="menu"?`<p class="muted">This is the dedicated space for this menu. Keep its dishes, notes, tests and evolution separate from other menus.</p><div class="menu-grid">${[1,2,3,4,5,6,7].map(n=>`<div class="course"><div class="num">0${n}</div><h4>${n===4?"D-001 · Sea Bream / Fennel / Citrus":"Course "+n}</h4><div class="muted">${n===4?"Linked":"Open slot"}</div></div>`).join("")}</div>`:`<div class="list">${(x.materials||"").split(",").filter(Boolean).map(m=>`<div class="item"><b>${esc(m.trim())}</b><span class="tag">material</span></div>`).join("")||'<div class="empty">No materials recorded yet.</div>'}</div>`}</div>
+ <div class="panel"><h2>Relationships</h2><div class="relation">${related.length?related.map(card).join(""):'<div class="empty">No linked objects yet.</div>'}</div></div></div></div>`;
+}
+function renderMenuDetail(c,menu){
+ let dishOptions=db.dishes.map(d=>`<option value="${esc(d.id)}">${esc(d.name)} (${esc(d.id)})</option>`).join("");
+ c.innerHTML=`<button class="back" onclick="go('menus')">← Back to Menus</button><div class="detail-head"><div><div class="eyebrow">MENU SPACE · ${esc(menu.id)}</div><h1 style="font:500 40px Cinzel,Georgia,serif;margin:4px 0">${esc(menu.name)}</h1><div class="muted">${esc(menu.type||"")} · ${esc(menu.date||"")} · ${esc(menu.status||"")}</div></div><button class="btn gold" onclick="addCourse('${esc(menu.id)}')">＋ Add Course</button></div><div class="panel"><p>${esc(menu.description||"")}</p><div class="list">${(menu.courses||[]).map((course,index)=>`<div class="item"><div style="flex:1"><span class="tag">Course ${index+1}</span><div class="two"><label>Position<input value="${esc(course.position||index+1)}" onchange="updateCourse('${esc(menu.id)}',${index},'position',this.value)"></label><label>Label<input value="${esc(course.label||"")}" onchange="updateCourse('${esc(menu.id)}',${index},'label',this.value)"></label></div><label style="display:block;margin-top:10px">Linked dishes<select multiple size="3" onchange="updateCourseLinks('${esc(menu.id)}',${index},this)">${dishOptions.replace(/value="([^"]+)"/g,(match,id)=>match+((course.linkedDishIds||[]).includes(id)?" selected":""))}</select></label><label style="display:block;margin-top:10px">Notes<textarea rows="2" onchange="updateCourse('${esc(menu.id)}',${index},'notes',this.value)">${esc(course.notes||"")}</textarea></label><div class="muted">${(course.linkedDishIds||[]).map(id=>{let d=db.dishes.find(item=>item.id===id);return d?d.name:id}).join(" · ")||"No dishes linked yet"}</div></div><div style="display:flex;flex-direction:column;gap:5px"><button class="btn" onclick="moveCourse('${esc(menu.id)}',${index},-1)" ${index===0?"disabled":""}>↑</button><button class="btn" onclick="moveCourse('${esc(menu.id)}',${index},1)" ${index===menu.courses.length-1?"disabled":""}>↓</button></div></div>`).join("")||'<div class="empty">No courses yet. Add the first course to begin.</div>'}</div></div>`;
+}
+function menuById(id){return db.menus.find(menu=>menu.id===id)}
+function persistAndRender(){localStorage.setItem("gohanOSv3",JSON.stringify(db));render()}
+function addCourse(menuId){let menu=menuById(menuId);if(!menu)return;if(!menu.courses)menu.courses=[];menu.courses.push({position:menu.courses.length+1,label:"",linkedDishIds:[],notes:""});persistAndRender()}
+function updateCourse(menuId,index,key,value){let menu=menuById(menuId);if(!menu||!menu.courses[index])return;menu.courses[index][key]=key==="position"?Number(value)||index+1:value;persistAndRender()}
+function updateCourseLinks(menuId,index,select){let menu=menuById(menuId);if(!menu||!menu.courses[index])return;menu.courses[index].linkedDishIds=[...select.selectedOptions].map(option=>option.value);persistAndRender()}
+function moveCourse(menuId,index,direction){let menu=menuById(menuId);if(!menu||!menu.courses)return;let target=index+direction;if(target<0||target>=menu.courses.length)return;[menu.courses[index],menu.courses[target]]=[menu.courses[target],menu.courses[index]];menu.courses.forEach((course,i)=>course.position=i+1);persistAndRender()}
+const fieldSchemas={
+ menu:[["type","Type","selectMenu"],["date","Date","input"],["price","Price","input"],["description","Description","textarea"],["status","Status","input"]],
+ dish:[["role","Role / Type","input"],["status","Cadence / Status","input"],["year","Year","input"],["desc","Purpose / Description","textarea"],["flavorProfile","Flavor Profile","input"],["textureProfile","Texture Profile","input"],["temperature","Temperature","input"],["materials","Materials in Use","input"],["componentsUsed","Components Used","list"],["techniquesUsed","Techniques Used","list"],["allergens","Allergens","list"],["price","Price","input"],["coursePlacement","Course Placement","input"],["links","Linked IDs","list"]],
+ component:[["type","Type","input"],["recipe","Recipe (ingredientId:quantity)","recipe"],["techniquesUsed","Techniques Used","list"],["flavorProfile","Flavor Profile","input"],["textureProfile","Texture Profile","input"],["shelfLife","Shelf Life","input"],["prepTime","Prep Time","input"],["links","Linked IDs","list"]],
+ ingredient:[["category","Category","input"],["origin","Origin","input"],["seasonality","Seasonality","input"],["flavorProfile","Flavor Profile","input"],["textureProfile","Texture Profile","input"],["allergens","Allergens","list"],["costPerUnit","Cost Per Unit","input"],["supplier","Supplier","input"],["storageRequirements","Storage Requirements","textarea"],["links","Linked IDs","list"]],
+ technique:[["category","Category","input"],["methodDescription","Method Description","textarea"],["equipmentRequired","Equipment Required","list"],["temperature","Temperature","input"],["time","Time","input"],["skillLevel","Skill Level","input"],["safetyNotes","Safety Notes","textarea"],["links","Linked IDs","list"]],
+ material:[["type","Type","input"],["role","Role","input"],["supplier","Supplier","input"],["cost","Cost","input"],["quantityOnHand","Quantity On Hand","input"],["links","Linked IDs","list"]],
+ equipment:[["role","Role / Type","input"],["status","Cadence / Status","input"],["equipmentStatus","Equipment List","select"],["materials","Materials in Use","input"],["links","Linked IDs","list"]],
+ experiment:[["hypothesis","Hypothesis","textarea"],["status","Status","selectExperiment"],["date","Date","input"],["relatedIds","Related IDs","list"],["method","Method","textarea"],["results","Results","textarea"],["nextSteps","Next Steps","textarea"]]
+};
+const typeOptions=["menu","dish","component","ingredient","technique","material","equipment","experiment"];
+function collectionKey(type){return type==="equipment"?"equipment":type+"s"}
+function renderObjectFields(type,values={}){
+ let fields=`<label>ID<input id="fId" autocomplete="off" placeholder="C-024" value="${esc(values.id||"")}"></label><label>Name<input id="fName" autocomplete="off" placeholder="Fennel Oil" value="${esc(values.name||"")}" ></label><label class="full">Photo<input id="fImage" type="file" autocomplete="off" accept="image/*"><small class="muted">Choose an image from your computer. It is saved in this browser.</small></label>`;
+ fields+=fieldSchemas[type].map(([key,label,kind])=>{let inputKey=key==="type"&&type==="menu"?"menuType":key,id="f"+inputKey[0].toUpperCase()+inputKey.slice(1),value=values[key],text=Array.isArray(value)?value.join(", "):value||"";if(kind==="select")return `<label>${label}<select id="${id}" autocomplete="off"><option value="have" ${value==="have"?"selected":""}>I Have</option><option value="want" ${value==="want"?"selected":""}>I Want</option></select></label>`;if(kind==="selectMenu")return `<label>${label}<select id="${id}" autocomplete="off"><option value="tasting" ${value==="tasting"?"selected":""}>Tasting</option><option value="a la carte" ${value==="a la carte"?"selected":""}>A la carte</option><option value="seasonal" ${value==="seasonal"?"selected":""}>Seasonal</option><option value="event" ${value==="event"?"selected":""}>Event</option></select></label>`;if(kind==="selectExperiment")return `<label>${label}<select id="${id}" autocomplete="off"><option value="testing" ${value==="testing"?"selected":""}>Testing</option><option value="success" ${value==="success"?"selected":""}>Success</option><option value="failed" ${value==="failed"?"selected":""}>Failed</option><option value="shelved" ${value==="shelved"?"selected":""}>Shelved</option></select></label>`;if(kind==="recipe")text=Array.isArray(value)?value.map(item=>`${item.ingredientId}:${item.quantity}`).join(", "):"";return `<label class="${kind==="textarea"||kind==="recipe"||kind==="list"?"full":""}">${label}${kind==="textarea"?`<textarea id="${id}" autocomplete="off" rows="3">${esc(text)}</textarea>`:`<input id="${id}" autocomplete="off" placeholder="${kind==="recipe"?"ING-001:100g, ING-002:2":"Separate values with commas"}" value="${esc(text)}">`}</label>`}).join("");
+ document.getElementById("formFields").innerHTML=fields;
+}
+function newObject(type){document.getElementById("modal").classList.add("show");editing=null;document.getElementById("modalTitle").textContent="Create a knowledge object";let selected=type||"dish";document.getElementById("fType").value=selected;renderObjectFields(selected);syncType()}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function syncType(){renderObjectFields(document.getElementById("fType").value)}
+function editObject(type,id){let x=db[collectionKey(type)].find(y=>y.id===id);if(!x)return;editing={type,id};document.getElementById("modalTitle").textContent="Edit knowledge object";document.getElementById("fType").value=type;renderObjectFields(type,x);document.getElementById("modal").classList.add("show")}
+function fieldValue(key){let inputKey=key==="type"&&document.getElementById("fType").value==="menu"?"menuType":key,field=document.getElementById("f"+inputKey[0].toUpperCase()+inputKey.slice(1));return field?field.value:""}
+function readImage(file){return new Promise((resolve,reject)=>{let reader=new FileReader();reader.onload=()=>{let image=new Image();image.onload=()=>{let scale=Math.min(1,800/Math.max(image.width,image.height)),canvas=document.createElement("canvas");canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));canvas.getContext("2d").drawImage(image,0,0,canvas.width,canvas.height);resolve(canvas.toDataURL("image/jpeg",.65))};image.onerror=()=>reject(new Error("The selected image could not be read."));image.src=reader.result};reader.onerror=()=>reject(new Error("The selected image could not be read."));reader.readAsDataURL(file)})}
+async function saveObject(){
+ if(saving)return;
+ let saveButton=document.getElementById("saveButton");
+ saving=true;
+ saveButton.disabled=true;
+ saveButton.textContent="Saving...";
+ try{
+  let type=document.getElementById("fType").value,id=fieldValue("id").trim()||type.slice(0,3).toUpperCase()+"-"+Date.now().toString().slice(-4),existing=editing?db[collectionKey(editing.type)].find(y=>y.id===editing.id):null,image=existing&&existing.image||"";
+  let file=document.getElementById("fImage")?.files[0];
+  if(file)image=await readImage(file);
+  let obj={id,name:fieldValue("name").trim()||"Untitled",image};
+  if(type==="menu")obj.courses=existing&&Array.isArray(existing.courses)?existing.courses:[];
+  fieldSchemas[type].forEach(([key,,kind])=>{let value=fieldValue(key);if(["list","links","relatedIds","componentsUsed","techniquesUsed","equipmentRequired"].includes(key))value=value.split(",").map(s=>s.trim()).filter(Boolean);if(kind==="recipe")value=value.split(",").map(s=>s.trim()).filter(Boolean).map(pair=>{let parts=pair.split(":");return {ingredientId:parts[0].trim(),quantity:parts.slice(1).join(":").trim()}}).filter(item=>item.ingredientId);if(value!==""&&(Array.isArray(value)?value.length:true))obj[key]=value});
+  let nextDb=JSON.parse(JSON.stringify(db));
+  if(editing){
+   let list=nextDb[collectionKey(editing.type)],index=list.findIndex(y=>y.id===editing.id);
+   if(index<0)throw new Error("This item no longer exists. Close the form and try again.");
+   list[index]=obj;
+   if(editing.type!==type){nextDb[collectionKey(editing.type)]=list.filter(y=>y.id!==editing.id);nextDb[collectionKey(type)].push(obj)}
+  }else nextDb[collectionKey(type)].push(obj);
+  localStorage.setItem("gohanOSv3",JSON.stringify(nextDb));
+  db=nextDb;
+  closeModal();
+  current=collectionKey(type);
+  detailState=null;
+  render();
+ }catch(error){
+  console.error("Could not save knowledge object:",error);
+  alert(`Could not save this object: ${error.message||"Please try again."}`);
+ }finally{
+  saving=false;
+  saveButton.disabled=false;
+  saveButton.textContent="Save";
+ }
+}
+function openDetail(type,id){detailState={type,id};render()}
+render();
+</script>
 </body>
 </html>
